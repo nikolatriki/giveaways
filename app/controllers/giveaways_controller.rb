@@ -1,19 +1,21 @@
 class GiveawaysController < ApplicationController
-    def index
-    end
+  def index
+    @giveaways = Giveaway.all
+  end
 
-    def show
-    end
+  def show
+    @giveaway = Giveaway.find(params[:id])
+  end
 
-    def new
-    end
+  def new
+  end
 
-    def create
-    end
+  def create
+  end
 
-    def update
-    end
+  def update
+  end
 
-    def destroy
-    end
+  def destroy
+  end
 end
