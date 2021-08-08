@@ -18,6 +18,9 @@ class GiveawaysController < ApplicationController
     # render plain: params[:giveaway].inspect -for checking the parametars hash created
   end
 
+  def edit
+  end
+
   def update
   end
 
