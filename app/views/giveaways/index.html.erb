@@ -1,1 +1,6 @@
-<h1>Index page</h1>
+<h1>Giveaways</h1>
+<ul>
+    <% @giveaways.each do |giveaway|%>
+        <li><%= link_to giveaway.title, giveaway_path(giveaway) %>- <%= giveaway.location %></li>
+    <% end %>
+</ul>
