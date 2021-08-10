@@ -22,9 +22,17 @@ class GiveawaysController < ApplicationController
   end
 
   def edit
+    @giveaway = Giveaway.find(params[:id])
   end
 
   def update
+    @giveaway = Giveaway.find(params[:id])
+
+    if @giveaway.update(giveaway_params)
+      redirect_to @giveaway
+    else
+      render :edit
+    end
   end
 
   def destroy
