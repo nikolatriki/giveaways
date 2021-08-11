@@ -2,6 +2,9 @@
 <p><%= link_to "Create NEW Giveaway", new_giveaway_path %></p>
 <ul>
     <% @giveaways.each do |giveaway|%>
-        <li><%= link_to giveaway.title, giveaway_path(giveaway) %>- <%= giveaway.location %></li>
+        <li>
+            <%= link_to giveaway.title, giveaway_path(giveaway) %>- <%= giveaway.location %>
+            <%= link_to "Edit", edit_giveaway_path(giveaway)%>
+        </li>
     <% end %>
 </ul>
