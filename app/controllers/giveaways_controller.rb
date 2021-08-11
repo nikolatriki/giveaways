@@ -8,14 +8,17 @@ class GiveawaysController < ApplicationController
   end
 
   def new
+    @giveaway = Giveaway.new
   end
 
   def create
-    giveaway = Giveaway.new(giveaway_params)
-    giveaway.save
-
-    redirect_to giveaway_path(giveaway)
-    # render plain: params[:giveaway].inspect -for checking the parametars hash created
+    @giveaway = Giveaway.new(giveaway_params)
+  
+    if @giveaway.save
+      redirect_to @giveaway # render plain: params[:giveaway].inspect -for checking the parametars hash created
+    else
+      render :new
+    end
   end
 
   def edit
