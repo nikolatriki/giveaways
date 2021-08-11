@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post '/giveaways', to: 'giveaways#create'
   get 'giveaways/:id/edit', to: 'giveaways#edit', as: :edit_giveaway
   patch 'giveaways/:id', to: 'giveaways#update'
+  delete 'giveaways/:id', to: 'giveaways#destroy'
 
   root 'giveaways#index'
 end

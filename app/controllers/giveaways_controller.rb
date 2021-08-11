@@ -36,6 +36,10 @@ class GiveawaysController < ApplicationController
   end
 
   def destroy
+    giveaway = Giveaway.find(params[:id])
+    giveaway.destroy
+
+    redirect_to giveaways_path
   end
 
   private
