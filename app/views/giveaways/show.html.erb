@@ -1,4 +1,9 @@
 <h1><%= @giveaway.title %></h1>
 <p><%= @giveaway.description %></p>
 <p><%= @giveaway.location %></p>
-<%= link_to 'BACK', root_path %> <%= link_to 'EDIT', edit_giveaway_path(@giveaway) %>
+
+<%= link_to 'BACK', root_path %> 
+<%= link_to 'EDIT', edit_giveaway_path(@giveaway) %>
+<%= link_to "Delete", giveaway_path(@giveaway), method: :delete,
+  data: { confirm: 'Are you sure you want to delete this giveaway?'} 
+%>

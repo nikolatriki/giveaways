@@ -4,7 +4,10 @@
     <% @giveaways.each do |giveaway|%>
         <li>
             <%= link_to giveaway.title, giveaway_path(giveaway) %>- <%= giveaway.location %>
-            <%= link_to "Edit", edit_giveaway_path(giveaway)%>
+            <%= link_to "Edit", edit_giveaway_path(giveaway) %>
+            <%= link_to "Delete", giveaway_path(giveaway), method: :delete,
+                data: { confirm: 'Are you sure you want to delete this giveaway?'} 
+            %>
         </li>
     <% end %>
 </ul>
