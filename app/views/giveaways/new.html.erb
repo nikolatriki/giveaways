@@ -1,29 +1,5 @@
 <h1>New Giveaway</h1>
 
-<% if @giveaway.errors.any? %>
-  <% @giveaway.errors.full_messages.each do |msg|%>
-  <div>
-    <li><%= msg %></li>
-  </div>
-  <% end %>
-<% end %>
-
-<%= form_with scope: :giveaway, url: "/giveaways", local: true do |giveaway| %>
-  <p>
-    <%= giveaway.label :title %><br>
-    <%= giveaway.text_field :title %>
-  </p>
-  <p>
-    <%= giveaway.label :description %><br>
-    <%= giveaway.text_area :description, size: "50x10" %>
-  </p>
-  <p>
-    <%= giveaway.label :location %><br>
-    <%= giveaway.text_field :location %>
-  </p>
-  <p>
-    <%= giveaway.submit "Save giveaway" %>
-  </p>
-<% end %>
+<%= render 'form' %>
 
 <%= link_to "BACK", giveaways_path %>
