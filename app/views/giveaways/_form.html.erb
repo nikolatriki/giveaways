@@ -1,9 +1,9 @@
 <% if @giveaway.errors.any? %>
-  <% @giveaway.errors.full_messages.each do |msg|%>
-  <div>
+  <ol>
+    <% @giveaway.errors.full_messages.each do |msg|%>
     <li><%= msg %></li>
-  </div>
-  <% end %>
+    <% end %>
+  </ol>
 <% end %>
 
 <%= form_with model: @giveaway, local: true do |f| %>
