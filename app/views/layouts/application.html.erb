@@ -11,6 +11,9 @@
   </head>
 
   <body>
-    <%= yield %>
+    <section class='section'>
+      <%= render 'shared/navbar' %>
+      <%= yield %>
+    </section>
   </body>
 </html>
