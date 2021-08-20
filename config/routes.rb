@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
-  root 'giveaways#index'
+  root 'giveaways#home'
+  get 'giveaways/home', to: 'giveaways#home'
+  
   resources :giveaways
+  
 end
