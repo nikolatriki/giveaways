@@ -1,25 +1,53 @@
-<% if @giveaway.errors.any? %>
-  <ol>
-    <% @giveaway.errors.full_messages.each do |msg|%>
-    <li><%= msg %></li>
-    <% end %>
-  </ol>
-<% end %>
 
-<%= form_with model: @giveaway, local: true do |f| %>
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :description %><br>
-    <%= f.text_area :description, size: "50x10" %>
-  </p>
-  <p>
-    <%= f.label :location %><br>
-    <%= f.text_field :location %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<div class="container">
+  <div class="columns is-multiline">
+    <div class="column is-6 is-offset-3">
+      <div class="content is-small">
+        <h2><%= heading %></h2>
+      </div>
+    </div>
+    <% if @giveaway.errors.any? %>
+      <div class="column is-6 is-offset-3">
+        <article class="message is-danger">
+          <div class="message-body">
+            <ol>
+              <% @giveaway.errors.full_messages.each do |msg|%>
+              <li><%= msg %></li>
+              <% end %>
+            </ol>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <div class="column is-6 is-offset-3">
+      <%= form_with model: @giveaway, local: true do |f| %>
+        <div class="field">
+          <%= f.label :title, class: "label"%>
+            <div class="control">
+              <%= f.text_field :title, class: "input", placeholder: "Enter title"%>
+            </div>
+        </div>
+        <div class="field">
+          <%= f.label :description, class: "description" %>
+            <div class="control">
+              <%= f.text_area :description, class: "textarea", placeholder: "Description",size: "50x10" %>
+            </div>
+        </div>
+        <div class="field">
+          <%= f.label :location, class: "label"%>
+            <div class="control">
+              <%= f.text_field :location, class: "input", placeholder: "Enter location"%>
+            </div>
+        </div>
+        <div class="field is-grouped">
+          <div class="control">
+            <%= f.submit class: "button is-link" %>
+          </div>
+          <div class="control">
+            <%= link_to "Cancel", cancel_path, class: "button is-link is-light"%>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
