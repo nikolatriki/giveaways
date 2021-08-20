@@ -1,6 +1,9 @@
 class GiveawaysController < ApplicationController
+  def home
+  end
+
   def index
-    @giveaways = Giveaway.all
+    @giveaways = Giveaway.all.reverse
   end
 
   def show
