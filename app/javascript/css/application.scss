@@ -1,1 +1,5 @@
 @import 'bulma';
+
+.field_with_errors input {
+    border-color: #f14668;
+}
