@@ -1,5 +1,3 @@
-<h1>New Giveaway</h1>
-
-<%= render 'form' %>
-
-<%= link_to "BACK", giveaways_path %>
+<%= render 'form', 
+heading: "New Giveaway",
+cancel_path: giveaways_path %>
