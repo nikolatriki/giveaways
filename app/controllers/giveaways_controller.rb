@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class GiveawaysController < ApplicationController
   def index
     @giveaways = Giveaway.all
@@ -13,7 +15,7 @@ class GiveawaysController < ApplicationController
 
   def create
     @giveaway = Giveaway.new(giveaway_params)
-  
+
     if @giveaway.save
       redirect_to @giveaway # render plain: params[:giveaway].inspect -for checking the parametars hash created
     else
