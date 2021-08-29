@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
   root 'giveaways#index'
-  resources :giveaways
+  resources :giveaways do
+    resources :comments
+  end
 end

@@ -10,12 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_210_804_212_506) do
-  create_table 'giveaways', force: :cascade do |t|
-    t.string 'title'
-    t.text 'description'
-    t.string 'location'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+ActiveRecord::Schema.define(version: 2021_08_26_132427) do
+
+  create_table "comments", force: :cascade do |t|
+    t.string "commenter"
+    t.text "body"
+    t.integer "giveaway_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["giveaway_id"], name: "index_comments_on_giveaway_id"
   end
+
+  create_table "giveaways", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "location"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "comments", "giveaways"
 end
