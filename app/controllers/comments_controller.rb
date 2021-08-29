@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
   def new
     @giveaway = Giveaway.find(params[:giveaway_id])
