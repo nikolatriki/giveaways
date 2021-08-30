@@ -7,11 +7,14 @@ class CommentsController < ApplicationController
   end
 
   def create
-    giveaway = Giveaway.find(params[:giveaway_id])
-    comment = giveaway.comments.build(comment_params)
+    @giveaway = Giveaway.find(params[:giveaway_id])
+    @comment = @giveaway.comments.build(comment_params)
 
-    comment.save
-    redirect_to giveaway
+    if @comment.save
+      redirect_to @giveaway
+    else
+      render :new
+    end
   end
 
   private
