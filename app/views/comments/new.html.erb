@@ -1,18 +1,29 @@
 
 <div class="column is-6 is-offset-3">
 <h1><%= @giveaway.title %>- <i>comment</i></h1>
+  <% if @comment.errors.any? %>
+      <article class="message is-danger">
+        <div class="message-body">
+          <ol>
+            <% @comment.errors.full_messages.each do |msg|%>
+            <li><%= msg %></li>
+            <% end %>
+          </ol>
+        </div>
+      </article>
+  <% end %>
   <%= form_with model: [@giveaway, @comment], local: true do |f| %>
     <div class="field">
         <%= f.label 'Name', class:"label"%>
         <div class="control">
-          <%= f.text_field :commenter, required: true, class:"input"%>
+          <%= f.text_field :commenter, required: true, class:"input field_with_errors"%>
         </div>
     </div>
 
     <div class="field">
       <%= f.label 'Message', class:"label"%>
       <div class="control">
-        <%= f.text_area :body, required: true, class:"textarea" %>
+        <%= f.text_area :body, required: true, class:"textarea field_with_errors" %>
       </div>
     </div>
 
