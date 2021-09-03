@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
-  before_action :find_comment, only: [:edit, :update]
+  before_action :find_comment, only: %i[edit update]
+
   def new
     @giveaway = Giveaway.find(params[:giveaway_id])
     @comment = @giveaway.comments.build
