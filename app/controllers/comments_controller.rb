@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
+  before_action :find_comment, only: [:edit, :update]
   def new
     @giveaway = Giveaway.find(params[:giveaway_id])
     @comment = @giveaway.comments.build
@@ -17,13 +18,9 @@ class CommentsController < ApplicationController
     end
   end
 
-  def edit
-    find_comment
-  end
+  def edit; end
 
   def update
-    find_comment
-
     if @comment.update(comment_params)
       redirect_to @giveaway
     else
