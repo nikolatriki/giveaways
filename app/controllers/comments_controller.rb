@@ -1,15 +1,14 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
+  before_action :set_giveaway
   before_action :find_comment, only: %i[edit update]
 
   def new
-    @giveaway = Giveaway.find(params[:giveaway_id])
     @comment = @giveaway.comments.build
   end
 
   def create
-    @giveaway = Giveaway.find(params[:giveaway_id])
     @comment = @giveaway.comments.build(comment_params)
 
     if @comment.save
@@ -35,8 +34,11 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:commenter, :body)
   end
 
-  def find_comment
+  def set_giveaway
     @giveaway = Giveaway.find(params[:giveaway_id])
+  end
+
+  def find_comment
     @comment = Comment.find(params[:id])
   end
 end
