@@ -11,16 +11,10 @@
     title: Faker::Commerce.product_name,
     description: Faker::Lorem.paragraphs,
     location: Faker::Address.city
-    )
-  end
-
-  Giveaway.all.each do |givey|
-    2.times do
-      givey.comments.create(
-        commenter: Faker::Movies::Lebowski.character,
-        body: Faker::Movies::Lebowski.quote
-      )
-    end
+    ).comments.create(
+          commenter: Faker::Movies::Lebowski.character,
+          body: Faker::Movies::Lebowski.quote
+        )
   end
 
  puts 'Done!'
