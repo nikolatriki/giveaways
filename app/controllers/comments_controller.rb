@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
-  before_action :set_giveaway, only: %i[new create]
+  before_action :set_giveaway, only: %i[new create edit update]
   before_action :find_comment, only: %i[edit update]
 
   def new
@@ -39,7 +39,6 @@ class CommentsController < ApplicationController
   end
 
   def find_comment
-    set_giveaway
     @comment = Comment.find(params[:id])
   end
 end
