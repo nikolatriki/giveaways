@@ -22,11 +22,4 @@ RSpec.describe 'giveaways/show', type: :view do
     render
     expect(rendered).to include('Back', 'fas fa-edit fa-2x', 'far fa-trash-alt fa-2x', 'New Comment')
   end
-
-  it 'displays comments' do
-    assign(:comment, comment)
-
-    render
-    expect(rendered).to include(giveaway.comments)
-  end
 end
