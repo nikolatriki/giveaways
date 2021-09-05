@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
-  before_action :set_giveaway
+  before_action :set_giveaway, except: :comment_params
   before_action :find_comment, only: %i[edit update]
 
   def new
