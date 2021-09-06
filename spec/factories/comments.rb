@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :comment do
-    giveaway
+    association :giveaway, factory: :giveaway
 
     commenter { Faker::Name.name }
     body { Faker::Lorem.sentences(number: 1) }
