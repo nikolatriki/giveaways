@@ -29,7 +29,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    comment = Comment.find(params[:id])
+    comment = Comment.find_by!(giveaway_id: params[:giveaway_id], id: params[:id])
     comment.destroy
 
     redirect_to comment.giveaway
@@ -46,6 +46,6 @@ class CommentsController < ApplicationController
   end
 
   def find_comment
-    @comment = Comment.find(params[:id])
+    @comment = Comment.find_by!(giveaway_id: params[:giveaway_id], id: params[:id])
   end
 end
