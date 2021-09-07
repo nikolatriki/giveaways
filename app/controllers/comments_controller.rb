@@ -2,7 +2,7 @@
 
 class CommentsController < ApplicationController
   before_action :set_giveaway, only: %i[new create edit update]
-  before_action :find_comment, only: %i[edit update]
+  before_action :find_comment, only: %i[edit update destroy]
 
   def new
     @comment = @giveaway.comments.build
@@ -29,10 +29,9 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    comment = Comment.find_by!(giveaway_id: params[:giveaway_id], id: params[:id])
-    comment.destroy
+    @comment.destroy
 
-    redirect_to comment.giveaway
+    redirect_to @comment.giveaway
   end
 
   private
