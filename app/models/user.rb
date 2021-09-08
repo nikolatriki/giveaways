@@ -3,7 +3,7 @@
 class User < ApplicationRecord
   MAXIMUM_NAME_LENGTH = 50
   MAXIMUM_EMAIL_LENGTH = 250
-  VALID_REGEX_EMAIL = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+  VALID_REGEX_EMAIL = /\A[^.][\w\-?.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+[^.]\z/i
   MINIMUM_PASSWORD_LENGTH = 6
 
   before_save :email_to_downcase
