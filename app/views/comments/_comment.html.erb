@@ -10,12 +10,14 @@
       </div>
       <nav class="level is-mobile">
         <div class="level-left">
-          <a class="level-item">
+          <%= link_to edit_giveaway_comment_path(comment.giveaway, comment), class: "level-item" do %>
             <span class="icon is-small"><i class="fas fa-edit"></i></span>
-          </a>
-          <a class="level-item">
+          <% end %>
+          <%= link_to  giveaway_comment_path(comment.giveaway, comment), method: :delete, 
+            data: { confirm: 'Are you sure you want to delete this giveaway?'},
+            class: "level-item" do %>
             <span class="icon is-small"><i class="fas fa-trash-alt"></i></span>
-          </a>
+          <% end %>
         </div>
       </nav>
     </div>
