@@ -3,8 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe CommentsController, type: :controller do
-  let(:giveaway) { create(:giveaway) }
-  let(:comment) { create(:comment, giveaway: giveaway) }
+  let!(:giveaway) { create(:giveaway) }
+  let!(:comment) { create(:comment, giveaway: giveaway) }
 
   describe 'GET new' do
     it 'has a success status code' do
