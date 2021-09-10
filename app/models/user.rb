@@ -6,7 +6,7 @@ class User < ApplicationRecord
   VALID_REGEX_EMAIL = /\A[^.][\w\-?.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+[^.]\z/i
   MINIMUM_PASSWORD_LENGTH = 6
 
-  before_save :email_to_downcase
+  before_validation :email_to_downcase
 
   has_secure_password
 
@@ -19,6 +19,6 @@ class User < ApplicationRecord
   private
 
   def email_to_downcase
-    self.email = email.downcase
+    self.email = email&.downcase
   end
 end

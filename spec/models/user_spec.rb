@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let(:user) { create(:user) }
+  let!(:user) { create(:user) }
 
   context 'when saving the User' do
     it 'transformes email to donwcase' do
@@ -29,10 +29,10 @@ RSpec.describe User, type: :model do
   end
 
   context 'when matching uniqueness of email' do
-    it { expect(user).to validate_uniqueness_of(:email) }
+    it { expect(user).to validate_uniqueness_of(:email).case_insensitive }
   end
 
-  it { is_expected.to validate_length_of(:password).is_at_least(User::MINIMUM_PASSWORD_LENGTH) }
-  it { is_expected.to validate_length_of(:name).is_at_most(User::MAXIMUM_NAME_LENGTH) }
-  it { is_expected.to validate_length_of(:email).is_at_most(User::MAXIMUM_EMAIL_LENGTH) }
+  it { expect(user).to validate_length_of(:password).is_at_least(User::MINIMUM_PASSWORD_LENGTH) }
+  it { expect(user).to validate_length_of(:name).is_at_most(User::MAXIMUM_NAME_LENGTH) }
+  it { expect(user).to validate_length_of(:email).is_at_most(User::MAXIMUM_EMAIL_LENGTH) }
 end
