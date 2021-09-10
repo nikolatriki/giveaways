@@ -43,9 +43,10 @@ RSpec.describe CommentsController, type: :controller do
   end
 
   describe 'DELETE destroy' do
-    it 'has a success status code' do
-      delete :destroy, params: { giveaway_id: giveaway.id, id: comment.id }
-      expect(response).to have_http_status(:found)
+    it 'deletes the comment' do
+      expect do
+        delete :destroy, params: { giveaway_id: giveaway.id, id: comment.id }
+      end.to change(Comment, :count).by(-1)
     end
   end
 end
