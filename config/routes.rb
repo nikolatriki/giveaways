@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   resources :giveaways do
     resources :comments
   end
+  get 'users/signup', to: 'users#new'
+  resources :users, except: :new
 end
