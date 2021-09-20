@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
+  before_action :logged_in_notice, only: :new
+
   def new
-    logged_in_notice if logged_in?
     @user = User.new
   end
 
