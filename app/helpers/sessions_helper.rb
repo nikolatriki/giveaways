@@ -18,7 +18,9 @@ module SessionsHelper
   end
 
   def logged_in_notice
+    return unless logged_in?
+
     flash[:danger] = 'You are already logged in!'
-    redirect_to root_path and return
+    redirect_to root_path
   end
 end
