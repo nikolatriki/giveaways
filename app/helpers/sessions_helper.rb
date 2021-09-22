@@ -16,4 +16,11 @@ module SessionsHelper
   def log_out
     session.delete(:user_id)
   end
+
+  def logged_in_notice
+    return unless logged_in?
+
+    flash[:danger] = 'You are already logged in!'
+    redirect_to root_path
+  end
 end
