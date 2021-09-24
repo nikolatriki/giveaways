@@ -13,6 +13,7 @@ RSpec.describe Giveaway, type: :model do
 
   describe 'associations' do
     it { expect(giveaway).to have_many(:comments) }
+    it { expect(giveaway).to belong_to(:user) }
   end
 
   describe 'dependency' do
