@@ -10,6 +10,7 @@ class GiveawaysController < ApplicationController
   end
 
   def new
+    session_notice(:danger, 'You must be logged in') unless logged_in?
     @giveaway = Giveaway.new
   end
 

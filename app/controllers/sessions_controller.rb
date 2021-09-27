@@ -1,7 +1,8 @@
 class SessionsController < ApplicationController
-  before_action :logged_in_notice, only: :new
 
-  def new; end
+  def new
+    session_notice(:warning, 'You are already logged in!') if logged_in?
+  end
 
   def create
     user = User.find_by(email: params[:session][:email].downcase)
