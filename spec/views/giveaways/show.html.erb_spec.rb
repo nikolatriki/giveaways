@@ -3,8 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe 'giveaways/show', type: :view do
-  let(:giveaway) { create(:giveaway) }
-  let(:comment) { create(:comment) }
+  let!(:user) { create(:user) }
+  let!(:giveaway) { create(:giveaway, user: user) }
 
   before do
     assign(:giveaway, giveaway)
@@ -20,8 +20,11 @@ RSpec.describe 'giveaways/show', type: :view do
     expect(rendered).to include('212-2127438_decent-giveaways-png')
   end
 
-  it 'displays the footer elements' do
-    render
-    expect(rendered).to include('Back', 'fas fa-edit fa-2x', 'far fa-trash-alt fa-2x', 'New Comment')
+  context 'without logged in user' do
+    it 'displays only Back and New comment' do
+      render
+
+      expect(rendered).to include('Back', 'New Comment')
+    end
   end
 end

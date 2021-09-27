@@ -3,7 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe Giveaway, type: :model do
-  subject(:giveaway) { create(:giveaway) }
+  subject(:giveaway) { create(:giveaway, user: user) }
+
+  let(:user) { create(:user) }
 
   describe 'validations' do
     it { expect(giveaway).to validate_presence_of(:title) }

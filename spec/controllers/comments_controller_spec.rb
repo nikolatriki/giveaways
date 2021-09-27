@@ -3,7 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe CommentsController, type: :controller do
-  let!(:giveaway) { create(:giveaway) }
+  let!(:user) { create(:user) }
+  let!(:giveaway) { create(:giveaway, user: user) }
   let!(:comment) { create(:comment, giveaway: giveaway) }
 
   describe 'GET new' do
