@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @giveaway.comments.build(comment_params)
+    @comment.user = current_user
 
     if @comment.save
       redirect_to @giveaway
