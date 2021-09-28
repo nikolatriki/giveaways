@@ -6,7 +6,8 @@ class User < ApplicationRecord
   VALID_REGEX_EMAIL = /\A[^.][\w\-?.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+[^.]\z/i
   MINIMUM_PASSWORD_LENGTH = 6
 
-  has_many :giveaways, :comments, dependent: :destroy
+  has_many :giveaways, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   before_validation :email_to_downcase
 

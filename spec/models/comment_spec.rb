@@ -3,10 +3,11 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  subject(:comment) { create(:comment) }
+  subject(:comment) { create(:comment, :user) }
+
+  let(:user) { create(:user) }
 
   describe 'validation' do
-    it { expect(comment).to validate_presence_of(:commenter) }
     it { expect(comment).to validate_presence_of(:body) }
   end
 
