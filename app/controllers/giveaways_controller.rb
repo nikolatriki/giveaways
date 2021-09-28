@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class GiveawaysController < ApplicationController
-  before_action :must_be_logged_in, only: %i[new edit destroy]
+  before_action :must_be_logged_in, except: :index
   before_action :find_giveaway, only: %i[show edit update destroy]
 
   def index
