@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class GiveawaysController < ApplicationController
-  before_action :must_be_logged_in, except: :index
+  before_action :must_be_logged_in, except: %i[index show]
   before_action :find_giveaway, only: %i[show edit update destroy]
 
   def index
@@ -40,7 +40,7 @@ class GiveawaysController < ApplicationController
   end
 
   def destroy
-    giveaway.destroy
+    @giveaway.destroy
 
     redirect_to giveaways_path
   end
