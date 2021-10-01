@@ -20,6 +20,7 @@
   
         <footer class="modal-card-foot" style="justify-content: space-between">
           <%= link_to 'Back', giveaways_path, class: "button is-light" %>
+<<<<<<< HEAD
           <p style="margin-left:0.5em">
             <%= link_to edit_giveaway_path(@giveaway) do %>
                 <i class="fas fa-edit fa-2x"></i>
@@ -36,6 +37,28 @@
               <%= link_to 'New Comment', new_giveaway_comment_path(@giveaway) %>
             </p>
           <% end %>
+=======
+
+          <% if logged_in? && current_user == @giveaway.user%>
+            <p style="margin-left:0.5em">
+              <%= link_to edit_giveaway_path(@giveaway) do %>
+                  <i class="fas fa-edit fa-2x"></i>
+              <% end %>
+            </p>
+
+            <p style="margin-left:0.5em">
+              <%= link_to giveaway_path(@giveaway), method: :delete,
+                data: { confirm: 'Are you sure you want to delete this giveaway?'} do
+              %>
+              <i class="far fa-trash-alt fa-2x"></i>
+              <% end %>
+            </p>
+          <% end %>
+
+          <p>
+            <%= link_to 'New Comment', new_giveaway_comment_path(@giveaway) %>
+          </p>
+>>>>>>> 60bc2aab97548d57160f1de8e63f83ff2d6fa612
         </footer>
       </div>
     </div>
