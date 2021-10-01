@@ -3,8 +3,8 @@
 FactoryBot.define do
   factory :comment do
     association :giveaway, factory: :giveaway
-
-    commenter { Faker::Name.name }
+    association :user, factory: :user
+    
     body { Faker::Lorem.sentences(number: 1) }
   end
 end

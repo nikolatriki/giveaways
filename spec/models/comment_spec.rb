@@ -9,7 +9,6 @@ RSpec.describe Comment, type: :model do
   let(:user) { create(:user) }
 
   describe 'validation' do
-    it { expect(comment).to validate_presence_of(:commenter) }
     it { expect(comment).to validate_presence_of(:body) }
   end
 

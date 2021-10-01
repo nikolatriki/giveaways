@@ -7,6 +7,7 @@ class User < ApplicationRecord
   MINIMUM_PASSWORD_LENGTH = 6
 
   has_many :giveaways, dependent: :destroy
+  has_many :comments, dependent: :nullify
 
   before_validation :email_to_downcase
 

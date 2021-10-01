@@ -2,5 +2,6 @@
 
 class Comment < ApplicationRecord
   belongs_to :giveaway
-  validates :commenter, :body, presence: true
+  belongs_to :user
+  validates :body, presence: true
 end

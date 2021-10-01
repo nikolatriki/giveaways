@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @giveaway.comments.build(comment_params)
+    @comment.user = current_user
 
     if @comment.save
       redirect_to @giveaway
@@ -37,7 +38,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:commenter, :body)
+    params.require(:comment).permit(:body)
   end
 
   def set_giveaway

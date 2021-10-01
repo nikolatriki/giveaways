@@ -9,7 +9,7 @@ RSpec.describe CommentsController, type: :controller do
 
   describe 'GET new' do
     it 'has a success status code' do
-      get :new, params: { giveaway_id: giveaway.id }
+      get :new, params: { giveaway_id: giveaway.id}
       expect(response).to have_http_status(:success)
     end
   end
@@ -20,7 +20,7 @@ RSpec.describe CommentsController, type: :controller do
         expect do
           post :create,
                params: { giveaway_id: giveaway.id,
-                         comment: { commenter: 'Any Name', body: 'Sentence is here.' } }
+                         comment: { body: 'Sentence is here.' } }
         end.to change(Comment, :count).by(1)
       end
     end
@@ -37,7 +37,7 @@ RSpec.describe CommentsController, type: :controller do
     context 'with valid attributes' do
       it 'edits the comment' do
         patch :update, params: { giveaway_id: giveaway.id, id: comment.id,
-                                 comment: { commenter: comment.commenter, body: comment.body } }
+                                 comment: { body: comment.body } }
         expect(response).to have_http_status(:found)
       end
     end
