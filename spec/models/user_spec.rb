@@ -18,10 +18,12 @@ RSpec.describe User, type: :model do
 
   describe 'associations' do
     it { expect(user).to have_many(:giveaways) }
+    it { expect(user).to have_many(:comments) }
   end
 
   describe 'dependency' do
     it { expect(user).to have_many(:giveaways).dependent(:destroy) }
+    it { expect(user).to have_many(:comments).dependent(:nullify) }
   end
 
   context 'with email downcase' do
