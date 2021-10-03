@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class GiveawaysController < ApplicationController
-  before_action :must_be_logged_in, except: %i[index show]
+  before_action :must_be_logged_in_notice, except: %i[index show]
   before_action :find_giveaway, only: %i[show edit update destroy]
 
   def index
@@ -59,7 +59,7 @@ class GiveawaysController < ApplicationController
     @giveaway = Giveaway.find(params[:id])
   end
 
-  def must_be_logged_in
+  def must_be_logged_in_notice
     session_notice(:danger, 'You must be logged in!') unless logged_in?
   end
 end
