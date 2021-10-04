@@ -42,6 +42,4 @@ RSpec.describe User, type: :model do
       expect(invalid_user.valid?).to be false
     end
   end
-
-
 end

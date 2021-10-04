@@ -58,5 +58,4 @@ class GiveawaysController < ApplicationController
   def find_giveaway
     @giveaway = Giveaway.find(params[:id])
   end
-
 end

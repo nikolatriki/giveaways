@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SessionsHelper
   def log_in(user)
     session[:user_id] = user.id
@@ -25,5 +27,4 @@ module SessionsHelper
   def must_be_logged_in_notice
     session_notice(:danger, 'You must be logged in!', login_path) unless logged_in?
   end
-  
 end

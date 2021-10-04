@@ -1,5 +1,6 @@
-class SessionsController < ApplicationController
+# frozen_string_literal: true
 
+class SessionsController < ApplicationController
   def new
     session_notice(:warning, 'You are already logged in!') if logged_in?
   end
