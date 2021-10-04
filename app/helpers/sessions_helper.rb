@@ -15,13 +15,15 @@ module SessionsHelper
 
   def log_out
     session.delete(:user_id)
-    @current_user = nil
   end
 
-  def session_notice(type, message)
-    flash[type] = message
-    redirect_to root_path and return
+  def session_notice(type, message, path = root_path)
+    flash[type.to_sym] = message
+    redirect_to path and return
   end
 
+  def must_be_logged_in_notice
+    session_notice(:danger, 'You must be logged in!', login_path) unless logged_in?
+  end
   
 end

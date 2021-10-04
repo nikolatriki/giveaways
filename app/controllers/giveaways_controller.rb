@@ -26,9 +26,9 @@ class GiveawaysController < ApplicationController
   end
 
   def edit
-    if logged_in? && @giveaway.user != current_user
-      session_notice(:danger, 'Wrong user!')
-    end
+    return unless logged_in? && @giveaway.user != current_user
+
+    session_notice(:danger, 'Wrong user!')
   end
 
   def update
@@ -59,7 +59,4 @@ class GiveawaysController < ApplicationController
     @giveaway = Giveaway.find(params[:id])
   end
 
-  def must_be_logged_in_notice
-    session_notice(:danger, 'You must be logged in!') unless logged_in?
-  end
 end
