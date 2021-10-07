@@ -21,10 +21,10 @@ RSpec.describe 'giveaways/show', type: :view do
   end
 
   context 'without logged in user' do
-    it 'displays only Back and New comment' do
+    it 'displays only Back button' do
       render
 
-      expect(rendered).to include('Back', 'New Comment')
+      expect(rendered).to include('Back')
     end
   end
 end

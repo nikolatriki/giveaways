@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class GiveawaysController < ApplicationController
-  before_action :must_be_logged_in, except: %i[index show]
+  before_action :must_be_logged_in_notice, except: %i[index show]
   before_action :find_giveaway, only: %i[show edit update destroy]
 
   def index
@@ -26,9 +26,9 @@ class GiveawaysController < ApplicationController
   end
 
   def edit
-    if logged_in? && @giveaway.user != current_user
-      session_notice(:danger, 'Wrong user!')
-    end
+    return unless logged_in? && @giveaway.user != current_user
+
+    session_notice(:danger, 'Wrong user!')
   end
 
   def update
@@ -57,9 +57,5 @@ class GiveawaysController < ApplicationController
 
   def find_giveaway
     @giveaway = Giveaway.find(params[:id])
-  end
-
-  def must_be_logged_in
-    session_notice(:danger, 'You must be logged in!') unless logged_in?
   end
 end

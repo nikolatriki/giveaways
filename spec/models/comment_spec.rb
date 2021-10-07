@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe Comment, type: :model do
   subject(:comment) { create(:comment, giveaway: giveaway) }
 
-  let(:giveaway) { create(:giveaway, user: user)}
+  let(:giveaway) { create(:giveaway, user: user) }
   let(:user) { create(:user) }
 
   describe 'validation' do
