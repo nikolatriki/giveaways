@@ -13,10 +13,11 @@
             <code class="html"><small><%= @giveaway.location %></small></code>
           </div>
         </div>
-
-          <div class="image is-256x256">
-            <%= image_tag("/assets/212-2127438_decent-giveaways-png.png", class:"img-responsive") %><br>
-          </div>
+          <% if @giveaway.images.attached? %>
+            <% @giveaway.images.each do |k|%>
+            <%= image_tag k %>
+            <%end%>
+          <% end %>
   
         <footer class="modal-card-foot" style="justify-content: space-between">
           <%= link_to 'Back', giveaways_path, class: "button is-light" %>

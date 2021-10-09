@@ -5,7 +5,7 @@ class GiveawaysController < ApplicationController
   before_action :find_giveaway, only: %i[show edit update destroy]
 
   def index
-    @giveaways = Giveaway.order(created_at: :desc)
+    @giveaways = Giveaway.order(created_at: :desc).with_attached_images
   end
 
   def show; end
@@ -16,6 +16,7 @@ class GiveawaysController < ApplicationController
 
   def create
     @giveaway = Giveaway.new(giveaway_params)
+    @giveaway.images.attach(params[:giveaway][:images])
     @giveaway.user = current_user
 
     if @giveaway.save
@@ -48,7 +49,7 @@ class GiveawaysController < ApplicationController
   private
 
   def giveaway_params
-    params.require(:giveaway).permit(:title, :description, :location)
+    params.require(:giveaway).permit(:title, :description, :location, images: [])
     # I found out that it can be written as:
     # params[:giveaway].permit(:title, :description, :location)
     # :giveaway is the key from the params hash created with 'form_with' helper using 'scope:', or 'model:' methods

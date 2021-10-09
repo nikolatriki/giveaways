@@ -10,7 +10,11 @@
                     <h2><%= link_to giveaway.title.truncate(15), giveaway_path(giveaway) %></h2>
                 </p>
                 <figure class="image is-128x128">
-                      <%= link_to image_tag("https://bulma.io/images/placeholders/128x128.png"), giveaway_path(giveaway)%>
+                <%= link_to giveaway_path(giveaway) do%>
+                    <% giveaway.images.each do |file| %>
+                        <%= image_tag file %><br>
+                    <% end %>
+                <% end %>
                 </figure>
             </div>
         </div>
