@@ -5,7 +5,7 @@ class GiveawaysController < ApplicationController
   before_action :find_giveaway, only: %i[show edit update destroy]
 
   def index
-    @giveaways = Giveaway.order(created_at: :desc).with_attached_images
+    @giveaways = Giveaway.order(created_at: :desc)
   end
 
   def show; end

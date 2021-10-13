@@ -9,13 +9,13 @@
                     <code class="html"><small> <%= giveaway.location %></small></code><br>
                     <h2><%= link_to giveaway.title.truncate(15), giveaway_path(giveaway) %></h2>
                 </p>
-                <figure class="image is-128x128">
-                <%= link_to giveaway_path(giveaway) do%>
-                    <% giveaway.images.each do |file| %>
-                        <%= image_tag file %><br>
+                    <%= link_to giveaway_path(giveaway) do%>
+                        <% giveaway.images.each do |file| %>
+                            <figure class="image is-1by1">
+                                <%= image_tag file %><br>
+                            </figure>
+                        <% end %>
                     <% end %>
-                <% end %>
-                </figure>
             </div>
         </div>
     <% end %>
