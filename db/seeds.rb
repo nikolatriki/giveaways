@@ -16,7 +16,7 @@ user = User.create!(
     description: Faker::Lorem.paragraphs,
     location: Faker::Address.city,
   )
-  img = %w[lamp.png couch.png noguchi_table.jpg].sample(3)
+  img = %w[lamp.png couch.png noguchi_table.jpg].sample
   giveaway.images.attach(io: File.open(Rails.root.join("app/assets/images/#{img}")), filename: "#{img}")
 
     rand(2..4).times do |c|
