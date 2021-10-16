@@ -15,10 +15,10 @@ RSpec.describe 'giveaways/show', type: :view do
     expect(rendered).to include(giveaway.title, giveaway.location)
   end
 
-  it 'display an image of the giveaway' do
-    render
-    expect(rendered).to include('212-2127438_decent-giveaways-png')
-  end
+  # it 'display an image of the giveaway' do
+  #   render
+  #   expect(rendered).to have_css('.image')
+  # end
 
   context 'without logged in user' do
     it 'displays only Back button' do

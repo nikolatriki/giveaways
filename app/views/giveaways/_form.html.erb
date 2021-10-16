@@ -40,8 +40,12 @@
         </div>
         <div class="field">
           <% if @giveaway.images.attached? %>
-            <%= image_tag @giveaway.images %>
-          <% end %>
+              <% @giveaway.images.each do |k|%>
+                <figure class='image is-fullwidth'>
+                  <%= image_tag k %>
+                </figure>
+              <%end%>
+            <% end %>
 
           <%= f.label :images, class: "label"%>
             <div class="control">

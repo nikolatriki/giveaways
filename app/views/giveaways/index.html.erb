@@ -9,6 +9,7 @@
                     <code class="html"><small> <%= giveaway.location %></small></code><br>
                     <h2><%= link_to giveaway.title.truncate(15), giveaway_path(giveaway) %></h2>
                 </p>
+                <div>
                     <%= link_to giveaway_path(giveaway) do%>
                         <% giveaway.images.each do |file| %>
                             <figure class="image is-1by1">
@@ -16,6 +17,7 @@
                             </figure>
                         <% end %>
                     <% end %>
+                </div>
             </div>
         </div>
     <% end %>
