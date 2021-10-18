@@ -41,7 +41,7 @@
         <div class="field">
           <% if @giveaway.images.attached? %>
               <% @giveaway.images.each do |k|%>
-                <figure class='image is-fullwidth'>
+                <figure class='image is-128x128'>
                   <%= image_tag k %>
                 </figure>
               <%end%>
@@ -49,7 +49,7 @@
 
           <%= f.label :images, class: "label"%>
             <div class="control">
-              <%= f.file_field :images, accept: 'images/png, images/jpg, images/jpeg' %>
+              <%= f.file_field :images %><%= link_to 'Upload this image', giveaways_path%>
             </div>
         </div>
         <div class="field is-grouped">

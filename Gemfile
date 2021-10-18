@@ -66,4 +66,4 @@ gem 'rubocop-rspec'
 gem 'rubocop-rails'
 gem 'rubocop-performance'
 gem "aws-sdk-s3", require: false
-
+gem 'active_storage_validations'

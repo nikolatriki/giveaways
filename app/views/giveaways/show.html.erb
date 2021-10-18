@@ -15,7 +15,7 @@
             <% if @giveaway.images.attached? %>
               <% @giveaway.images.each do |k|%>
                 <figure class='image is-fullwidth'>
-                  <%= image_tag k %>
+                  <%= image_tag k, multiple: true%>
                 </figure>
               <%end%>
             <% end %>
