@@ -9,7 +9,7 @@
             <p><code class="html"><%= @giveaway.location %></code></p>
             <%= render 'pictures/picture'%>
             <% @giveaway.pictures.each do |p|%>
-              <%= image_tag p%>
+              <%= image_tag p.image %>
             <% end %>
             <%= render 'footer' %>
           </div>
@@ -21,6 +21,6 @@
 <div class="container">
   <% @giveaway.comments.each do |comment| %>
     <%= render comment %>
-  <% end %> 
+  <% end %>
 </div>
 

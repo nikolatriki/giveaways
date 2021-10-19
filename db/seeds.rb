@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 user = User.create(
   name: 'nikola',
-  email: 'ccccs@koko.com',
-  password: '123456'
+  email: 'user@test.com',
+  password: 'password'
 )
 
 20.times do
@@ -18,8 +18,8 @@ user = User.create(
     description: Faker::Lorem.paragraphs,
     location: Faker::Address.city,
   )
-  img = %w[lamp.png couch.png noguchi_table.jpg].sample
-  giveaway.images.attach(io: File.open(Rails.root.join("app/assets/images/#{img}")), filename: "#{img}") 
+  # img = %w[lamp.png couch.png noguchi_table.jpg].sample
+  # giveaway.images.attach(io: File.open(Rails.root.join("app/assets/images/#{img}")), filename: "#{img}") 
 
     rand(2..4).times do |c|
       giveaway.comments.build(

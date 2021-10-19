@@ -39,13 +39,19 @@
             </div>
         </div>
         <div class="field">
-          <div class="control">
-            <h5>Pictures</h5>
-              <%= f.fields_for :pictures do |pictures_form| %>
-                <%= render 'pictures_form_fields', form: pictures_form %>
+          <br>
+          <div data-controller="nested-form">
+            <template data-target='nested-form.template'>
+              <%= f.fields_for :pictures, Picture.new, child_index: 'TEMPLATE_RECORD' do |pic| %>
+                <%= render 'picture_fields', form: pic %>
               <% end %>
+            </template>
+          <br>
+            <div data-target="nested-form.add_item">
+              <%= link_to "Add Picture", "#", data: { action: "nested-form#add_association" } %>
+            </div>
           </div>
-        </div>
+          <br>
         <div class="field is-grouped">
           <div class="control">
             <%= f.submit class: "button is-link" %>
