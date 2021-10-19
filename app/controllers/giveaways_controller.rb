@@ -12,11 +12,11 @@ class GiveawaysController < ApplicationController
 
   def new
     @giveaway = Giveaway.new
+    3.times { @giveaway.pictures.build }
   end
 
   def create
     @giveaway = Giveaway.new(giveaway_params)
-    @giveaway.images.attach(params[:giveaway][:images])
     @giveaway.user = current_user
 
     if @giveaway.save
@@ -49,7 +49,7 @@ class GiveawaysController < ApplicationController
   private
 
   def giveaway_params
-    params.require(:giveaway).permit(:title, :description, :location, images: [])
+    params.require(:giveaway).permit(:title, :description, :location, pictures_attributes: [:id, :_destroy])
     # I found out that it can be written as:
     # params[:giveaway].permit(:title, :description, :location)
     # :giveaway is the key from the params hash created with 'form_with' helper using 'scope:', or 'model:' methods

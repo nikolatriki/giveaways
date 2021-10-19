@@ -39,18 +39,12 @@
             </div>
         </div>
         <div class="field">
-          <% if @giveaway.images.attached? %>
-              <% @giveaway.images.each do |k|%>
-                <figure class='image is-128x128'>
-                  <%= image_tag k %>
-                </figure>
-              <%end%>
-            <% end %>
-
-          <%= f.label :images, class: "label"%>
-            <div class="control">
-              <%= f.file_field :images %><%= link_to 'Upload this image', giveaways_path%>
-            </div>
+          <div class="control">
+            <h5>Pictures</h5>
+              <%= f.fields_for :pictures do |pictures_form| %>
+                <%= render 'pictures_form_fields', form: pictures_form %>
+              <% end %>
+          </div>
         </div>
         <div class="field is-grouped">
           <div class="control">

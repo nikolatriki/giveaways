@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="column is-6 is-offset-3"><div class="box has-background-white-ter">
+    <div class="content is-size-6">
+      <h5><%= heading %></h5>
+     
+      <%= form_with model: [@giveaway, @picture], local: true do |form|%>
+        <div class="field">
+          <p class="control">
+            <%= form.file_field :pictures_attributes %>
+          </p>
+        </div>
+        <div class="field is-grouped">
+          <div class="control">
+              <%= form.submit class: "button is-light" %>
+          </div>
+        </div>
+      <% end %>
+        <div class="control">
+            <%= link_to 'Cancel', giveaway_path(@giveaway), class: "button is-white" %>
+        </div>
+    </div>
+  </div>
+</div>

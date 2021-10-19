@@ -2,9 +2,10 @@
 
 class Giveaway < ApplicationRecord
   has_many :comments, dependent: :destroy
+  has_many :pictures, dependent: :destroy
   belongs_to :user
-  has_many_attached :images
 
   validates :title, :description, :location, presence: true, length: { minimum: 5 }
-  validates :images, attached: true, content_type: ['image/png', 'image/jpg', 'image/jpeg']
+
+  accepts_nested_attributes_for :pictures, allow_destroy: true, reject_if: lambda { |attributes| attributes[:id].blank? }
 end
