@@ -8,9 +8,6 @@
             <p><%= @giveaway.description %></p>
             <p><code class="html"><%= @giveaway.location %></code></p>
             <%= render 'pictures/picture'%>
-            <% @giveaway.pictures.each do |p|%>
-              <%= image_tag p.image %>
-            <% end %>
             <%= render 'footer' %>
           </div>
         </div>
