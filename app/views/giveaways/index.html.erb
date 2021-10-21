@@ -11,7 +11,7 @@
                 </p>
                 
                 <% unless giveaway.pictures.empty? %>
-                    <%= giveaway.pictures.last %> <!---I can't make image_tag  -->
+                    <%= image_tag giveaway.pictures.first.image %> 
                 <%end%>
                 
             </div>
