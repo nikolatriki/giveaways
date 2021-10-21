@@ -9,11 +9,11 @@
                     <code class="html"><small> <%= giveaway.location %></small></code><br>
                     <h2><%= link_to giveaway.title.truncate(15), giveaway_path(giveaway) %></h2>
                 </p>
-                
+
                 <% unless giveaway.pictures.empty? %>
-                    <%= giveaway.pictures.last %> <!---I can't make image_tag  -->
+                    <%= image_tag giveaway.pictures.first.image, class: "image is-128x128" %>
                 <%end%>
-                
+
             </div>
         </div>
     <% end %>
