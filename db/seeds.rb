@@ -21,10 +21,10 @@ user = User.create(
   )
   pic.image.attach(io: File.open(Rails.root.join("app/assets/images/#{img}")), filename: "#{img}")
 
-  rand(2..4).times do |c|
+  rand(2..5).times do |c|
     giveaway.comments.create(
         body: Faker::Movies::Lebowski.quote,
-        user_id: 1
+        user_id: rand(1..User.count)
       )
   end
 
