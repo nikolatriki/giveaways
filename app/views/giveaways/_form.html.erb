@@ -40,27 +40,34 @@
         </div>
         <div class="field">
           <br>
-          <div data-controller="nested-form">
-            <template data-target='nested-form.template'>
-              <%= f.fields_for :pictures, Picture.new, child_index: 'TEMPLATE_RECORD' do |pic| %>
-                <%= render 'picture_fields', form: pic %>
-              <% end %>
-            </template>
-          <br>
-            <div data-target="nested-form.add_item">
-              <%= link_to "Add Picture", "#", data: { action: "nested-form#add_association" } %>
+
+          <p>Pictures</p>
+          <% unless local_assigns[:new]%>
+            <%= render 'pictures/picture', edit: true %>
+          <% end %>
+
+            <div data-controller="nested-form">
+              <template data-target='nested-form.template'>
+                <%= f.fields_for :pictures, Picture.new, child_index: 'TEMPLATE_RECORD' do |pic| %>
+                  <%= render 'picture_fields', form: pic %>
+                <% end %>
+              </template>
+            <br>
+              <div data-target="nested-form.add_item">
+                <%= link_to "Add Picture", "#", data: { action: "nested-form#add_association" } %>
+              </div>
+            </div>
+            <br>
+          <div class="field is-grouped">
+            <div class="control">
+              <%= f.submit class: "button is-link" %>
+            </div>
+            <div class="control">
+              <%= link_to "Cancel", cancel_path, class: "button is-link is-light"%>
             </div>
           </div>
-          <br>
-        <div class="field is-grouped">
-          <div class="control">
-            <%= f.submit class: "button is-link" %>
-          </div>
-          <div class="control">
-            <%= link_to "Cancel", cancel_path, class: "button is-link is-light"%>
-          </div>
+          <% end %>
         </div>
-      <% end %>
     </div>
   </div>
 </div>

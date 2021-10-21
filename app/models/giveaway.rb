@@ -7,5 +7,5 @@ class Giveaway < ApplicationRecord
 
   validates :title, :description, :location, presence: true, length: { minimum: 5 }
 
-  accepts_nested_attributes_for :pictures, allow_destroy: true #, reject_if: lambda { |attributes| attributes[:id].blank? }
+  accepts_nested_attributes_for :pictures, allow_destroy: true
 end

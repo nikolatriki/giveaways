@@ -12,7 +12,6 @@ class GiveawaysController < ApplicationController
 
   def new
     @giveaway = Giveaway.new
-    3.times { @giveaway.pictures.build }
   end
 
   def create

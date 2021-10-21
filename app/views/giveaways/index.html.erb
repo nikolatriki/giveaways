@@ -10,6 +10,10 @@
                     <h2><%= link_to giveaway.title.truncate(15), giveaway_path(giveaway) %></h2>
                 </p>
                 
+                <% unless giveaway.pictures.empty? %>
+                    <%= giveaway.pictures.last %> <!---I can't make image_tag  -->
+                <%end%>
+                
             </div>
         </div>
     <% end %>

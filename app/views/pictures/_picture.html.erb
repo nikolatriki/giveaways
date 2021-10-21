@@ -2,26 +2,13 @@
     <article class="media">
       <div class="media-content">
         <div class="content">
-          <p>Pictures</p>
-            <% @giveaway.pictures.each do |i| %>
-                <%= image_tag i.image %>
-                    <% if logged_in? %>
-                        <%#= link_to 'Edit', edit_giveaway_picture_path(i.picture, i) %>
-                        <%#= link_to 'Delete', giveaway_picture_path(i.picture, i),
-                        method: :delete,
-                        data: { confirm: 'Are you shure you want to delete this picture?'} %>
-                    <% end %>
+          <% @giveaway.pictures.each do |i| %>
+            <%= image_tag i.image %>
+            <% if local_assigns[:edit]%>
+              <%= link_to 'Delete', giveaway_picture_path(i.giveaway, i),
+                    method: :delete,
+                    data: { confirm: 'Are you shure you want to delete this picture?'} %>
             <% end %>
-          <% if logged_in? %>
-            <footer class="card-footer">
-              <div class="level-left">
-                <div class="icon-margins">
-                  <%= link_to new_giveaway_picture_path(@giveaway) do %>
-                  <i class="fas fa-plus" aria-hidden="true"></i>
-                  <% end %>
-                </div>
-              </div>
-            </footer>
           <% end %>
         <div>
       </div>
