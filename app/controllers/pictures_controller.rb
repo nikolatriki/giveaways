@@ -11,6 +11,6 @@ class PicturesController < ApplicationController
       flash[:info] = 'Deleted picture!'
     end
 
-    redirect_to @giveaway
+    redirect_to edit_giveaway_path(@giveaway)
   end
 end
