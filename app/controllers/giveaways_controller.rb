@@ -19,7 +19,8 @@ class GiveawaysController < ApplicationController
     @giveaway.user = current_user
 
     if @giveaway.save
-      redirect_to @giveaway # render plain: params[:giveaway].inspect -for checking the parametars hash created
+      flash[:success] = 'Succesfully added new Giveaway!'
+      redirect_to @giveaway
     else
       render :new
     end
