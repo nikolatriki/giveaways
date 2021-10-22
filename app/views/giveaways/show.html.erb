@@ -8,6 +8,7 @@
             <p><code class="html"><%= @giveaway.location %></code></p>
             <h2><%= @giveaway.title %></h2>
             <p><%= @giveaway.description %></p>
+            <small><p>Contact <%= link_to @giveaway.user.name, user_path(@giveaway.user) %> Phone: 070-244-122</p></small><br>
             <%= render 'pictures/picture'%>
             <%= render 'footer' %>
           </div>

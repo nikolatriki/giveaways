@@ -4,18 +4,16 @@
 
 <div class="columns is-mobile is-multiline">
     <% @giveaways.each do |giveaway|%>
-        <div class="box" style="margin-bottom: 24px">
-            <div class="column is-narrow">
-                <div class="card">
-                    <p class="bd-notification is-primary">
-                        <small><%= giveaway[:created_at].strftime("%m/%d/%Y") %></small><br>
-                        <code class="html"><small> <%= giveaway.location %></small></code><br>
-                        <h2><%= link_to giveaway.title.truncate(20), giveaway_path(giveaway) %></h2>
-                        <% unless giveaway.pictures.empty? %>
-                            <%= link_to image_tag(giveaway.pictures.first.image), giveaway_path(giveaway), class: "img image is-128x128"  %>
-                        <%end%>
-                    </p>
-                </div>
+        <div class="box has-background-white-ter" style="margin-bottom: 24px">
+            <div class="card">
+                <p class="bd-notification is-primary">
+                    <small><%= giveaway[:created_at].strftime("%m/%d/%Y") %></small><br>
+                    <code class="html"><small><%= giveaway.location %></small></code><br>
+                    <h2><%= link_to giveaway.title.truncate(20), giveaway_path(giveaway) %></h2>
+                    <% unless giveaway.pictures.empty? %>
+                        <%= link_to image_tag(giveaway.pictures.first.image), giveaway_path(giveaway), class: "img image is-128x128"  %>
+                    <%end%>
+                </p>
             </div>
         </div>
     <% end %>

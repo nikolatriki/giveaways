@@ -1,5 +1,5 @@
 <div class="column is-6 is-offset-3">
-<h1><%= @giveaway.title %>- <i>comment</i></h1>
+<h1><%= @giveaway.title %></h1>
   <%= form_with model: [@giveaway, @comment], local: true do |f| %>
     <div class="field">
       <%= f.label 'Message', class:"label"%>

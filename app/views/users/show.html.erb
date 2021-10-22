@@ -4,11 +4,16 @@
       <div class="media-content">
         <div class="content">
           <h5><%= @user.name %></h5>
-          <p><small>username: <%= @user.name %></small><br>
           <i><small>email: <%= @user.email %></small></i></p>
         </div>
       </div>
     </article><br>
-    <p>Giveaways created by <%= @user.name %>:
+    <p>Giveaways created by <%= @user.name %>:<br>
+      <ul>
+        <% @user.giveaways.each do |g|%>
+          <li><%= link_to g.title, giveaway_path(g) %></li>
+        <% end %>
+      </ul>
+    </p>
   </div>
 </div>
