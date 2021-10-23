@@ -36,18 +36,14 @@
               <% end %>
             </p>
           <% end %>
-
-          <% if logged_in? %>
-            <p>
-              <%= link_to 'New Comment', new_giveaway_comment_path(@giveaway) %>
-            </p>
-          <% end %>
         </footer>
       </div>
     </div>
   </div>
-</div>
 
-<% @giveaway.comments.each do |comment| %>
-  <%= render comment %>
-<% end %> 
+  <% if logged_in? %>
+    <%= render 'comments/form' %>
+  <% end %>
+
+  <%= render 'comments/comment' %>
+</div>

@@ -8,7 +8,11 @@ class GiveawaysController < ApplicationController
     @giveaways = Giveaway.order(created_at: :desc)
   end
 
-  def show; end
+  def show
+    @comments = @giveaway.comments.order(created_at: :desc)
+
+    @new_comment = @giveaway.comments.new
+  end
 
   def new
     @giveaway = Giveaway.new
