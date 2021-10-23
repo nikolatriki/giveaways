@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
 class GiveawaysController < ApplicationController
+  include Pagy::Backend
+
   before_action :must_be_logged_in_notice, except: %i[index show]
   before_action :find_giveaway, only: %i[show edit update destroy]
 
   def index
-    @giveaways = Giveaway.order(created_at: :desc)
+    @pagy, @giveaways = pagy(Giveaway.order(created_at: :desc))
   end
 
   def show; end

@@ -65,3 +65,5 @@ gem 'rubocop', require: false
 gem 'rubocop-rspec'
 gem 'rubocop-rails'
 gem 'rubocop-performance'
+# add pagination
+gem 'pagy', '~> 3.5'

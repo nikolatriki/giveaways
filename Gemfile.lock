@@ -120,6 +120,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.12.0-x86_64-linux)
       racc (~> 1.4)
+    pagy (3.11.0)
     parallel (1.20.1)
     parser (3.0.2.0)
       ast (~> 2.4.1)
@@ -274,6 +275,7 @@ DEPENDENCIES
   faker!
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  pagy (~> 3.5)
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.4)
@@ -297,4 +299,4 @@ RUBY VERSION
    ruby 3.0.1p64
 
 BUNDLED WITH
-   2.2.25
+   2.2.29
