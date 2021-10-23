@@ -14,7 +14,7 @@
 # Instance variables
 # See https://ddnexus.github.io/pagy/api/pagy#instance-variables
 # Pagy::DEFAULT[:page]   = 1                                  # default
-Pagy::DEFAULT[:items]  = 15                                 # default
+# Pagy::DEFAULT[:items]  = 15                                 # default
 # Pagy::DEFAULT[:outset] = 0                                  # default
 
 
@@ -203,4 +203,4 @@ require 'pagy/extras/bulma'
 
 # When you are done setting your own defaults freeze it,
 # so it will not changed accidentally
-Pagy::DEFAULT.freeze
+# Pagy::DEFAULT.freeze

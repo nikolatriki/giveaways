@@ -17,6 +17,7 @@
     <% end %>
 </div>
 
+<!-- 
 <nav class="pagination is-centered" role="navigation" aria-label="pagination">
   <a class="pagination-previous">Previous</a>
   <a class="pagination-next">Next page</a>
@@ -30,4 +31,5 @@
     <li><a class="pagination-link" aria-label="Goto page 86">86</a></li>
   </ul>
 </nav>
-<%== pagy_nav(@pagy) unless @giveaways.empty? %>
+-->
+<%== pagy_bulma_nav(@pagy) unless @giveaways.empty? %>
