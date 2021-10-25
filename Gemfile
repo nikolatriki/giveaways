@@ -65,5 +65,7 @@ gem 'rubocop', require: false
 gem 'rubocop-rspec'
 gem 'rubocop-rails'
 gem 'rubocop-performance'
+# add pagination
+gem 'pagy', '~> 3.5'
 gem "aws-sdk-s3", require: false
 gem 'active_storage_validations'
