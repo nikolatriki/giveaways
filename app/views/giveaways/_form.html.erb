@@ -29,24 +29,45 @@
         <div class="field">
           <%= f.label :description, class: "description" %>
             <div class="control">
-              <%= f.text_area :description, class: "textarea", placeholder: "Description",size: "50x10" %>
+              <%= f.text_area :description, required: true, class: "textarea field_with_errors", placeholder: "Description",size: "50x10" %>
             </div>
         </div>
         <div class="field">
           <%= f.label :location, class: "label"%>
             <div class="control">
-              <%= f.text_field :location, class: "input", placeholder: "Enter location"%>
+              <%= f.text_field :location, class: "input field_with_errors", placeholder: "Enter location"%>
             </div>
         </div>
-        <div class="field is-grouped">
-          <div class="control">
-            <%= f.submit class: "button is-link" %>
+        <div class="field">
+          <br>
+
+          <p>Pictures</p>
+          <% unless local_assigns[:new]%>
+            <%= render 'pictures/picture', edit: true %>
+          <% end %>
+
+            <div data-controller="nested-form">
+              <template data-target='nested-form.template'>
+                <%= f.fields_for :pictures, Picture.new, child_index: 'TEMPLATE_RECORD' do |pic| %>
+                  <%= render 'picture_fields', form: pic %>
+                <% end %>
+              </template>
+            <br>
+              <div data-target="nested-form.add_item">
+                <%= link_to "Add Picture", "#", data: { action: "nested-form#add_association" } %>
+              </div>
+            </div>
+            <br>
+          <div class="field is-grouped">
+            <div class="control">
+              <%= f.submit class: "button is-link" %>
+            </div>
+            <div class="control">
+              <%= link_to "Cancel", cancel_path, class: "button is-link is-light"%>
+            </div>
           </div>
-          <div class="control">
-            <%= link_to "Cancel", cancel_path, class: "button is-link is-light"%>
-          </div>
+          <% end %>
         </div>
-      <% end %>
     </div>
   </div>
 </div>
