@@ -1,0 +1,9 @@
+<div class='nested-fields'>
+  <div class='form-group'>
+    <%= form.hidden_field :_destroy %>
+    <%= form.file_field :image, accept: ('image/png,image/gif,image/jpeg'), class: 'form-control' %>
+    <small>
+      <%= link_to "Remove", "#", data: { action: "click->nested-form#remove_association" } %>
+    </small>
+  </div>
+</div>

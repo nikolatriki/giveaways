@@ -1,9 +1,6 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <%= link_to image_tag("/assets/212-2127438_decent-giveaways-png.png", class:"image is-128x128"),
-        giveaways_path, class: "navbar-item" 
-    %>
-
+    <%= link_to image_tag("/assets/logo.png", class:"image is-128x128"), giveaways_path, class: "navbar-item" %>
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -16,6 +13,9 @@
       <div class="navbar-item">
         <div class="buttons">
           <% if logged_in? %>
+            <div class="button is-capitalized">
+              <%= link_to @current_user.name, user_path(@current_user) %>
+            </div>
             <%= link_to 'Create New Giveaway', new_giveaway_path, class: "button is-primary has-text-weight-bold" %>
             <%= link_to 'Log Out', logout_path, method: :delete, class: "button is-primary" %>
           <% else %>

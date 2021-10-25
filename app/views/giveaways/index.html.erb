@@ -1,18 +1,22 @@
 <div class="column has-text-centered">
     <h1 class="title" style="color: #f14999;">Welcome to Giveaways</h1><br>
 </div>
+
 <div class="columns is-mobile is-multiline">
     <% @giveaways.each do |giveaway|%>
-        <div class="box" style="margin-bottom: 24px">
-            <div class="column is-narrow">
+         <div class="box has-background-white-ter" style="margin-bottom: 24px">
+            <%= link_to giveaway_path(giveaway), class:"card" do %>
                 <p class="bd-notification is-primary">
-                    <code class="html"><small> <%= giveaway.location %></small></code><br>
-                    <h2><%= link_to giveaway.title.truncate(15), giveaway_path(giveaway) %></h2>
+                    <small><%= giveaway[:created_at].strftime("%m/%d/%Y") %></small><br>
+                    <code class="html"><small><%= giveaway.location %></small></code><br>
+                    <h2><%= giveaway.title.truncate(20)%></h2>
+                    <% unless giveaway.pictures.empty? %>
+                        <div class="img image is-128x128">
+                            <%= image_tag(giveaway.pictures.first.image) %>
+                        </div>
+                    <%end%>
                 </p>
-                <figure class="image is-128x128">
-                      <%= link_to image_tag("https://bulma.io/images/placeholders/128x128.png"), giveaway_path(giveaway)%>
-                </figure>
-            </div>
+            <% end %>
         </div>
     <% end %>
 </div>
