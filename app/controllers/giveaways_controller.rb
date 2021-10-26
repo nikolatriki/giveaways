@@ -10,7 +10,11 @@ class GiveawaysController < ApplicationController
     @pagy, @giveaways = pagy(Giveaway.order(created_at: :desc), items: 18)
   end
 
-  def show; end
+  def show
+    @comments = @giveaway.comments.order(created_at: :desc)
+
+    @comment = @giveaway.comments.build
+  end
 
   def new
     @giveaway = Giveaway.new
@@ -46,6 +50,7 @@ class GiveawaysController < ApplicationController
     @giveaway.destroy
 
     redirect_to giveaways_path
+    flash[:info] = 'Deleted your giveaway!'
   end
 
   private

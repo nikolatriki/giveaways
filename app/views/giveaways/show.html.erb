@@ -17,9 +17,7 @@
     </div>
   </div>
 </div>
-<div class="container">
-  <% @giveaway.comments.each do |comment| %>
-    <%= render comment %>
-  <% end %>
-</div>
-
+<% if logged_in? %>
+  <%= render 'comments/form'%>
+<% end %>
+<%= render 'comments/comment' %>
