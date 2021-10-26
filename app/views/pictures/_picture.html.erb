@@ -1,7 +1,7 @@
 
     <article class="media">
       <div class="media-content">
-        <div class="content">
+        <div class="image content">
           <% @giveaway.pictures.each do |i| %>
             <%= image_tag i.image %>
             <% if local_assigns[:edit]%>

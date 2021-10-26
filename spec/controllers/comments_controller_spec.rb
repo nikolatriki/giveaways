@@ -11,13 +11,6 @@ RSpec.describe CommentsController, type: :controller do
 
   before { log_in user }
 
-  describe 'GET new' do
-    it 'has a success status code' do
-      get :new, params: { giveaway_id: giveaway.id }
-      expect(response).to have_http_status(:success)
-    end
-  end
-
   describe 'POST create' do
     context 'with valid attributes' do
       it 'creates new comment' do

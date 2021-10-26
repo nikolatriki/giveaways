@@ -17,7 +17,7 @@ RSpec.describe 'giveaways/index', type: :view do
     it 'displays the giveaway title' do
       render
       giveaways.each do |giveaway|
-        expect(rendered).to include(giveaway.title.truncate(15))
+        expect(rendered).to include(giveaway.title.truncate(20))
       end
     end
 
@@ -30,7 +30,7 @@ RSpec.describe 'giveaways/index', type: :view do
 
     it 'display an image of the giveaway' do
       render
-      expect(rendered).to include('https://bulma.io/images/placeholders/128x128.png')
+      expect(rendered).to have_css('.img')
     end
   end
 
