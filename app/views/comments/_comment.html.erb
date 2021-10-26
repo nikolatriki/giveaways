@@ -1,4 +1,3 @@
-<% @comments.each do |comment| %>
 <div class="container">
   <div class="columns is-multiline">
     <div class="column is-6 is-offset-3">
@@ -6,7 +5,11 @@
         <div class="media-content">
           <div class="content">
             <p>
-              <strong><%= comment.user.name %></strong> <small><%= time_ago_in_words(comment.created_at) %> ago</small>
+              <strong><%= comment.user.name %></strong> 
+              <small><%= time_ago_in_words(comment.created_at) %> ago</small>
+              <% if comment.updated_at > comment.created_at %>
+                <small>(edited)</small>
+              <% end %>
               <br>
               <%= comment.body %>
             </p>
@@ -30,4 +33,3 @@
     </div>
   </div>
 </div>
-<% end %> 

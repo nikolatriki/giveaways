@@ -17,7 +17,8 @@
     </div>
   </div>
 </div>
-<% if logged_in? %>
-  <%= render 'comments/form'%>
+<%= render 'comments/form' if logged_in? %>
+
+<% @comments.each do |comment| %>
+  <%= render comment %>
 <% end %>
-<%= render 'comments/comment' %>
