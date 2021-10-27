@@ -11,7 +11,7 @@ RSpec.describe 'giveaways/show', type: :view do
 
   before do
     assign(:giveaway, giveaway)
-    assign(:comment, comment )
+    assign(:comment, comment)
     assign(:comments, [comment])
   end
 

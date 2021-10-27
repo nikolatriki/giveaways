@@ -18,7 +18,6 @@ RSpec.describe GiveawaysController, type: :controller do
   end
 
   describe 'GET giveaways/:id' do
-
     it 'has a 200 status code' do
       get :show, params: { id: giveaway.id }
       expect(response).to have_http_status(:success)
@@ -37,9 +36,9 @@ RSpec.describe GiveawaysController, type: :controller do
       it 'creates new giveaway' do
         expect do
           post :create,
-                params: { user_id: user.id,
-                          giveaway: { title: 'title giveaway', description: 'description', location: 'Somewhere',
-                                      pictures_attributes: [title: 'title piture'] } }
+               params: { user_id: user.id,
+                         giveaway: { title: 'title giveaway', description: 'description', location: 'Somewhere',
+                                     pictures_attributes: [title: 'title piture'] } }
         end.to change(Giveaway, :count).by(1)
       end
     end
