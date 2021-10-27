@@ -11,6 +11,7 @@ RSpec.describe 'giveaways/show', type: :view do
 
   before do
     assign(:giveaway, giveaway)
+    assign(:comment, comment )
     assign(:comments, [comment])
   end
 
@@ -43,8 +44,6 @@ RSpec.describe 'giveaways/show', type: :view do
   context 'with logged in user' do
     before { log_in user }
 
-    let(:comments) { [comment] }
-
     it 'footer displays all buttons' do
       render
 
@@ -56,7 +55,7 @@ RSpec.describe 'giveaways/show', type: :view do
     it 'page displays the comments form under the giveaway' do
       render partial: 'comments/form'
 
-      expect(rendered).to include(comment.body)
+      expect(rendered).to include('Leave a comment...')
     end
   end
 end
