@@ -25,8 +25,7 @@ class GiveawaysController < ApplicationController
     @giveaway.user = current_user
 
     if @giveaway.save
-      flash[:success] = 'Succesfully added new Giveaway!'
-      redirect_to @giveaway
+      redirect_to @giveaway, notice: 'Succesfully added new Giveaway!'
     else
       render :new
     end
@@ -49,8 +48,7 @@ class GiveawaysController < ApplicationController
   def destroy
     @giveaway.destroy
 
-    redirect_to giveaways_path
-    flash[:info] = 'Deleted your giveaway!'
+    redirect_to giveaways_path, notice: 'Deleted Giveaway!'
   end
 
   private
