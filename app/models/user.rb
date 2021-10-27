@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
   MAXIMUM_NAME_LENGTH = 50
   MAXIMUM_EMAIL_LENGTH = 250
   VALID_REGEX_EMAIL = /\A[^.][\w\-?.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+[^.]\z/i

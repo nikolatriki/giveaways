@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'giveaways#index'
 
   get '/login', to: 'sessions#new'
@@ -8,6 +9,4 @@ Rails.application.routes.draw do
   resources :giveaways do
     resources :comments, :pictures
   end
-  get 'users/signup', to: 'users#new'
-  resources :users, except: :new
 end
