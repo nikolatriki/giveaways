@@ -30,7 +30,9 @@ RSpec.describe 'giveaways/index', type: :view do
 
     it 'display an image of the giveaway' do
       render
-      expect(rendered).to have_css('.img')
+      giveaways.each do |giveaway|
+        expect(rendered).to include(giveaway.pictures.first.to_s)
+      end
     end
   end
 
