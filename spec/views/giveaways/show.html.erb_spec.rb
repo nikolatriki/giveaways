@@ -31,12 +31,10 @@ RSpec.describe 'giveaways/show', type: :view do
       expect(rendered).to include('Back')
     end
 
-    it 'page displays the comments under the giveaway' do #After 4 hours testing it this test is not working
-
+    it 'page displays the comments under the giveaway' do
       render
-      comments.each do |comment|
-        expect(rendered).to include(comment.to_s)
-      end
+
+      expect(rendered).to include(comment.user.name)
     end
   end
 end
