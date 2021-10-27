@@ -3,6 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe 'giveaways/show', type: :view do
+  include SessionsHelper
+
   let!(:user) { create(:user) }
   let!(:giveaway) { create(:giveaway, user: user) }
   let!(:comment) { create(:comment, giveaway: giveaway, user: user) }
@@ -23,7 +25,7 @@ RSpec.describe 'giveaways/show', type: :view do
   end
 
   context 'without logged in user' do
-    let(:comments){ [ comment ] }
+    let(:comments) { [comment] }
 
     it 'footer displays only Back button' do
       render
@@ -35,6 +37,26 @@ RSpec.describe 'giveaways/show', type: :view do
       render
 
       expect(rendered).to include(comment.user.name)
+    end
+  end
+
+  context 'with logged in user' do
+    before { log_in user }
+
+    let(:comments) { [comment] }
+
+    it 'footer displays all buttons' do
+      render
+
+      expect(rendered).to include('Back')
+      expect(rendered).to have_css('.fas')
+      expect(rendered).to have_css('.far')
+    end
+
+    it 'page displays the comments form under the giveaway' do
+      render partial: 'comments/form'
+
+      expect(rendered).to include(comment.body)
     end
   end
 end
