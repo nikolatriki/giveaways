@@ -69,3 +69,4 @@ gem 'rubocop-performance'
 gem 'pagy', '~> 3.5'
 gem "aws-sdk-s3", require: false
 gem 'active_storage_validations'
+gem 'devise'
