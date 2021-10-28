@@ -17,3 +17,12 @@ AllCops:
 
 Style/Documentation:
   Enabled: false
+
+RSpec/MultipleExpectations:
+  Max: 4
+
+Metrics/BlockLength:
+  Max: 100
+
+RSpec/ExampleLength:
+  Max: 15

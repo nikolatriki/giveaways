@@ -1,20 +1,24 @@
-<div class="column is-6 is-offset-3">
-<h1><%= @giveaway.title %></h1>
-  <%= form_with model: [@giveaway, @comment], local: true do |f| %>
-    <div class="field">
-      <%= f.label 'Message', class:"label"%>
-      <div class="control">
-        <%= f.text_area :body, required: true, class:"textarea" %>
-      </div>
-    </div>
+<div class="container">
+  <div class="columns is-multiline">
+    <div class="column is-6 is-offset-3">
+      <%= form_with model: [@giveaway, @comment], local: true do |f| %>
+        <div class="field">
+          <div class="container control">
+            <%= f.text_area :body, required: true, class:"textarea", placeholder:"Leave a comment..." %>
+          </div>
+        </div>
 
-    <div class="field is-grouped">
-      <div class="control">
-        <%=f.submit class:"button is-link" %>
-      </div>
-      <div class="control">
-        <%= link_to 'Cancel', giveaway_path(@giveaway), class: "button is-link is-light" %>
-      </div>
+        <div class="field is-grouped">
+          <div class="control">
+            <%=f.submit 'Post comment', class:"button is-link"  %>
+          </div>
+          <% if local_assigns[:edit] %>
+            <div class="control">
+              <%= link_to 'Cancel', giveaway_path(@giveaway), class: "button is-link is-light" %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 </div>
