@@ -12,15 +12,15 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <% if logged_in? %>
+          <% if user_signed_in? %>
             <div class="button is-capitalized">
-              <%= link_to @current_user.name, user_path(@current_user) %>
+              <%# <%= link_to current_user.name, user_path(current_user) %> 
             </div>
             <%= link_to 'Create New Giveaway', new_giveaway_path, class: "button is-primary has-text-weight-bold" %>
-            <%= link_to 'Log Out', logout_path, method: :delete, class: "button is-primary" %>
+            <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "button is-primary" %>
           <% else %>
-            <%= link_to 'Log In', login_path, class: "button is-primary has-text-weight-bold" %>
-            <%= link_to 'Sign Up', users_signup_path, class: "button is-primary has-text-weight-bold" %>
+            <%= link_to 'Log In', new_user_session_path, class: "button is-primary has-text-weight-bold" %>
+            <%= link_to 'Sign Up', new_user_registration_path, class: "button is-primary has-text-weight-bold" %>
           <% end %>
         </div>
       </div>
