@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'users/:id', to: 'users#show', as: :user
   devise_for :users
+  get 'users/:id', to: 'users#show', as: :user
   
   root 'giveaways#index'
 
