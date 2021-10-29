@@ -5,7 +5,7 @@ class PicturesController < ApplicationController
     @picture = Picture.find(params[:id])
     @giveaway = @picture.giveaway
 
-    if logged_in? && @giveaway.user == current_user
+    if user_signed_in? && @giveaway.user == current_user
       @picture.destroy
 
       flash[:info] = 'Deleted picture!'
