@@ -3,7 +3,7 @@
 class GiveawaysController < ApplicationController
   include Pagy::Backend
 
-  before_action :must_be_logged_in_notice, except: %i[index show]
+  skip_before_action :authenticate_user!, only: %i[index show]
   before_action :find_giveaway, only: %i[show edit update destroy]
 
   def index
