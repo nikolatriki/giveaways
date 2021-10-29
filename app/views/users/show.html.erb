@@ -4,8 +4,12 @@
       <div class="media-content">
         <div class="content">
           <h5><%= @user.name.capitalize %></h5>
-          <i><small>email: <%= @user.email %></small></i></p>
+          <% if current_user %>
+            <p class='has-text-justified'><%= link_to 'Change email/password', edit_user_registration_path %></p>
+          <% end %>
         </div>
+          </br>
+        <i><small>email: <%= @user.email %></small></i></p>
       </div>
     </article><br>
     <p>Giveaways created by <%= @user.name.capitalize %>:<br>
