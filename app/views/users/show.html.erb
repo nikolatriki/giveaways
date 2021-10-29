@@ -4,7 +4,7 @@
       <div class="media-content">
         <div class="content">
           <h5><%= @user.name.capitalize %></h5>
-          <% if current_user %>
+          <% if user_signed_in? && @user == current_user %>
             <p class='has-text-justified'><%= link_to 'Change email/password', edit_user_registration_path %></p>
           <% end %>
         </div>
