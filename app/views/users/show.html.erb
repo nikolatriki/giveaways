@@ -3,12 +3,12 @@
     <article class="media">
       <div class="media-content">
         <div class="content">
-          <h5><%= @user.name %></h5>
+          <h5><%= @user.name.capitalize %></h5>
           <i><small>email: <%= @user.email %></small></i></p>
         </div>
       </div>
     </article><br>
-    <p>Giveaways created by <%= @user.name %>:<br>
+    <p>Giveaways created by <%= @user.name.capitalize %>:<br>
       <ul>
         <% @user.giveaways.each do |g|%>
           <li><%= link_to g.title, giveaway_path(g) %></li>

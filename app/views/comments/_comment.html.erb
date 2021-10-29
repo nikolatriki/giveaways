@@ -5,7 +5,7 @@
         <div class="media-content">
           <div class="content">
             <p>
-              <strong><%= comment.user.name %></strong> 
+              <strong><%= link_to comment.user.name.capitalize, user_path(comment.user.id) %></strong> 
               <small><%= time_ago_in_words(comment.created_at) %> ago</small>
               <% if comment.updated_at > comment.created_at %>
                 <small>(edited)</small>
