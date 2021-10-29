@@ -7,7 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :giveaways, dependent: :destroy
-  has_many :comments, dependent: :nullify
+  has_many :comments, dependent: :destroy
 
   validates :name, presence: true
   validates :email, email: { mode: :strict }
