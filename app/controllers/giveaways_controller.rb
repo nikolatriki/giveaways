@@ -31,9 +31,7 @@ class GiveawaysController < ApplicationController
     end
   end
 
-  def edit
-    return unless user_signed_in? && @giveaway.user != current_user
-  end
+  def edit; end
 
   def update
     if @giveaway.update(giveaway_params)
