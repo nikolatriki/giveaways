@@ -11,22 +11,11 @@ RSpec.describe CommentsController, type: :controller do
 
   before { log_in user }
 
-  describe 'GET new' do
-    it 'has a success status code' do
-      get :new, params: { giveaway_id: giveaway.id }
-      expect(response).to have_http_status(:success)
-    end
-  end
-
   describe 'POST create' do
-    context 'with valid attributes' do
-      it 'creates new comment' do
-        expect do
-          post :create,
-               params: { giveaway_id: giveaway.id,
-                         comment: { body: 'Sentence is here.' } }
-        end.to change(Comment, :count).by(1)
-      end
+    it 'creates new comment' do
+      expect do
+        post :create, params: { giveaway_id: giveaway.id, comment: { body: 'Sentence is here.' } }
+      end.to change(Comment, :count).by(1)
     end
   end
 
@@ -39,10 +28,16 @@ RSpec.describe CommentsController, type: :controller do
 
   describe 'PATCH update' do
     context 'with valid attributes' do
-      it 'edits the comment' do
-        patch :update, params: { giveaway_id: giveaway.id, id: comment.id,
-                                 comment: { body: comment.body } }
+      it 'updates the comment' do
+        patch :update, params: { giveaway_id: giveaway.id, id: comment.id, comment: { body: comment.body } }
         expect(response).to have_http_status(:found)
+      end
+    end
+
+    context 'with invalid attributes' do
+      it 'does not update the comment' do
+        patch :update, params: { giveaway_id: giveaway.id, id: comment.id, comment: { body: '' } }
+        expect(response).not_to be_redirect
       end
     end
   end

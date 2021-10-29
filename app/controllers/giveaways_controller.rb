@@ -10,7 +10,11 @@ class GiveawaysController < ApplicationController
     @pagy, @giveaways = pagy(Giveaway.order(created_at: :desc), items: 18)
   end
 
-  def show; end
+  def show
+    @comments = @giveaway.comments.order(created_at: :desc)
+
+    @comment = @giveaway.comments.build
+  end
 
   def new
     @giveaway = Giveaway.new
@@ -21,8 +25,7 @@ class GiveawaysController < ApplicationController
     @giveaway.user = current_user
 
     if @giveaway.save
-      flash[:success] = 'Succesfully added new Giveaway!'
-      redirect_to @giveaway
+      redirect_to @giveaway, notice: 'Succesfully added new Giveaway!'
     else
       render :new
     end
@@ -45,13 +48,14 @@ class GiveawaysController < ApplicationController
   def destroy
     @giveaway.destroy
 
-    redirect_to giveaways_path
+    redirect_to giveaways_path, notice: 'Deleted Giveaway!'
   end
 
   private
 
   def giveaway_params
-    params.require(:giveaway).permit(:title, :description, :location, pictures_attributes: [:id, :title, :image, :_destroy])
+    params.require(:giveaway).permit(:title, :description, :location,
+                                     pictures_attributes: %i[id title image _destroy])
     # I found out that it can be written as:
     # params[:giveaway].permit(:title, :description, :location)
     # :giveaway is the key from the params hash created with 'form_with' helper using 'scope:', or 'model:' methods
