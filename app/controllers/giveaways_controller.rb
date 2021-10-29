@@ -32,9 +32,7 @@ class GiveawaysController < ApplicationController
   end
 
   def edit
-    return unless logged_in? && @giveaway.user != current_user
-
-    session_notice(:danger, 'Wrong user!')
+    return unless user_signed_in? && @giveaway.user != current_user
   end
 
   def update
