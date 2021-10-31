@@ -22,4 +22,3 @@ RSpec.describe Picture, type: :model do
     it { expect(picture).to have_one_attached(:image) }
   end
 end
-
