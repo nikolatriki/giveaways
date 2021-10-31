@@ -3,7 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe GiveawaysController, type: :controller do
-  include SessionsHelper
 
   let(:user) { create(:user) }
   let!(:giveaway) { create(:giveaway, user: user) }

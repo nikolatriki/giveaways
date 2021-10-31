@@ -3,13 +3,11 @@
 require 'rails_helper'
 
 RSpec.describe CommentsController, type: :controller do
-  include SessionsHelper
-
   let!(:user) { create(:user) }
   let!(:giveaway) { create(:giveaway, user: user) }
   let!(:comment) { create(:comment, giveaway: giveaway) }
 
-  before { log_in user }
+  before { sign_in user }
 
   describe 'POST create' do
     it 'creates new comment' do
@@ -20,9 +18,9 @@ RSpec.describe CommentsController, type: :controller do
   end
 
   describe 'GET edit' do
-    it 'has a found status code' do
+    it 'has a success status code' do
       get :edit, params: { giveaway_id: giveaway.id, id: comment.id }
-      expect(response).to have_http_status(:found)
+      expect(response).to have_http_status(:success)
     end
   end
 
