@@ -1,25 +1,21 @@
 <div class="column has-text-centered">
-    <h1 class="subtitle is-3" style="color: #f14999;">Welcome to giveaways</h1>
-        <h2><strong>Go ahead, find giveaways!</h2><h2>They're all free</strong></h2><br>
-            <div id="hero-input-group" class="field has-addons has-addons-centered">
-                <div class="control">
-                    <input class="input is-medium" type="text" placeholder="Search by location..." />
+        <h1 class="subtitle is-3" style="color: #f14999;">Welcome to giveaways</h1>
+            <h2><strong>Go ahead, find giveaways!</h2><h2>They're all free</strong></h2><br>
+                <div id="hero-input-group" class="field has-addons has-addons-centered">
+                    <div class="control">
+                        <%= form_with url: giveaways_path, method: :get do |f| %>
+                            <%= f.text_field :search, class:"input is-medium", placeholder:"Search by location..." %>
+                        <% end %>
+                    </div>
                 </div>
-                <div class="control">
-                    <a class="button is-medium is-info">
-                        <i class="fas fa-search-location"></i>
-                    </a>
-                </div>
-            </div>
-            <h3><%= link_to 'OR GIVE SOMETHING YOUR OWN!', new_giveaway_path %></h3><br>
-            <div>
-                <p>There's an unwritten rule, the receiver should organize the transport of the giveaway he/she chooses at his/her expense
-                <p>It should not be a burden to the giver, unless you arrange it differently</p>
-            </div><br>
 
-            <div class="section has-text-left">
-              <h2 class="subtitle" style="margin-left: 30px">Featured Articles</h2>
-            </div>
+                <button class="button has-addons has-addons-centered is-light is-rounded"><%= link_to 'OR GIVE SOMETHING YOUR OWN!', new_giveaway_path %></button></br>
+                <p>The unwritten rule is that the receiver organizes the transport of the giveaway at his expense</p>
+                <p>It shouldn't be a burden to the giver, unless you arrange it differently</p><br>
+
+                <div class="section has-text-left">
+                    <h2 class="subtitle is-6" style="color: #f14999; margin-left: 30px">Featured Articles</h2>
+                </div>
   <div class="columns is-mobile is-multiline is-centered">
     <% @giveaways.each do |giveaway|%>
       <div class="box has-background-white-ter" style="margin-bottom: 24px">

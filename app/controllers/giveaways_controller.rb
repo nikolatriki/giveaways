@@ -8,6 +8,10 @@ class GiveawaysController < ApplicationController
 
   def index
     @pagy, @giveaways = pagy(Giveaway.order(created_at: :desc), items: 18)
+
+    return unless params[:search]
+
+    @giveaways = [Giveaway.find_by(location: params[:search])]
   end
 
   def show
@@ -50,7 +54,7 @@ class GiveawaysController < ApplicationController
   private
 
   def giveaway_params
-    params.require(:giveaway).permit(:title, :description, :location,
+    params.require(:giveaway).permit(:title, :description, :location, :search,
                                      pictures_attributes: %i[id title image _destroy])
     # I found out that it can be written as:
     # params[:giveaway].permit(:title, :description, :location)
