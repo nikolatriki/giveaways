@@ -12,6 +12,6 @@ RSpec.describe 'comments/comment' do # rubocop:disable RSpec/DescribeClass
 
     render partial: 'comments/comment', locals: { comment: comment }
 
-    expect(rendered).to include(comment.user.name)
+    expect(rendered).to include(comment.user.name.capitalize)
   end
 end

@@ -8,8 +8,13 @@ RSpec.describe Picture, type: :model do
   let(:giveaway) { create(:giveaway, user: user) }
   let(:user) { create(:user) }
 
+  before do
+    picture.image.attach(fixture_file_upload(file_fixture('seat.jpg'), 'image/jpeg'))
+  end
+
   describe 'validation' do
-    it { expect(picture).to validate_attachment(image: 'image/png') }
+    it { expect(picture.image.content_type).to eq('image/jpeg') }
+    it { expect(picture.image.content_type).not_to eq('image/gif') }
   end
 
   describe 'assosiations' do
@@ -17,4 +22,3 @@ RSpec.describe Picture, type: :model do
     it { expect(picture).to have_one_attached(:image) }
   end
 end
-

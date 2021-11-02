@@ -3,12 +3,10 @@
 require 'rails_helper'
 
 RSpec.describe GiveawaysController, type: :controller do
-  include SessionsHelper
-
   let(:user) { create(:user) }
   let!(:giveaway) { create(:giveaway, user: user) }
 
-  before { log_in user }
+  before { sign_in user }
 
   describe 'GET giveaways' do
     it 'has a 200 status code' do
