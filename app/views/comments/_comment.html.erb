@@ -5,7 +5,7 @@
         <div class="media-content">
           <div class="content">
             <p>
-              <strong><%= comment.user.name %></strong> 
+              <strong><%= link_to comment.user.name.capitalize, user_path(comment.user_id) %></strong>
               <small><%= time_ago_in_words(comment.created_at) %> ago</small>
               <% if comment.updated_at > comment.created_at %>
                 <small>(edited)</small>
@@ -15,7 +15,7 @@
             </p>
           </div>
           <nav class="level is-mobile">
-            <% if comment.user == current_user %>
+            <% if user_signed_in? && comment.user == current_user %>
               <div class="level-left">
                 <%= link_to edit_giveaway_comment_path(comment.giveaway, comment), class: "level-item" do %>
                   <span class="icon is-small"><i class="fas fa-edit"></i></span>

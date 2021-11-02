@@ -1,7 +1,7 @@
 <footer class="modal-card-foot" style="justify-content: space-between">
   <%= link_to 'Back', giveaways_path, class: "button is-light" %>
 
-  <% if logged_in? && current_user == @giveaway.user%>
+  <% if user_signed_in? && current_user == @giveaway.user%>
     <p>
       <%= link_to edit_giveaway_path(@giveaway) do %>
           <i class="fas fa-edit fa-2x"></i>

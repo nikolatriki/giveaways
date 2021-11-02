@@ -3,7 +3,7 @@
 class GiveawaysController < ApplicationController
   include Pagy::Backend
 
-  before_action :must_be_logged_in_notice, except: %i[index show]
+  skip_before_action :authenticate_user!, only: %i[index show]
   before_action :find_giveaway, only: %i[show edit update destroy]
 
   def index
@@ -31,11 +31,7 @@ class GiveawaysController < ApplicationController
     end
   end
 
-  def edit
-    return unless logged_in? && @giveaway.user != current_user
-
-    session_notice(:danger, 'Wrong user!')
-  end
+  def edit; end
 
   def update
     if @giveaway.update(giveaway_params)

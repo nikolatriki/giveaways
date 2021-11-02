@@ -3,8 +3,6 @@
 require 'rails_helper'
 
 describe 'giveaways/show', type: :view do
-  include SessionsHelper
-
   let!(:user) { create(:user) }
   let!(:giveaway) { create(:giveaway, user: user) }
   let!(:comment) { create(:comment, giveaway: giveaway, user: user) }
@@ -44,7 +42,7 @@ describe 'giveaways/show', type: :view do
   end
 
   context 'with logged in user' do
-    before { log_in user }
+    before { sign_in user }
 
     it 'footer displays edit button' do
       render

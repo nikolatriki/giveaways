@@ -3,7 +3,6 @@
 class CommentsController < ApplicationController
   before_action :set_giveaway, only: %i[create edit update]
   before_action :find_comment, only: %i[edit update destroy]
-  before_action :must_be_logged_in_notice
 
   def create
     @comment = @giveaway.comments.build(comment_params)
@@ -16,11 +15,7 @@ class CommentsController < ApplicationController
     end
   end
 
-  def edit
-    return unless logged_in? && @comment.user != current_user
-
-    session_notice(:danger, 'Wrong user!')
-  end
+  def edit; end
 
   def update
     if @comment.update(comment_params)

@@ -1,6 +1,6 @@
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <%= link_to image_tag("/assets/logo.png", class:"image is-128x128"), giveaways_path, class: "navbar-item" %>
+<nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand image is-128x128">
+    <%= link_to image_tag("/assets/giveaways2.png"), giveaways_path, class: "is-rounded" %>
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -12,15 +12,15 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <% if logged_in? %>
+          <% if user_signed_in? %>
             <div class="button is-capitalized">
-              <%= link_to @current_user.name, user_path(@current_user) %>
+              <%= link_to current_user.name, user_path(id: current_user.id) %>
             </div>
-            <%= link_to 'Create New Giveaway', new_giveaway_path, class: "button is-primary has-text-weight-bold" %>
-            <%= link_to 'Log Out', logout_path, method: :delete, class: "button is-primary" %>
+            <%= link_to 'Create New Giveaway', new_giveaway_path, class: "button is-danger is-outlined" %>
+            <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "button is-danger is-outlined" %>
           <% else %>
-            <%= link_to 'Log In', login_path, class: "button is-primary has-text-weight-bold" %>
-            <%= link_to 'Sign Up', users_signup_path, class: "button is-primary has-text-weight-bold" %>
+            <%= link_to 'Log In', new_user_session_path, class: "button is-danger is-outlined" %>
+            <%= link_to 'Sign Up', new_user_registration_path, class: "button is-danger is-outlined" %>
           <% end %>
         </div>
       </div>

@@ -6,7 +6,7 @@ user = User.create(
   password: 'password'
 )
 
-20.times do
+30.times do
 
   giveaway =  user.giveaways.create(
     title: Faker::Commerce.product_name,
@@ -14,7 +14,7 @@ user = User.create(
     location: Faker::Address.city,
   )
 
-  img = %w[lamp.png couch.png noguchi_table.jpg].sample
+  img = %w[lamp.jpg seat.jpg].sample
   pic = Picture.create(
     title: img[0..-5],
     giveaway_id: giveaway.id
