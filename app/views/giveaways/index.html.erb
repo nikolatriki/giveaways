@@ -2,11 +2,17 @@
     <% if @pagy.vars[:page].to_i <2 %>
         <h1 class="subtitle is-3" style="color: #f14999;">Welcome to giveaways</h1>
             <div>
-                <p>The unwritten rule is that the receiver organizes the transport of the giveaway</p>
+                <p>It's an unwritten rule that the receiver organizes the transport of the giveaway</p>
                 <p>It shouldn't be a burden to the giver, unless you arrange it differently</p><br>
             </div>
-        <h2><strong>Go ahead, find giveaways!</h2><h2>They're free</strong></h2><br>
-            <div id="hero-input-group" class="field has-addons has-addons-centered">
+        
+
+            <button class="button has-addons has-addons-centered is-light is-rounded"><%= link_to 'OR GIVE SOMETHING YOUR OWN!', new_giveaway_path %></button>
+                
+            <div class="section has-text-left">
+                <h2 class="subtitle is-6 is-left" style="color: #f14999;">Featured Giveaways</h2>
+            </div>
+            <div id="hero-input-group" class="field has-addons has-addons-left">
                 <div class="control">
                     <%= form_tag giveaways_path, method: :get do %>
                         <%= text_field_tag :search, params[:search], class:"input is-medium", placeholder:"Search by location..." %>
@@ -14,14 +20,8 @@
                     <% end %>
                 </div>
             </div><br>
-
-            <button class="button has-addons has-addons-centered is-light is-rounded"><%= link_to 'OR GIVE SOMETHING YOUR OWN!', new_giveaway_path %></button>
-                
-            <div class="section has-text-left">
-                <h2 class="subtitle is-6" style="color: #f14999; margin-left: 30px">Featured Giveaways</h2>
-            </div>
     <% end %>
-  <div class="columns is-mobile is-multiline is-centered">
+  <div class="columns is-mobile is-multiline is-left">
     <% @giveaways.each do |giveaway|%>
       <div class="box has-background-white-ter" style="margin-bottom: 24px">
         <%= link_to giveaway_path(giveaway), class:"card" do %>
