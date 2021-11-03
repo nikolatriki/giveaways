@@ -11,7 +11,7 @@ class GiveawaysController < ApplicationController
 
     return unless params[:search]
 
-    @giveaways = [Giveaway.find_by(location: params[:search])]
+    @giveaways = Giveaway.where('location LIKE ?', "%#{params[:search]}%")
   end
 
   def show
@@ -54,7 +54,7 @@ class GiveawaysController < ApplicationController
   private
 
   def giveaway_params
-    params.require(:giveaway).permit(:title, :description, :location, :search,
+    params.require(:giveaway).permit(:title, :description, :location,
                                      pictures_attributes: %i[id title image _destroy])
     # I found out that it can be written as:
     # params[:giveaway].permit(:title, :description, :location)

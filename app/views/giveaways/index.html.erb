@@ -2,14 +2,15 @@
     <% if @pagy.vars[:page].to_i <2 %>
         <h1 class="subtitle is-3" style="color: #f14999;">Welcome to giveaways</h1>
             <div>
-                <p>The unwritten rule is that the receiver organizes the transport of the giveaway at his expense</p>
+                <p>The unwritten rule is that the receiver organizes the transport of the giveaway</p>
                 <p>It shouldn't be a burden to the giver, unless you arrange it differently</p><br>
             </div>
         <h2><strong>Go ahead, find giveaways!</h2><h2>They're free</strong></h2><br>
             <div id="hero-input-group" class="field has-addons has-addons-centered">
                 <div class="control">
-                    <%= form_with url: giveaways_path, method: :get do |f| %>
-                        <%= f.text_field :search, class:"input is-medium", placeholder:"Search by location..." %>
+                    <%= form_tag giveaways_path, method: :get do %>
+                        <%= text_field_tag :search, params[:search], class:"input is-medium", placeholder:"Search by location..." %>
+                        <%= submit_tag 'Search' %>
                     <% end %>
                 </div>
             </div><br>
