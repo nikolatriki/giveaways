@@ -8,4 +8,8 @@ class Giveaway < ApplicationRecord
   validates :title, :description, :location, presence: true, length: { minimum: 5 }
 
   accepts_nested_attributes_for :pictures, allow_destroy: true
+
+  def self.search(attribute)
+    attribute ? where('location ILIKE ?', "%#{attribute[:location]}%") : all
+  end
 end

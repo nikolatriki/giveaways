@@ -14,9 +14,9 @@
             </div>
             <div id="hero-input-group" class="field has-addons has-addons-left">
                 <div class="control">
-                    <%= form_tag giveaways_path, method: :get do %>
-                        <%= text_field_tag :search, params[:search], class:"input is-medium", placeholder:"Search by location..." %>
-                        <%= submit_tag 'Search' %>
+                    <%= form_with scope: :search, url: giveaways_path, method: :get do |f| %>
+                        <%= f.text_field :location, value: params[:search] ? params[:search][:location] : nil, class:"input is-medium", placeholder:"Search by location..." %>
+                        <%= f.submit 'Search' %>
                     <% end %>
                 </div>
             </div><br>
