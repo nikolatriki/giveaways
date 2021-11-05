@@ -313,6 +313,7 @@ DEPENDENCIES
   email_validator
   factory_bot_rails
   faker!
+  i18n
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
   listen (~> 3.3)
