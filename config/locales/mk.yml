@@ -1,10 +1,22 @@
 mk:
+  pagy:
+    nav:
+      next: 'Следна'
+      prev: 'Претх.'  
   giveaways:
     index:
       welcome: 'Добредојдовте!'
     form:
-      heading: 'Нов Дар'
       pictures: 'Слики'
+      add_picture: 'Додај слика'
+      create: 'Креирај'
+      cancel: 'Откажи'
+    new:
+      new_giveaway: 'Нов Дар'
+    edit:
+      edit_giveaway: 'Уреди Дар'
+    picture_fields:
+      remove: 'Отстрани'
   shared:
     navbar:
       log_in: 'Најави се'
@@ -33,4 +45,8 @@ mk:
         title: 'Наслов'
         description: 'Опис'
         location: 'Локација'
-        
+
+  devise:
+    sessions:
+      signed_in: 'Успешно се најавивте.'   
+      signed_out: 'Успешно се одјавивте.'   

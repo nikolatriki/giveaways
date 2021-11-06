@@ -3,8 +3,16 @@ en:
     index:
       welcome: 'Welcome to giveaways!'
     form:
-      heading: 'New Giveaway'
       pictures: 'Pictures'
+      add_picture: 'Add picture'
+      create: 'Create'
+      cancel: 'Cancel'
+    new:
+      new_giveaway: 'New Giveaway'
+    edit:
+      edit_giveaway: 'Edit Giveaway'
+    picture_fields:
+      remove: 'Remove'
   shared:
     navbar:
       log_in: 'Log In'
@@ -32,4 +40,7 @@ en:
         title: 'Title'
         description: 'Description'
         location: 'Location'
-        
+  devise:
+    sessions:
+      signed_in: 'Signed in successfully.'
+      signed_out: 'Signed out successfully.'

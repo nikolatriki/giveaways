@@ -2,7 +2,7 @@
   <div class="columns is-multiline">
     <div class="column is-6 is-offset-3">
       <div class="content is-small">
-        <h2><%= t('.heading') %></h2>
+        <h2><%= heading %></h2>
       </div>
     </div>
     <% if @giveaway.errors.any? %>
@@ -23,19 +23,19 @@
         <div class="field">
           <%= f.label :title, class: "label"%>
             <div class="control">
-              <%= f.text_field :title, required: true, class: "input field_with_errors", placeholder: "Enter title"%>
+              <%= f.text_field :title, required: true, class: "input field_with_errors", placeholder: true %>
             </div>
         </div>
         <div class="field">
           <%= f.label :description, class: "description" %>
             <div class="control">
-              <%= f.text_area :description, required: true, class: "textarea field_with_errors", placeholder: "Description",size: "50x10" %>
+              <%= f.text_area :description, required: true, class: "textarea field_with_errors", placeholder: true, size: "50x10" %>
             </div>
         </div>
         <div class="field">
           <%= f.label :location, class: "label"%>
             <div class="control">
-              <%= f.text_field :location, class: "input field_with_errors", placeholder: "Enter location"%>
+              <%= f.text_field :location, class: "input field_with_errors", placeholder: true %>
             </div>
         </div>
         <div class="field">
@@ -54,16 +54,16 @@
               </template>
             <br>
               <div data-target="nested-form.add_item">
-                <%= link_to "Add Picture", "#", data: { action: "nested-form#add_association" } %>
+                <%= link_to t('.add_picture'), "#", data: { action: "nested-form#add_association" } %>
               </div>
             </div>
             <br>
           <div class="field is-grouped">
             <div class="control">
-              <%= f.submit class: "button is-link" %>
+              <%= f.submit t('.create'), class: "button is-link" %>
             </div>
             <div class="control">
-              <%= link_to "Cancel", cancel_path, class: "button is-link is-light"%>
+              <%= link_to t('.cancel'), cancel_path, class: "button is-link is-light"%>
             </div>
           </div>
           <% end %>

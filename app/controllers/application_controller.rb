@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
+  before_action { @pagy_locale = params[:locale] }
+
 
   def default_url_options
     { locale: (I18n.locale == I18n.default_locale ? nil : I18n.locale) }
