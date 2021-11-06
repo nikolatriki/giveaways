@@ -2,10 +2,12 @@ en:
   giveaways:
     index:
       welcome: 'Welcome to giveaways!'
+    show:
+      contact: 'Contact'
+      phone: 'Phone'
     form:
       pictures: 'Pictures'
       add_picture: 'Add picture'
-      create: 'Create'
       cancel: 'Cancel'
     new:
       new_giveaway: 'New Giveaway'
@@ -13,6 +15,26 @@ en:
       edit_giveaway: 'Edit Giveaway'
     picture_fields:
       remove: 'Remove'
+    footer:
+      back: 'Back'
+
+  comments:
+    form:
+      cancel: 'Cancel'
+    comment:
+      edited: '(edited)'
+      confirm: 'Are you sure you want to delete this comment?'
+      
+  helpers:
+    placeholder:
+      comment:
+        body: 'Leave a comment...'
+    submit:
+      comment:
+        create: 'Post Comment'
+      giveaway:
+        create: 'Create Giveaway'
+        
   shared:
     navbar:
       log_in: 'Log In'

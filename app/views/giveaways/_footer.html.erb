@@ -1,5 +1,5 @@
 <footer class="modal-card-foot" style="justify-content: space-between">
-  <%= link_to 'Back', giveaways_path, class: "button is-light" %>
+  <%= link_to t('.back'), giveaways_path, class: "button is-light" %>
 
   <% if user_signed_in? && current_user == @giveaway.user%>
     <p>

@@ -6,17 +6,41 @@ mk:
   giveaways:
     index:
       welcome: 'Добредојдовте!'
+    show:
+      contact: 'Контакт'
+      phone: 'Телефон'
     form:
       pictures: 'Слики'
       add_picture: 'Додај слика'
-      create: 'Креирај'
       cancel: 'Откажи'
     new:
       new_giveaway: 'Нов Дар'
     edit:
-      edit_giveaway: 'Уреди Дар'
+      edit_giveaway: 'Измени Дар'
     picture_fields:
       remove: 'Отстрани'
+    footer:
+      back: 'Назад'
+
+  comments:
+    form:
+      cancel: 'Назад'
+    comment:
+      edited: '(изменет)'
+      confirm: 'Дали сте сигурни дека сакате да го избришете овој коментар?'
+
+  helpers:
+    placeholder:
+      comment:
+        body: 'Оставете коментар...'
+    submit:
+      comment:
+        create: 'Објави Коментар'
+        update: 'Измени Коментар'
+      giveaway:
+        create: 'Креирај Дар'
+        update: 'Измени Дар'
+
   shared:
     navbar:
       log_in: 'Најави се'
