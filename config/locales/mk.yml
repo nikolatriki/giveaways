@@ -21,6 +21,7 @@ mk:
       remove: 'Отстрани'
     footer:
       back: 'Назад'
+      confirm: 'Дали сте сигурни дека сакате да го избришете овој дар?'
 
   comments:
     form:
@@ -28,6 +29,10 @@ mk:
     comment:
       edited: '(изменет)'
       confirm: 'Дали сте сигурни дека сакате да го избришете овој коментар?'
+
+  pictures:
+    picture:
+      delete: 'Избриши'
 
   helpers:
     placeholder:
