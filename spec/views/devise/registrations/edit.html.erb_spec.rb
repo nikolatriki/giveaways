@@ -3,7 +3,7 @@
 require 'rails_helper'
 require 'support/devise_invalid_user_helper'
 
-describe 'devise/registrations/edit.html.erb' do # rubocop:disable RSpec/DescribeClass
+describe 'devise/registrations/edit.html.erb' do
   it 'displays edit form' do
     view.class.include DeviseInvalidUserHelper
 

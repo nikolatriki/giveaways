@@ -2,7 +2,7 @@
   <div class="columns is-multiline">
     <div class="column is-6 is-offset-3">
       <div class="content is-small">
-        <h2><%= heading %></h2>
+        <h2><%= t('.heading') %></h2>
       </div>
     </div>
     <% if @giveaway.errors.any? %>
@@ -41,7 +41,7 @@
         <div class="field">
           <br>
 
-          <p>Pictures</p>
+          <p><%= t('.pictures') %></p>
           <% unless local_assigns[:new]%>
             <%= render 'pictures/picture', edit: true %>
           <% end %>
