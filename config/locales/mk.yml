@@ -2,3 +2,31 @@ mk:
   giveaways:
     index:
       welcome: 'Добредојдовте!'
+  shared:
+    navbar:
+      log_in: 'Најави се'
+      sign_up: 'Регистрирај се'
+      new_giveaway: 'Креирај Нов Дар'
+      log_out: 'Одјави се'
+
+    footer:
+      giveaways_html: '<strong>Дарови</strong> изработено од '
+      licence: 'Лиценциран код од '
+
+#  activerecord:
+#    models: 
+#       user: 'Корисник'
+#     attributes:
+#       user:
+#         name: 'Име'
+#         email: 'Email'
+#         password: 'Лозинка'
+#         password_confirmation: 'Потврда на лозинка'
+#   activerecord:
+#     models:
+#       giveaway: 'Дар'
+#     attributes:
+#       giveaway:
+#         title: 'Наслов'
+#         description: 'Опис'
+#         location: 'Локација'

@@ -33,3 +33,30 @@ en:
   giveaways:
     index:
       welcome: "Welcome to giveaways!"
+  shared:
+    navbar:
+      log_in: 'Log In'
+      sign_up: 'Sign Up'
+      new_giveaway: 'Create New Giveaway'
+      log_out: 'Log Out'
+    footer:
+      giveaways_html: '<strong>Giveaways</strong> by ' 
+      licence: 'The source code is licensed'
+
+  # activerecord:
+  #   models: 
+  #     user: 'User'
+  #   attributes:
+  #     user:
+  #       name: 'Name'
+  #       email: 'Email'
+  #       password: 'Password'
+  #       password_confirmation: 'Password Confirmation'
+  # activerecord: 
+  #   models:
+  #     giveaway: 'Giveaway'
+  #   attributes:
+  #     giveaway:
+  #       title: 'Title'
+  #       description: 'Description'
+  #       location: 'Location'
