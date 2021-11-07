@@ -5,40 +5,44 @@
                 <p>It's an unwritten rule that the receiver organizes the transport of the giveaway</p>
                 <p>It shouldn't be a burden to the giver, unless you arrange it differently</p><br>
             </div>
-        
+
+            <div id="hero-input-group" class="field has-addons has-addons-centered">
+                <div class="control">
+                    <%= form_with scope: :search, url: giveaways_path, method: :get  do |f| %>
+                        <%= f.text_field :location,  value: params[:search] ? params[:search][:location] : nil, class:"input is-medium", placeholder:"Search by location..." %>
+                </div>
+                <div class="control">
+                        <%= button_tag class:"button is-medium is-info" do %>
+                            <i class="fas fa-search-location"></i>
+                        <% end %>
+                    <% end %>
+                </div>
+            </div><br>
 
             <button class="button has-addons has-addons-centered is-light is-rounded"><%= link_to 'OR GIVE SOMETHING YOUR OWN!', new_giveaway_path %></button>
                 
             <div class="section has-text-left">
                 <h2 class="subtitle is-6 is-left" style="color: #f14999;">Featured Giveaways</h2>
             </div>
-            <div id="hero-input-group" class="field has-addons has-addons-left">
-                <div class="control">
-                    <%= form_with scope: :search, url: giveaways_path, method: :get do |f| %>
-                        <%= f.text_field :location, value: params[:search] ? params[:search][:location] : nil, class:"input is-medium", placeholder:"Search by location..." %>
-                        <%= f.submit 'Search' %>
-                    <% end %>
-                </div>
-            </div><br>
     <% end %>
-  <div class="columns is-mobile is-multiline is-left">
-    <% @giveaways.each do |giveaway|%>
-      <div class="box has-background-white-ter" style="margin-bottom: 24px">
-        <%= link_to giveaway_path(giveaway), class:"card" do %>
-            <p class="bd-notification is-primary">
-                <small><%= giveaway[:created_at].strftime("%m/%d/%Y") %></small><br>
-                <code class="html"><small><%= giveaway.location %></small></code><br>
-                <h2><%= giveaway.title.truncate(20)%></h2>
-                <% unless giveaway.pictures.empty? %>
-                    <div class="img image is-128x128">
-                        <%= image_tag(giveaway.pictures.first.image) %>
-                    </div>
-                <%end%>
-            </p>
+    <div class="columns is-mobile is-multiline is-left">
+        <% @giveaways.each do |giveaway|%>
+        <div class="box has-background-white-ter" style="margin-bottom: 24px">
+            <%= link_to giveaway_path(giveaway), class:"card" do %>
+                <p class="bd-notification is-primary">
+                    <small><%= giveaway[:created_at].strftime("%m/%d/%Y") %></small><br>
+                    <code class="html"><small><%= giveaway.location %></small></code><br>
+                    <h2><%= giveaway.title.truncate(20)%></h2>
+                    <% unless giveaway.pictures.empty? %>
+                        <div class="img image is-128x128">
+                            <%= image_tag(giveaway.pictures.first.image) %>
+                        </div>
+                    <%end%>
+                </p>
+            <% end %>
+        </div>
         <% end %>
-      </div>
-    <% end %>
-  </div>
+    </div>
 </div>
-      
+
 <%== pagy_bulma_nav(@pagy) unless @giveaways.empty? %>
