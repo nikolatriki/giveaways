@@ -37,7 +37,7 @@ describe 'giveaways/show', type: :view do
     it 'page displays the comments under the giveaway' do
       render
 
-      expect(rendered).to include(comment.user.name)
+      expect(rendered).to include(comment.user.name.capitalize)
     end
   end
 

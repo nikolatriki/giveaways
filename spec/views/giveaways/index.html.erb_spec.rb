@@ -40,4 +40,9 @@ RSpec.describe 'giveaways/index', type: :view do
     render
     expect(rendered).to include('Next')
   end
+
+  it 'displays Search form' do
+    render
+    expect(rendered).to include('Search by name or location...')
+  end
 end
