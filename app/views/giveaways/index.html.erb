@@ -9,11 +9,11 @@
             <div id="hero-input-group" class="field has-addons has-addons-centered">
                 <div class="control">
                     <%= form_with scope: :search, url: giveaways_path, method: :get  do |f| %>
-                        <%= f.text_field '#'  value: params[:search] ? params[:search][:location] || params[:search][:title]: nil, class:"input is-medium", placeholder:"Search by location..." %>
+                        <%= f.text_field :giveaway,  value: params[:search] ? params[:search][:giveaway]: nil, class:"input is-medium", placeholder:"Search by name or location..." %>
                 </div>
                 <div class="control">
-                        <%= button_tag class:"button is-medium is-info" do %>
-                            <i class="fas fa-search-location"></i>
+                        <%= f.button class:"button is-medium is-info" do %>
+                            <i class="fas fa-search"></i>
                         <% end %>
                     <% end %>
                 </div>
