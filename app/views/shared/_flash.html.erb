@@ -2,7 +2,7 @@
   <div class="column is-multiline">
     <% flash.each do |type, message| %>
       <div class="column is-6 is-offset-3">
-        <div class="notification has-text-centered is-<%= type %>">
+        <div class="notification has-text-centered <%= type == 'notice' ? 'is-success' : 'is-danger' %>">
           <%= message %>
         </div>
       </div>

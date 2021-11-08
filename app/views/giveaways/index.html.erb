@@ -5,24 +5,21 @@
                 <p>It's an unwritten rule that the receiver organizes the transport of the giveaway</p>
                 <p>It shouldn't be a burden to the giver, unless you arrange it differently</p><br>
             </div>
-
-            <div id="hero-input-group" class="field has-addons has-addons-centered">
-                <div class="control">
-                    <%= form_with scope: :search, url: giveaways_path, method: :get  do |f| %>
-                        <%= f.text_field :giveaway,  value: params[:search] ? params[:search][:giveaway]: nil, class:"input is-medium", placeholder:"Search by name or location..." %>
-                </div>
-                <div class="control">
-                        <%= f.button class:"button is-medium is-info" do %>
-                            <i class="fas fa-search"></i>
-                        <% end %>
-                    <% end %>
-                </div>
-            </div>
-                <small><%= link_to "Reset", giveaways_path, calss:"button" %></small></br>
-            <div class="section has-text-left">
-                <h2 class="subtitle is-6 is-left" style="color: #f14999;">Featured Giveaways</h2>
-            </div>
     <% end %>
+
+    <div id="hero-input-group" class="field <%= @pagy.vars[:page].to_i < 2 ? 'has-addons has-addons-centered' : 'has-addons' %>" style="margin-bottom: 100px">
+        <div class="control">
+            <%= form_with scope: :search, url: giveaways_path, method: :get  do |f| %>
+                <%= f.text_field :giveaway,  value: params[:search] ? params[:search][:giveaway]: nil, class:"input is-medium", placeholder:"Search by name or location..." %>
+        </div>
+        <div class="control">
+                <%= f.button class:"button is-medium is-danger" do %>
+                    <i class="fas fa-search"></i>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+
     <div class="columns is-mobile is-multiline is-left">
         <% @giveaways.each do |giveaway|%>
         <div class="box has-background-white-ter" style="margin-bottom: 24px">
@@ -42,5 +39,4 @@
         <% end %>
     </div>
 </div>
-
 <%== pagy_bulma_nav(@pagy) unless @giveaways.empty? %>
