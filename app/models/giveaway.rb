@@ -10,6 +10,6 @@ class Giveaway < ApplicationRecord
   accepts_nested_attributes_for :pictures, allow_destroy: true
 
   def self.search(attribute)
-    attribute ? where('location ILIKE ?', "%#{attribute[:location]}%") : all
+    attribute ? where('location ILIKE ? || title ILIKE ?', "%#{attribute[:location]}%", "%#{attribute[:title]}%") : all
   end
 end
