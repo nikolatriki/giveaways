@@ -2,10 +2,13 @@ mk:
   pagy:
     nav:
       next: 'Следна'
-      prev: 'Претх.'  
+      prev: 'Претх.' 
+
   giveaways:
     index:
       welcome: 'Добредојдовте!'
+      p1: 'Непишано правило е дека транспортот е на товар на примачот на дарот.'
+      p2: 'Тоа не треба да биде обврска на дарителот, освен ако не се договорите меѓусебно поинаку.'
     show:
       contact: 'Контакт'
       phone: 'Телефон'
@@ -38,9 +41,13 @@ mk:
     placeholder:
       comment:
         body: 'Оставете коментар...'
+      search:
+        giveaway: 'Барај по име или по локација'
+      user:
+        name: 'Корисничко име'
     submit:
       comment:
-        create: 'Објави Коментар'
+        create: 'Објави'
         update: 'Измени Коментар'
       giveaway:
         create: 'Креирај Дар'
@@ -78,4 +85,27 @@ mk:
   devise:
     sessions:
       signed_in: 'Успешно се најавивте.'   
-      signed_out: 'Успешно се одјавивте.'   
+      signed_out: 'Успешно се одјавивте.'  
+
+      new:
+        email: 'Електронска пошта'
+        password: 'Лозинка'
+        log_in: 'Најави се'
+
+    shared:
+      links:
+        log_in: 'Најави се'
+        sign_up: 'Регистрирај се'
+        forgot_pass: 'Ја заборави својата лозинка?'
+        didnt_receive_conf: 'Не ги доби инструкциите за потврда?'
+        didnt_receive_unlock: 'Не ги доби инструкциите за отклучување?'
+        sign_in_with: 'Најава со'
+
+    registrations:
+      new:
+        username: 'Корисничко име'
+        email: 'Електронска пошта'
+        char: 'карактери минимум'
+        password: 'Лозинка'
+        pass_conf: 'Потврда на лозинката'
+        sign_up: 'Регистрирај се'

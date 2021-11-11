@@ -2,15 +2,15 @@
     <% if @pagy.vars[:page].to_i <2 %>
         <h1 class="subtitle is-3" style="color: #f14999;"><%= t('.welcome') %></h1>
             <div>
-                <p>It's an unwritten rule that the receiver organizes the transport of the giveaway</p>
-                <p>It shouldn't be a burden to the giver, unless you arrange it differently</p><br>
+                <p><%= t('.p1') %></p>
+                <p><%= t('.p2') %></p><br>
             </div>
     <% end %>
 
     <div id="hero-input-group" class="field <%= @pagy.vars[:page].to_i < 2 ? 'has-addons has-addons-centered' : 'has-addons' %>" style="margin-bottom: 100px">
         <div class="control">
             <%= form_with scope: :search, url: giveaways_path, method: :get  do |f| %>
-                <%= f.text_field :giveaway,  value: params[:search] ? params[:search][:giveaway]: nil, class:"input is-medium", placeholder:"Search by name or location..." %>
+                <%= f.text_field :giveaway,  value: params[:search] ? params[:search][:giveaway]: nil, class:"input is-medium", placeholder: true %>
         </div>
         <div class="control">
                 <%= f.button class:"button is-medium is-danger" do %>

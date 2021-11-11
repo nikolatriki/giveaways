@@ -2,6 +2,8 @@ en:
   giveaways:
     index:
       welcome: 'Welcome to giveaways!'
+      p1: "It's an unwritten rule that the receiver organizes the transport of the giveaway"
+      p2: "It shouldn't be a burden to the giver, unless you arrange it differently"
     show:
       contact: 'Contact'
       phone: 'Phone'
@@ -34,6 +36,10 @@ en:
     placeholder:
       comment:
         body: 'Leave a comment...'
+      search:
+        giveaway: 'Search by name or a location...'
+      user:
+        name: 'Username'
     submit:
       comment:
         create: 'Post Comment'
@@ -71,3 +77,26 @@ en:
     sessions:
       signed_in: 'Signed in successfully.'
       signed_out: 'Signed out successfully.'
+
+      new:
+        email: 'Email'
+        password: 'Password'
+        log_in: 'Log In'
+
+    shared:
+      links:
+        log_in: 'Log in'
+        sign_up: 'Sign up'
+        forgot_pass: 'Forgot your password?'
+        didnt_receive_conf: "Didn't receive confirmation instructions?"
+        didnt_receive_unlock: "Didn't receive unlock instructions?"
+        sign_in_with: 'Sign in with'
+
+    registrations:
+      new:
+        username: 'Username'
+        email: 'Email'
+        char: 'characters minimum'
+        password: 'Password'
+        pass_conf: 'Password confirmation'
+        sign_up: 'Sign Up'
