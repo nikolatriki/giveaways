@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment.destroy
 
-    redirect_to @comment.giveaway, notice: 'Deleted comment!'
+    redirect_to @comment.giveaway, alert: 'Deleted comment!'
   end
 
   private
