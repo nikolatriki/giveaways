@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'comments/comment' do # rubocop:disable RSpec/DescribeClass
+RSpec.describe 'comments/comment' do
   let(:user) { create(:user) }
   let(:giveaway) { create(:giveaway, user: user) }
   let(:comment) { create(:comment, giveaway: giveaway) }

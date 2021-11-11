@@ -7,7 +7,7 @@ class GiveawaysController < ApplicationController
   before_action :find_giveaway, only: %i[show edit update destroy]
 
   def index
-    @pagy, @giveaways = pagy(Giveaway.order(created_at: :desc), items: 18)
+    @pagy, @giveaways = pagy(Giveaway.search(params[:search]).order(created_at: :desc), items: 18)
   end
 
   def show
@@ -44,14 +44,14 @@ class GiveawaysController < ApplicationController
   def destroy
     @giveaway.destroy
 
-    redirect_to giveaways_path, notice: 'Deleted Giveaway!'
+    redirect_to giveaways_path, alert: 'Deleted Giveaway!'
   end
 
   private
 
   def giveaway_params
-    params.require(:giveaway).permit(:title, :description, :location,
-                                     pictures_attributes: %i[id title image _destroy])
+    params.require(:giveaway).permit(:title, :description, :location, :search,
+                                      pictures_attributes: %i[id title image _destroy])
     # I found out that it can be written as:
     # params[:giveaway].permit(:title, :description, :location)
     # :giveaway is the key from the params hash created with 'form_with' helper using 'scope:', or 'model:' methods
