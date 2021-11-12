@@ -110,6 +110,16 @@ en:
         update: 'Update'
         cancel: 'Cancel my account'
         unhappy: 'Unhappy?'
+        waiting: 'Currently waiting confirmation for:'
+
+    passwords:
+      new:
+        send: 'Send me reset password instructions'
+      edit:
+        change: 'Change your password'
+        new_pass: 'New password'
+        confirm_new: 'Confirm new password'
+        submit: 'Change my password'
 
   users:
     show:
