@@ -40,7 +40,7 @@ mk:
   helpers:
     placeholder:
       comment:
-        body: 'Оставете коментар...'
+        body: 'Коментар...'
       search:
         giveaway: 'Барај по име или по локација'
       user:
@@ -109,3 +109,18 @@ mk:
         password: 'Лозинка'
         pass_conf: 'Потврда на лозинката'
         sign_up: 'Регистрирај се'
+      edit:
+        edit_user: 'Уреди Kорисник'
+        leave_blank: 'остави празно ако не сакаш да ја промениш лозинката'
+        characters: 'карактери минимум'
+        password_confirmation: 'Потврда на лозинка'
+        current_password: 'Тековна лозинка'
+        ppass: 'потребна е тековната лозинка за да ја потврдиме промената'
+        update: 'Измени'
+        cancel: 'Откажи го профилот'
+        unhappy: 'Не сте задоволни?'
+
+  users:
+    show:
+      edit_user: 'Уреди Kорисник'
+      paragraph_html: '<strong>Дарови од</strong>'
