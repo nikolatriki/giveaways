@@ -6,5 +6,6 @@ Rails.application.routes.draw do
 
   resources :giveaways do
     resources :comments, :pictures
+    resources :claims, only: [:create]
   end
 end
