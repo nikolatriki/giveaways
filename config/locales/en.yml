@@ -4,6 +4,7 @@ en:
       welcome: 'Welcome to giveaways!'
       p1: "It's an unwritten rule that the receiver organizes the transport of the giveaway"
       p2: "It shouldn't be a burden to the giver, unless you arrange it differently"
+      no_giveaways: 'No giveaways found.'
     show:
       contact: 'Contact'
       phone: 'Phone'
@@ -52,6 +53,7 @@ en:
       sign_up: 'Sign Up'
       new_giveaway: 'Create New Giveaway'
       log_out: 'Log Out'
+      home: 'Home'
     footer:
       giveaways_html: '<strong>Giveaways</strong> by ' 
       licence: 'The source code is licensed'
@@ -125,3 +127,8 @@ en:
     show:
       edit_user: 'Edit User'
       paragraph_html: '<strong>Giveaways created by</strong>'
+
+  controllers:
+    giveaways:
+      notice: 'Succesfully added new Giveaway!'
+      alert: 'Deleted Giveaway!'

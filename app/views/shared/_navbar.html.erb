@@ -12,6 +12,12 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
+          <a class="button is-outlined" href="/giveaways">
+            <span class="icon">
+                <i class="fa fa-home"></i>
+            </span>
+            <span><%= t('.home') %></span>
+          </a>
           <% if user_signed_in? %>
             <div class="button is-capitalized">
               <%= link_to current_user.name, user_path(id: current_user.id) %>
