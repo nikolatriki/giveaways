@@ -1,6 +1,11 @@
 <footer class="modal-card-foot" style="justify-content: space-between">
-  <%= link_to 'Back', giveaways_path, class: "button is-light" %>
-
+  <%= link_to 'Back', giveaways_path, class: "button is-outlined is-medium" %>
+  <% if user_signed_in? && current_user != @giveaway.user%>
+      <%= button_to 'Claim', 
+                    giveaway_claims_path(@giveaway), 
+                    data: { confirm: 'The Giver will be notified about your claim, proceed?'},
+                    class: "button is-primary" %>
+  <% end %>
   <% if user_signed_in? && current_user == @giveaway.user%>
     <p>
       <%= link_to edit_giveaway_path(@giveaway) do %>
@@ -17,4 +22,3 @@
     </p>
   <% end %>
 </footer>
- 
