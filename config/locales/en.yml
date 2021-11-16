@@ -21,6 +21,9 @@ en:
     footer:
       back: 'Back'
       confirm: 'Are you sure you want to delete this giveaway?'
+      claim: 'Claim'
+      claimed: 'Claimed'
+      confirm_claim: 'The Giver will be notified about your claim, proceed?'
 
   comments:
     form:
@@ -127,6 +130,7 @@ en:
     show:
       edit_user: 'Edit User'
       paragraph_html: '<strong>Giveaways created by</strong>'
+      paragraph2_html: '<strong>Claimed Giveaways</strong> '
 
   controllers:
     giveaways:

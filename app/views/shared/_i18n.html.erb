@@ -1,4 +1,7 @@
 <ul class="has-text-right">
-  <li><%= link_to 'македонски', root_path(locale: :mk), class:'tag is-white' %></li>
-  <li><%= link_to 'English', root_path(locale: :en), class:'tag is-white' %></li>
+  <% if I18n.locale == :en %>
+    <li><%= link_to 'македонски', url_for(locale: :mk), class:'tag is-white' %></li>
+  <% else %>
+    <li><%= link_to 'English', url_for(locale: :en), class:'tag is-white' %></li>
+  <% end %>
 </ul>

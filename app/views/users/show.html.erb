@@ -27,7 +27,7 @@
     <article class="media">
       <div class="media-content">
         <div class="content">
-          <p>Giveaways claimed by <%= @user.name.capitalize %>:<br>
+          <p><%= t('.paragraph2_html') %>:<br>
             <ul>
               <% @user.claims.each do |c|%>
                 <li><%= link_to c.giveaway.title, giveaway_path(c.giveaway) %></li>

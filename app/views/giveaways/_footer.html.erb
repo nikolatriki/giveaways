@@ -2,11 +2,11 @@
   <%= link_to t('.back'), giveaways_path, class: "button is-outlined" %>
   <% if user_signed_in? && current_user != @giveaway.user %>
     <% if @giveaway.claims.find_by(user_id: current_user.id) %>
-      <button class="button is-primary" title="Disabled button" disabled>Claimed</button>
+      <button class="button is-primary" title="Disabled button" disabled><%= t('.claimed') %></button>
     <% else %>
-      <%= button_to 'Claim', 
+      <%= button_to t('.claim'), 
                     giveaway_claims_path(@giveaway), 
-                    data: { confirm: 'The Giver will be notified about your claim, proceed?'},
+                    data: { confirm: t('.confirm_claim')},
                     class: "button is-primary" %>
     <% end %>
   <% end %>

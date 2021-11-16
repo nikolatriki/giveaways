@@ -26,6 +26,9 @@ mk:
     footer:
       back: 'Назад'
       confirm: 'Дали сте сигурни дека сакате да го избришете овој дар?'
+      claim: 'Побарај'
+      claimed: 'Побаран'
+      confirm_claim: 'Дарителот ќе биде известен, дали сакате да продолжите?'
 
   comments:
     form:
@@ -142,7 +145,8 @@ mk:
   users:
     show:
       edit_user: 'Уреди Kорисник'
-      paragraph_html: '<strong>Дарови од</strong>'
+      paragraph_html: '<strong>Дарови креирани од</strong>'
+      paragraph2_html: '<strong>Побарани дарови</strong>'
 
   controllers:
     giveaways:
