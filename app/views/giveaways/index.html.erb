@@ -9,7 +9,7 @@
 
     <div id="hero-input-group" class="field <%= @pagy.vars[:page].to_i < 2 ? 'has-addons has-addons-centered' : 'has-addons' %>" style="margin-bottom: 100px">
         <div class="control">
-            <%= form_with scope: :search, url: giveaways_path, method: :get  do |f| %>
+            <%= form_with scope: :search, url_for: giveaways_path, method: :get  do |f| %>
                 <%= f.text_field :giveaway,  value: params[:search] ? params[:search][:giveaway]: nil, class:"input is-medium", placeholder: true %>
         </div>
         <div class="control">
@@ -19,7 +19,7 @@
             <% end %>
         </div>
     </div>
-    <% if @giveaways.search(params[:search]).empty?%>
+    <% if @giveaways.empty?%>
         <p> <%= t('.no_giveaways') %> </p>
     <%else %>
         <div class="columns is-mobile is-multiline is-left">
