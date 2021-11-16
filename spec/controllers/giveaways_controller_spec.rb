@@ -39,6 +39,14 @@ RSpec.describe GiveawaysController, type: :controller do
                                      pictures_attributes: [title: 'title piture'] } }
         end.to change(Giveaway, :count).by(1)
       end
+
+      it 'translates the notice flash message' do
+        post :create,
+               params: { user_id: user.id,
+                         giveaway: { title: 'title giveaway', description: 'description', location: 'Somewhere',
+                                     pictures_attributes: [title: 'title piture'] } }
+        expect(flash[:notice]).to match(I18n.t('controllers.giveaways.notice'))
+      end
     end
 
     context 'with invalid attributes' do
@@ -82,6 +90,11 @@ RSpec.describe GiveawaysController, type: :controller do
       expect do
         delete :destroy, params: { id: giveaway.id }
       end.to change(Giveaway, :count).by(-1)
+    end
+    
+    it 'translates the flash alert' do
+      delete :destroy, params: { id: giveaway.id }
+      expect(flash[:alert]).to match(I18n.t('controllers.giveaways.alert'))
     end
   end
 end
