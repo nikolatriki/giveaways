@@ -1,5 +1,5 @@
 <footer class="modal-card-foot" style="justify-content: space-between">
-  <%= link_to 'Back', giveaways_path, class: "button is-outlined is-medium" %>
+  <%= link_to 'Back', giveaways_path, class: "button is-outlined" %>
   <% if user_signed_in? && current_user != @giveaway.user %>
     <% if @giveaway.claims.find_by(user_id: current_user.id) %>
       <button class="button is-primary" title="Disabled button" disabled>Claimed</button>
