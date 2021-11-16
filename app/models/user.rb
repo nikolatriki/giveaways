@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   has_many :giveaways, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :claims, dependent: :destroy
 
   validates :name, presence: true
   validates :email, email: { mode: :strict }
