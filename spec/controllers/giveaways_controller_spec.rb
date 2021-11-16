@@ -34,9 +34,9 @@ RSpec.describe GiveawaysController, type: :controller do
       it 'creates new giveaway' do
         expect do
           post :create,
-                params: { user_id: user.id,
-                          giveaway: { title: 'title giveaway', description: 'description', location: 'Somewhere',
-                                      pictures_attributes: [title: 'title piture'] } }
+               params: { user_id: user.id,
+                         giveaway: { title: 'title giveaway', description: 'description', location: 'Somewhere',
+                                     pictures_attributes: [title: 'title piture'] } }
         end.to change(Giveaway, :count).by(1)
       end
     end
@@ -45,7 +45,7 @@ RSpec.describe GiveawaysController, type: :controller do
       it 'doesnt create new giveaway' do
         expect do
           post :create,
-                params: { giveaway: { title: '', description: '' } }
+               params: { giveaway: { title: '', description: '' } }
         end.to change(Giveaway, :count).by(0)
       end
     end

@@ -51,7 +51,7 @@ class GiveawaysController < ApplicationController
 
   def giveaway_params
     params.require(:giveaway).permit(:title, :description, :location, :search,
-                                      pictures_attributes: %i[id title image _destroy])
+                                     pictures_attributes: %i[id title image _destroy])
     # I found out that it can be written as:
     # params[:giveaway].permit(:title, :description, :location)
     # :giveaway is the key from the params hash created with 'form_with' helper using 'scope:', or 'model:' methods
