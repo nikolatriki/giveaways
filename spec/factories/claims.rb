@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :claim do
-    giveaway { nil }
-    user { nil }
+    association :giveaway, factory: :giveaway
+    association :user, factory: :user
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ClaimsController < ApplicationController
   before_action :set_giveaway
 

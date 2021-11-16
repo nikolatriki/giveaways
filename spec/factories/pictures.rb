@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :picture do
-    giveaway { nil }
+    association :giveaway, factory: :giveaway
   end
 end
