@@ -13,13 +13,13 @@
 
         <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     </head>
-    
+    <%= render 'shared/i18n' %>
     <body class="">
         <section class="section is-paddingless columns" id="base_body">
             <!-- sidebar -->
             <div class="column is-one-fifth has-background-white" id="sidebar">
             <h1 class="title is-6 is-marginless has-background-light has-text-dark">
-                Giveaways Dashbard
+                Giveaways
             </h1>
             <div class="media user">
                 <div class="media-left">
@@ -80,11 +80,6 @@
             <div class="column is-four-fifth is-paddingless" id="page">
             <!-- page-top -->
             <nav class="navbar is-light" role="navigation" aria-label="Navigation" id="header-nav">
-            <div class="navbar-brand">
-                <a href="./index.html" class="navbar-item">
-                    <img src="./images/bulma-logo.png" alt="">
-                </a>
-            </div>
             <div class="navbar-menu">
                 <div class="navbar-start">
                     <a href="#" class="navbar-item">Dashboard</a>
@@ -101,8 +96,8 @@
                 <div class="navbar-end">
                     <div class="navbar-item">
                         <div class="buttons">
-                            <a href="#" class="button is-dark">Visit Website</a>
-                            <a href="#" class="button is-danger">Logout</a>
+                            <%= link_to 'Visit Website', root_path, class:"button is-dark"%>
+                            <%= link_to t('.log_out'), destroy_user_session_path, method: :delete, class: "button is-danger is-outlined" %>
                         </div>
                         
                     </div>
@@ -110,7 +105,12 @@
             </div>
             </nav>
 
+            <section>
+                <%= yield %>
+            </section>
+
             <section class="section" id="content">
+            <%= render 'shared/flash' %>
             <div class="container">
             <h3 class="title is-5">Statistics</h3>
             <div class="columns">
@@ -291,38 +291,8 @@
             <!-- footer -->
             </div>
             </section>
-            <nav class="navbar is-light is-fixed-bottom" role="navigation" aria-label="Navigation" id="footer">
-            <div class="navbar-brand">
-                <a href="./index.html" class="navbar-item">
-                    <img src="./images/bulma-logo.png" alt="">
-                </a>
-            </div>
-            <div class="navbar-menu">
-                <div class="navbar-start">
-                    <div class="navbar-item">
-                        
-                        
-                    </div>
-                </div>
-                <div class="navbar-end">
-                    <a href="#" class="navbar-item">Dashboard</a>
-                    <a href="#" class="navbar-item">Settings</a>
-                    <div class="navbar-item has-dropdown is-hoverable">
-                        <a href="#" class="navbar-link">Account</a>
-                        <div class="navbar-dropdown">
-                            <a href="#" class="navbar-item">My Profile</a>
-                            <a href="#" class="navbar-item">Credintials</a>
-                            <a href="#" class="navbar-item">Logout</a>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-            </nav>
             </div>
         </section>
-
-        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-        <script defer src="./javascript/main.min.js"></script>
+        <%= render 'shared/footer' %>
     </body>
 </html>
