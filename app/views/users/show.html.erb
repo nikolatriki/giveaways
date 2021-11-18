@@ -5,39 +5,29 @@
         <div class="content">
           <h5><%= @user.name.capitalize %></h5>
           <% if user_signed_in? && @user == current_user %>
-            <p class='has-text-justified'><%= link_to 'Edit account', edit_user_registration_path %></p>
+            <p class='has-text-justified'><%= link_to t('.edit_user'), edit_user_registration_path %></p>
           <% end %>
         </div>
           </br>
         <i><small>email: <%= @user.email %></small></i></p>
       </div>
+    </article><br>
+    <p><%= t('.paragraph_html') %> <%= @user.name.capitalize %>:<br>
+      <ul>
+        <% @user.giveaways.each do |g|%>
+          <li><%= link_to g.title, giveaway_path(g) %></li>
+        <% end %>
+      </ul>
+    </p>
     </article>
   </div>
 </div><br>
-
 <div class="container">
   <div class="column is-6 is-offset-3"><div class="box has-background-white-ter">
     <article class="media">
       <div class="media-content">
         <div class="content">
-          <p>Giveaways created by <%= @user.name.capitalize %>:<br>
-            <ul>
-              <% @user.giveaways.each do |g|%>
-                <li><%= link_to g.title, giveaway_path(g) %></li>
-              <% end %>
-            </ul>
-          </p>
-        </div>
-      </div>
-    </article>
-  </div>
-</div>
-<div class="container">
-  <div class="column is-6 is-offset-3"><div class="box has-background-white-ter">
-    <article class="media">
-      <div class="media-content">
-        <div class="content">
-          <p>Giveaways claimed by <%= @user.name.capitalize %>:<br>
+          <p><%= t('.paragraph2_html') %>:<br>
             <ul>
               <% @user.claims.each do |c|%>
                 <li><%= link_to c.giveaway.title, giveaway_path(c.giveaway) %></li>

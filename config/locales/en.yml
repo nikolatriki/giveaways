@@ -1,33 +1,138 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  giveaways:
+    index:
+      welcome: 'Welcome to giveaways!'
+      p1: "It's an unwritten rule that the receiver organizes the transport of the giveaway"
+      p2: "It shouldn't be a burden to the giver, unless you arrange it differently"
+      no_giveaways: 'No giveaways found.'
+    show:
+      contact: 'Contact'
+      phone: 'Phone'
+    form:
+      pictures: 'Pictures'
+      add_picture: 'Add picture'
+      cancel: 'Cancel'
+    new:
+      new_giveaway: 'New Giveaway'
+    edit:
+      edit_giveaway: 'Edit Giveaway'
+    picture_fields:
+      remove: 'Remove'
+    footer:
+      back: 'Back'
+      confirm: 'Are you sure you want to delete this giveaway?'
+      claim: 'Claim'
+      claimed: 'Claimed'
+      confirm_claim: 'The Giver will be notified about your claim, proceed?'
+
+  comments:
+    form:
+      cancel: 'Cancel'
+    comment:
+      edited: '(edited)'
+      confirm: 'Are you sure you want to delete this comment?'
+
+  pictures:
+    picture:
+      delete: 'Delete'
+      
+  helpers:
+    placeholder:
+      comment:
+        body: 'Leave a comment...'
+      search:
+        giveaway: 'Search by name or a location...'
+      user:
+        name: 'Username'
+    submit:
+      comment:
+        create: 'Post Comment'
+      giveaway:
+        create: 'Create Giveaway'
+        
+  shared:
+    navbar:
+      log_in: 'Log In'
+      sign_up: 'Sign Up'
+      new_giveaway: 'Create New Giveaway'
+      log_out: 'Log Out'
+      home: 'Home'
+    footer:
+      giveaways_html: '<strong>Giveaways</strong> by ' 
+      licence: 'The source code is licensed'
+
+  activerecord:
+    models: 
+      user: 'User'
+    attributes:
+      user:
+        name: 'Name'
+        email: 'Email'
+        password: 'Password'
+        password_confirmation: 'Password Confirmation'
+  activerecord: 
+    models:
+      giveaway: 'Giveaway'
+    attributes:
+      giveaway:
+        title: 'Title'
+        description: 'Description'
+        location: 'Location'
+  devise:
+    sessions:
+      signed_in: 'Signed in successfully.'
+      signed_out: 'Signed out successfully.'
+
+      new:
+        email: 'Email'
+        password: 'Password'
+        log_in: 'Log In'
+
+    shared:
+      links:
+        log_in: 'Log in'
+        sign_up: 'Sign up'
+        forgot_pass: 'Forgot your password?'
+        didnt_receive_conf: "Didn't receive confirmation instructions?"
+        didnt_receive_unlock: "Didn't receive unlock instructions?"
+        sign_in_with: 'Sign in with'
+
+    registrations:
+      new:
+        username: 'Username'
+        email: 'Email'
+        char: 'characters minimum'
+        password: 'Password'
+        pass_conf: 'Password confirmation'
+        sign_up: 'Sign Up'
+      edit:
+        edit_user: 'Edit User'
+        leave_blank: "leave blank if you don't want to change it"
+        characters: 'characters minimum'
+        password_confirmation: 'Password Confirmation'
+        current_password: 'Current password'
+        ppass: 'we need your current password to confirm your changes'
+        update: 'Update'
+        cancel: 'Cancel my account'
+        unhappy: 'Unhappy?'
+        waiting: 'Currently waiting confirmation for:'
+
+    passwords:
+      new:
+        send: 'Send me reset password instructions'
+      edit:
+        change: 'Change your password'
+        new_pass: 'New password'
+        confirm_new: 'Confirm new password'
+        submit: 'Change my password'
+
+  users:
+    show:
+      edit_user: 'Edit User'
+      paragraph_html: '<strong>Giveaways created by</strong>'
+      paragraph2_html: '<strong>Claimed Giveaways</strong> '
+
+  controllers:
+    giveaways:
+      notice: 'Succesfully added new Giveaway!'
+      alert: 'Deleted Giveaway!'

@@ -40,10 +40,10 @@ RSpec.describe 'users/show.html.erb', type: :view do
   context 'with logged in user' do
     before { sign_in user }
 
-    it 'displays edit account link' do
+    it 'displays edit user link' do
       render
 
-      expect(rendered).to include('Edit account')
+      expect(rendered).to include(t('users.show.edit_user'))
     end
   end
 end

@@ -4,17 +4,17 @@
       <%= form_with model: [@giveaway, @comment], local: true do |f| %>
         <div class="field">
           <div class="container control">
-            <%= f.text_area :body, required: true, class:"textarea", placeholder:"Leave a comment..." %>
+            <%= f.text_area :body, required: true, class:"textarea", placeholder: true %>
           </div>
         </div>
 
         <div class="field is-grouped">
           <div class="control">
-            <%=f.submit 'Post comment', class:"button is-link"  %>
+            <%=f.submit class:"button is-link"  %>
           </div>
           <% if local_assigns[:edit] %>
             <div class="control">
-              <%= link_to 'Cancel', giveaway_path(@giveaway), class: "button is-link is-light" %>
+              <%= link_to t('.cancel'), giveaway_path(@giveaway), class: "button is-link is-light" %>
             </div>
           <% end %>
         </div>

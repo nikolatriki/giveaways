@@ -71,3 +71,4 @@ gem "aws-sdk-s3", require: false
 gem 'active_storage_validations'
 gem 'devise'
 gem 'email_validator'
+gem 'rails-i18n'

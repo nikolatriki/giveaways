@@ -185,8 +185,8 @@ require 'pagy/extras/bulma'
 # load the "en" built-in locale, a custom "es" locale,
 # and a totally custom locale complete with a custom :pluralize proc:
 # (the first passed :locale will be used also as the default_locale)
-# Pagy::I18n.load({locale: 'en'},
-#                 {locale: 'es', filepath: 'path/to/pagy-es.yml'},
+Pagy::I18n.load({locale: 'en'},
+                {locale: 'mk', filepath: 'config/locales/mk.yml'})
 #                 {locale: 'xyz',  # not built-in
 #                  filepath: 'path/to/pagy-xyz.yml',
 #                  pluralize: lambda{ |count| ... } )

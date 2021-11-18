@@ -1,0 +1,154 @@
+mk:
+  pagy:
+    nav:
+      next: 'Следна'
+      prev: 'Претх.' 
+
+  giveaways:
+    index:
+      welcome: 'Добредојдовте!'
+      p1: 'Непишано правило е дека транспортот е на товар на примачот на дарот.'
+      p2: 'Тоа не треба да биде обврска на дарителот, освен ако не се договорите меѓусебно поинаку.'
+      no_giveaways: 'Нема пронајдено дарови.'
+    show:
+      contact: 'Контакт'
+      phone: 'Телефон'
+    form:
+      pictures: 'Слики'
+      add_picture: 'Додај слика'
+      cancel: 'Откажи'
+    new:
+      new_giveaway: 'Нов Дар'
+    edit:
+      edit_giveaway: 'Измени Дар'
+    picture_fields:
+      remove: 'Отстрани'
+    footer:
+      back: 'Назад'
+      confirm: 'Дали сте сигурни дека сакате да го избришете овој дар?'
+      claim: 'Побарај'
+      claimed: 'Побаран'
+      confirm_claim: 'Дарителот ќе биде известен, дали сакате да продолжите?'
+
+  comments:
+    form:
+      cancel: 'Назад'
+    comment:
+      edited: '(изменет)'
+      confirm: 'Дали сте сигурни дека сакате да го избришете овој коментар?'
+
+  pictures:
+    picture:
+      delete: 'Избриши'
+
+  helpers:
+    placeholder:
+      comment:
+        body: 'Коментар...'
+      search:
+        giveaway: 'Барај по име или по локација'
+      user:
+        name: 'Корисничко име'
+    submit:
+      comment:
+        create: 'Објави'
+        update: 'Измени Коментар'
+      giveaway:
+        create: 'Креирај Дар'
+        update: 'Измени Дар'
+
+  shared:
+    navbar:
+      log_in: 'Најави се'
+      sign_up: 'Регистрирај се'
+      new_giveaway: 'Креирај Нов Дар'
+      log_out: 'Одјави се'
+      home: 'Дома'
+
+    footer:
+      giveaways_html: '<strong>Giveaways</strong> изработено од '
+      licence: 'Лиценциран код од '
+
+  activerecord:
+    models: 
+      user: 'Корисник'
+    attributes:
+      user:
+        name: 'Име'
+        email: 'Email'
+        password: 'Лозинка'
+        password_confirmation: 'Потврда на лозинка'
+  activerecord:
+    models:
+      giveaway: 'Дар'
+    attributes:
+      giveaway:
+        title: 'Наслов'
+        description: 'Опис'
+        location: 'Локација'
+
+  devise:
+    failure: 
+      invalid: 'Неточна електронска пошта или лозинка'
+      already_authenticated: 'Веќе сте најавени.'
+      unauthenticated: 'Треба да се најавите или да се регистрирате пред да продолжите.'
+  
+    sessions:
+      signed_in: 'Успешно се најавивте.'   
+      signed_out: 'Успешно се одјавивте.'  
+
+      new:
+        email: 'Електронска пошта'
+        password: 'Лозинка'
+        log_in: 'Најави се'
+
+    shared:
+      links:
+        log_in: 'Најави се'
+        sign_up: 'Регистрирај се'
+        forgot_pass: 'Ја заборави својата лозинка?'
+        didnt_receive_conf: 'Не ги доби инструкциите за потврда?'
+        didnt_receive_unlock: 'Не ги доби инструкциите за отклучување?'
+        sign_in_with: 'Најава со'
+
+    registrations:
+      new:
+        username: 'Корисничко име'
+        email: 'Електронска пошта'
+        char: 'карактери минимум'
+        password: 'Лозинка'
+        pass_conf: 'Потврда на лозинката'
+        sign_up: 'Регистрирај се'
+      edit:
+        edit_user: 'Уреди Kорисник'
+        leave_blank: 'остави празно ако не сакаш да ја промениш лозинката'
+        characters: 'карактери минимум'
+        password_confirmation: 'Потврда на лозинка'
+        current_password: 'Тековна лозинка'
+        ppass: 'потребна е тековната лозинка за да ја потврдиме промената'
+        update: 'Измени'
+        cancel: 'Откажи го профилот'
+        unhappy: 'Не сте задоволни?'
+        waiting: 'Се чека потврда за:'
+      signed_up: 'Добредојдовте! Успешно се регистриравте.'
+      updated: 'Успешна промена на профилот'
+
+    passwords:
+      new:
+        send: 'Испратете ми инструкции'
+      edit:
+        change: 'Промена на лозинка'
+        new_pass: 'Нова лозинка'
+        confirm_new: 'Потврдете нова лозинка'
+        submit: 'Променете ја мојата лозинка'
+      send_instructions: 'Ќе добиете електронска порака со инструкции како да ја промените лозинката за неколку минути.'
+  users:
+    show:
+      edit_user: 'Уреди Kорисник'
+      paragraph_html: '<strong>Дарови креирани од</strong>'
+      paragraph2_html: '<strong>Побарани дарови</strong>'
+
+  controllers:
+    giveaways:
+      notice: 'Успешно креиравте нов дар!'
+      alert: 'ИЗбришан дар!'

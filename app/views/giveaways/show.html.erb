@@ -4,11 +4,12 @@
       <div class="card">
         <div class="card-content">
           <div class="content">
-            <small><%= @giveaway[:created_at].strftime("%m/%d/%Y") %></small><br>
+            <small><%= l(@giveaway[:created_at], format: :short) %></small><br>
             <p><code class="html"><%= @giveaway.location %></code></p>
             <h2><%= @giveaway.title %></h2>
             <p><%= @giveaway.description %></p>
-            <small><p>Contact <%= link_to @giveaway.user.name.capitalize, user_path(id: @giveaway.user_id) %> Phone: 070-244-122</p></small><br>
+            <small><p><%= t('.contact') %>: <%= link_to @giveaway.user.name.capitalize, user_path(id: @giveaway.user_id) %></br> 
+            <%= t('.phone')%>: 070-244-122</p></small><br>
             <%= render 'pictures/picture'%>
             <%= render 'footer' %>
           </div>
