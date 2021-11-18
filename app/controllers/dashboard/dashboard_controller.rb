@@ -2,7 +2,7 @@
 
 module Dashboard
   class DashboardController < ApplicationController
-    layout 'dashboard/dashboard'
+    layout 'dashboard'
     before_action :authenticate_user!
   end
 end

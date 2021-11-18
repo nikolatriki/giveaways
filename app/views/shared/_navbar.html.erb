@@ -18,6 +18,9 @@
             </span>
           <span><%= t('.home') %></span>
           <% end %>
+          <div class="button is-capitalized">
+            <%= link_to 'Dashboard', dashboard_root_path %>
+          </div>
           <% if user_signed_in? %>
             <div class="button is-capitalized">
               <%= link_to current_user.name, user_path(id: current_user.id) %>
