@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="columns is-multiline">
+    <div class="column is-6 is-offset-3"><div class="box has-background-white-ter">
+      <div class="card">
+        <div class="card-content">
+          <div class="content">
+            <small><%= l(@giveaway[:created_at], format: :short) %></small><br>
+            <p><code class="html"><%= @giveaway.location %></code></p>
+            <h2><%= @giveaway.title %></h2>
+            <p><%= @giveaway.description %></p>
+            <small><p><%= t('.contact') %>: <%= link_to @giveaway.user.name.capitalize, user_path(id: @giveaway.user_id) %></br> 
+            <%= t('.phone')%>: 070-244-122</p></small><br>
+            <%= render 'pictures/picture'%>
+            <%= render 'footer' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render 'comments/form' if user_signed_in? %>
+
+<% @comments.each do |comment| %>
+  <%= render comment %>
+<% end %>
+

@@ -5,7 +5,7 @@
         <div class="content">
           <h5><%= @user.name.capitalize %></h5>
           <% if user_signed_in? && @user == current_user %>
-            <p class='has-text-justified'><%= link_to t('.edit_user'), edit_user_registration_path %></p>
+            <p class='has-text-justified'><%= link_to t('.edit_account'), edit_user_registration_path %></p>
           <% end %>
         </div>
           </br>

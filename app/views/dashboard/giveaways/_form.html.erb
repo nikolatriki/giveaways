@@ -19,7 +19,7 @@
       </div>
     <% end %>
     <div class="column is-6 is-offset-3">
-      <%= form_with model: @giveaway, local: true do |f| %>
+      <%= form_with model: [:dashboard, @giveaway], local: true do |f| %>
         <div class="field">
           <%= f.label :title, class: "label"%>
             <div class="control">

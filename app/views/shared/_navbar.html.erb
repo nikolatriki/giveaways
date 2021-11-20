@@ -25,7 +25,6 @@
             <div class="button is-capitalized">
               <%= link_to current_user.name, user_path(id: current_user.id) %>
             </div>
-            <%= link_to t('.new_giveaway'), new_giveaway_path, class: "button is-danger is-outlined" %>
             <%= link_to t('.log_out'), destroy_user_session_path, method: :delete, class: "button is-danger is-outlined" %>
           <% else %>
             <%= link_to t('.log_in'), new_user_session_path, class: "button is-danger is-outlined" %>

@@ -61,7 +61,7 @@ mk:
     navbar:
       log_in: 'Најави се'
       sign_up: 'Регистрирај се'
-      new_giveaway: 'Креирај Нов Дар'
+      new_giveaway: 'Нов Дар'
       log_out: 'Одјави се'
       home: 'Дома'
 
@@ -87,12 +87,18 @@ mk:
         description: 'Опис'
         location: 'Локација'
 
+  errors:
+    messages:
+      not_saved: 
+        one: 'Една грешка спречи %{resource} да биде зачуван:'
+        other: "%{count} грешки спречија %{resource} да биде зачуван:" 
+
   devise:
     failure: 
       invalid: 'Неточна електронска пошта или лозинка'
       already_authenticated: 'Веќе сте најавени.'
       unauthenticated: 'Треба да се најавите или да се регистрирате пред да продолжите.'
-  
+
     sessions:
       signed_in: 'Успешно се најавивте.'   
       signed_out: 'Успешно се одјавивте.'  
@@ -120,18 +126,19 @@ mk:
         pass_conf: 'Потврда на лозинката'
         sign_up: 'Регистрирај се'
       edit:
-        edit_user: 'Уреди Kорисник'
+        edit_account: 'Уреди Профил'
         leave_blank: 'остави празно ако не сакаш да ја промениш лозинката'
         characters: 'карактери минимум'
         password_confirmation: 'Потврда на лозинка'
         current_password: 'Тековна лозинка'
         ppass: 'потребна е тековната лозинка за да ја потврдиме промената'
         update: 'Измени'
-        cancel: 'Откажи го профилот'
+        cancel: 'Избриши го профилот'
         unhappy: 'Не сте задоволни?'
         waiting: 'Се чека потврда за:'
       signed_up: 'Добредојдовте! Успешно се регистриравте.'
       updated: 'Успешна промена на профилот'
+      destroyed: Догледање! Вашиот профил беше успешно избришан.
 
     passwords:
       new:
@@ -144,7 +151,7 @@ mk:
       send_instructions: 'Ќе добиете електронска порака со инструкции како да ја промените лозинката за неколку минути.'
   users:
     show:
-      edit_user: 'Уреди Kорисник'
+      edit_account: 'Уреди Профил'
       paragraph_html: '<strong>Дарови креирани од</strong>'
       paragraph2_html: '<strong>Побарани дарови</strong>'
 

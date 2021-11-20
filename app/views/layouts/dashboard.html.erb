@@ -19,7 +19,7 @@
             <!-- sidebar -->
             <div class="column is-one-fifth has-background-white" id="sidebar">
             <h1 class="title is-6 is-marginless has-background-light has-text-dark">
-                Giveaways
+                Dashboard
             </h1>
             <div class="media user">
                 <div class="media-left">
@@ -40,18 +40,22 @@
             <aside class="menu">
                 <p class="menu-label">General</p>
                 <ul class="menu-list">
-                    <li><a href="./index.html" class="is-active">
+                    <li>
+                        <%= link_to dashboard_root_path, class:"is-active" do%>
                         <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
                         Dashboard
+                        <% end %>
+                    </li>
+                    <li>
+                        <%= link_to new_dashboard_giveaway_path do%>
+                        <span class="icon"><i class="fas fa-file-alt"></i></span><%= t('shared.navbar.new_giveaway') %>
+                        <% end %>
                     </a></li>
-                    <li><a href="./blank.html">
-                        <span class="icon"><i class="fas fa-file-alt"></i></span>
-                        Blank Page
-                    </a></li>
-                    <li><a href="./tables.html">
-                        <span class="icon"><i class="fas fa-table"></i></span>
-                        Tables
-                    </a></li>
+                    <li>
+                        <%= link_to edit_user_registration_path do %>
+                        <span class="icon"><i class="fas fa-table"></i></span> <%= t('.edit_account')%> 
+                        <% end %>
+                    </li>
                 </ul>
                 <p class="menu-label">Content</p>
                 <ul class="menu-list">
@@ -78,18 +82,17 @@
             </aside>
             </div>
             <div class="column is-four-fifth is-paddingless" id="page">
+            
             <!-- page-top -->
             <nav class="navbar is-light" role="navigation" aria-label="Navigation" id="header-nav">
             <div class="navbar-menu">
                 <div class="navbar-start">
-                    <a href="#" class="navbar-item">Dashboard</a>
-                    <a href="#" class="navbar-item">Settings</a>
+                    
                     <div class="navbar-item has-dropdown is-hoverable">
                         <a href="#" class="navbar-link">Account</a>
                         <div class="navbar-dropdown">
-                            <a href="#" class="navbar-item">My Profile</a>
-                            <a href="#" class="navbar-item">Credintials</a>
-                            <a href="#" class="navbar-item">Logout</a>
+                            <%= link_to t('devise.registrations.edit.edit_account'), edit_user_registration_path, class:"navbar-item" %>
+                            <%= link_to t('shared.navbar.log_out'), destroy_user_session_path, method: :delete, class: "navbar-item" %>
                         </div>
                     </div>
                 </div>
@@ -97,197 +100,17 @@
                     <div class="navbar-item">
                         <div class="buttons">
                             <%= link_to 'Visit Website', root_path, class:"button is-dark"%>
-                            <%= link_to t('.log_out'), destroy_user_session_path, method: :delete, class: "button is-danger is-outlined" %>
+                            <%= link_to t('shared.navbar.log_out'), destroy_user_session_path, method: :delete, class: "button is-danger" %>
                         </div>
                         
                     </div>
                 </div>
             </div>
             </nav>
-
+            
             <section>
                 <%= yield %>
             </section>
-
-            <section class="section" id="content">
-            <%= render 'shared/flash' %>
-            <div class="container">
-            <h3 class="title is-5">Statistics</h3>
-            <div class="columns">
-                <div class="column">
-                    <div class="box statistic">
-                        <div class="media ">
-                            <div class="media-left image is-48x48">
-                                    <h3 class="icon title is-2 has-text-primary is-block"><i class="fas fa-folder-plus"></i></h3>
-                            </div>
-                            <div class="media-content ">
-                                <h4 class="title is-4 ">36</h4>
-                                <p class="subtitle is-6">Categories</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="box statistic">
-                        <div class="media ">
-                            <div class="media-left image is-48x48">
-                                <h3 class="icon title is-2 has-text-link is-block"><i class="fas fa-file-alt"></i></h3>
-                            </div>
-                            <div class="media-content ">
-                                <h4 class="title is-4 ">112</h4>
-                                <p class="subtitle is-6">Pages</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="box statistic">
-                        <div class="media ">
-                            <div class="media-left image is-48x48">
-                                    <h3 class="icon title is-2 has-text-dark is-block"><i class="fas fa-paste"></i></h3>
-                            </div>
-                            <div class="media-content ">
-                                <h4 class="title is-4 ">1,022</h4>
-                                <p class="subtitle is-6">Published Posts</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="box statistic">
-                        <div class="media ">
-                            <div class="media-left image is-48x48">
-                                    <h3 class="icon title is-2 has-text-danger is-block"><i class="fas fa-user-friends"></i></h3>
-                            </div>
-                            <div class="media-content ">
-                                <h4 class="title is-4 ">456</h4>
-                                <p class="subtitle is-6">Active Users</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <h3 class="title is-5">Panels</h3>
-            <div class="columns">
-                <div class="column">
-                    <div class="panel">
-                        <p class="panel-heading">Create Quick Post</p>
-                        <div class="panel-block">
-                            <form action="" class="is-fullwidth">
-                                <div class="field">
-                                    <label for="" class="label">Title</label>
-                                    <div class="control">
-                                        <input type="text" name="" id="" class="input">
-                                    </div>
-                                </div>
-                                <div class="field">
-                                    <label for="" class="label">Category</label>
-                                    <div class="select is-fullwidth">
-                                        <select name="">
-                                            <option value="">Uncategorized</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="field">
-                                    <label for="" class="label">Content</label>
-                                    <div class="control">
-                                        <textarea type="text" name="" id="" class="textarea" rows="3"></textarea>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="panel">
-                        <p class="panel-heading">Server Status</p>
-                        <div class="panel-block">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quam eos reprehenderit quos, ipsam magni. Dignissimos similique obcaecati quas repellat libero facere.</p>
-                        </div>
-                    </div>
-                    <div class="panel">
-                        <p class="panel-heading">Adminstration</p>
-                        <div class="panel-block">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quam eos reprehenderit quos, ipsam magni.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <h3 class="title is-5">Table without Panel</h3>
-            <div class="container">
-                <div class="columns">
-                    <div class="column">
-                        <table class="table is-striped is-bordered is-fullwidth">
-                            <thead>
-                                <tr>
-                                    <th>Id</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Role</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>
-                                        <div class="user-media">
-                                            <img src="./images/user-image.jpg" alt="">
-                                            <div class="info">
-                                                <p class="title">Sam ZCoder</p>
-                                                <p class="subtitle">Administrator</p>
-                                            </div>
-                                        </div>                         
-                                    </td>
-                                    <td>coder.sam@outlook.com</td>
-                                    <td>Administrator</td>
-                                </tr>
-                                <tr class="is-selected">
-                                    <td>2</td>
-                                    <td>
-                                        <div class="user-media">
-                                            <img src="./images/user-image.jpg" alt="">
-                                            <div class="info">
-                                                <p class="title">Sarah Beachoup</p>
-                                                <p class="subtitle">Moderator</p>
-                                            </div>
-                                        </div>  
-                                    </td>
-                                    <td>sarah.beachoup@gmail.com</td>
-                                    <td>Moderator</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>
-                                        <div class="user-media">
-                                            <img src="./images/user-image.jpg" alt="">
-                                            <div class="info">
-                                                <p class="title">John Doe</p>
-                                                <p class="subtitle">Author</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>john.doe@outlook.com</td>
-                                    <td>Author</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>
-                                        <div class="user-media">
-                                            <img src="./images/user-image.jpg" alt="">
-                                            <div class="info">
-                                                <p class="title">John Doe</p>
-                                                <p class="subtitle">User</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>coder.sam@outlook.com</td>
-                                    <td>User</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
             <!-- footer -->
             </div>
             </section>
