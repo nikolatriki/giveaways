@@ -65,6 +65,7 @@ en:
   layouts:
     dashboard:
       visit_web: 'Visit Website'
+      my_giveaways: 'My giveaways'
 
   activerecord:
     models: 

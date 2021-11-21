@@ -59,9 +59,11 @@
                 </ul>
                 <p class="menu-label">Content</p>
                 <ul class="menu-list">
-                    <li><a href="#">
-                        <span class="icon"><i class="fas fa-file-alt"></i></span>
-                        Pages <span class="tag is-info is-pulled-right">112</span>
+                    <li>
+                        <%= link_to dashboard_giveaways_path do %>
+                        <span class="icon"><i class="fas fa-file-alt"></i></span><%= t('.my_giveaways') %>
+                        <span class="tag is-info is-pulled-right">112</span>
+                        <% end %>
                     </a></li>
                     <li><a href="#">
                         <span class="icon"><i class="fas fa-paste"></i></span>

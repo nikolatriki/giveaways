@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :claims, only: [:create]
   end
   namespace :dashboard do
-    resources :giveaways, except: %i[index show] do
+    resources :giveaways do
       resources :pitures
     end 
     get 'pages', to: 'pages#home'

@@ -69,6 +69,7 @@ mk:
   layouts:
     dashboard:
       visit_web: 'Оди на вебсајтот'
+      my_giveaways: 'Моите дарови'
 
     footer:
       giveaways_html: '<strong>Giveaways</strong> изработено од '
