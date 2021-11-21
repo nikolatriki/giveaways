@@ -1,9 +1,12 @@
 <div class="container">
-  <div class="columns is-multiline">
     <div class="column is-6 is-offset-3">
-      <div class="content is-small">
-        <h2><%= heading %></h2>
-      </div>
+      <article class="media">
+        <div class="media-content">
+          <div class="content is-small">
+            <h2><%= heading %></h2>
+          </div>
+        </div>
+      </article>
     </div>
     <% if @giveaway.errors.any? %>
       <div class="column is-6 is-offset-3">
@@ -69,5 +72,4 @@
           <% end %>
         </div>
     </div>
-  </div>
 </div>

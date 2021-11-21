@@ -31,7 +31,7 @@
                     <p class="title is-6"><%= current_user.name.capitalize %></p>
                     <p class="subtitle is-6">
                         <small>
-                            <%= link_to 'Public profile', user_path(id: current_user.id) %> - <a href="#" class="has-text-danger">Logout</a>
+                            <%= link_to 'Public profile', user_path(id: current_user.id) %>
                         </small>
                     </p>
                 </div>
@@ -41,7 +41,7 @@
                 <p class="menu-label">General</p>
                 <ul class="menu-list">
                     <li>
-                        <%= link_to dashboard_root_path, class:"is-active" do%>
+                        <%= link_to dashboard_root_path do%>
                         <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
                         Dashboard
                         <% end %>

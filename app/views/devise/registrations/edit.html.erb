@@ -1,8 +1,8 @@
 <div class="container">
-  <div class="column is-6 is-offset-3"><div class="box has-background-white-ter">
+  <div class="column is-6 is-offset-3">
     <article class="media">
       <div class="media-content">
-        <div class="content">
+        <div class="content is-small">
           <h2><%= t('.edit_account') %></h2>
         </div>
       </div>
@@ -13,7 +13,7 @@
 
       <div class="field">
         <%= f.label t('devise.registrations.new.email') %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"input is-medium " %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"input" %>
       </div>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -22,7 +22,7 @@
 
       <div class="field">
         <%= f.label t('devise.registrations.new.password')%> <i>(<%= t('.leave_blank') %>)</i><br />
-        <%= f.password_field :password, autocomplete: "new-password", class:"input is-medium " %>
+        <%= f.password_field :password, autocomplete: "new-password", class:"input" %>
         <% if @minimum_password_length %>
           <br />
           <em><%= @minimum_password_length %> <%= t('.characters') %></em>
@@ -31,12 +31,12 @@
 
       <div class="field">
         <%= f.label t('.password_confirmation') %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"input is-medium " %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"input" %>
       </div>
 
       <div class="field">
         <%= f.label t('.current_password') %> <i>(<%= t('.ppass')%>)</i><br />
-        <%= f.password_field :current_password, autocomplete: "current-password", class:"input is-medium " %>
+        <%= f.password_field :current_password, autocomplete: "current-password", class:"input" %>
       </div>
 
       <div class="actions">
