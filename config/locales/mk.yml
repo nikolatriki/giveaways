@@ -64,6 +64,11 @@ mk:
       new_giveaway: 'Нов Дар'
       log_out: 'Одјави се'
       home: 'Дома'
+      dashboard: 'Контролна табла'
+
+  layouts:
+    dashboard:
+      visit_web: 'Оди на вебсајтот'
 
     footer:
       giveaways_html: '<strong>Giveaways</strong> изработено од '

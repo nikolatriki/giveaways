@@ -28,10 +28,10 @@
                     </figure>
                 </div>
                 <div class="media-content">
-                    <p class="title is-6">Sam ZCoder</p>
+                    <p class="title is-6"><%= current_user.name.capitalize %></p>
                     <p class="subtitle is-6">
                         <small>
-                            <a href="#">Profile</a> - <a href="#" class="has-text-danger">Logout</a>
+                            <%= link_to 'Public profile', user_path(id: current_user.id) %> - <a href="#" class="has-text-danger">Logout</a>
                         </small>
                     </p>
                 </div>
@@ -99,7 +99,7 @@
                 <div class="navbar-end">
                     <div class="navbar-item">
                         <div class="buttons">
-                            <%= link_to 'Visit Website', root_path, class:"button is-dark"%>
+                            <%= link_to t('.visit_web'), root_path, class:"button is-dark"%>
                             <%= link_to t('shared.navbar.log_out'), destroy_user_session_path, method: :delete, class: "button is-danger" %>
                         </div>
                         

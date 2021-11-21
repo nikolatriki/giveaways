@@ -57,9 +57,14 @@ en:
       new_giveaway: 'New Giveaway'
       log_out: 'Log Out'
       home: 'Home'
+      dashboard: 'Dashboard'
     footer:
       giveaways_html: '<strong>Giveaways</strong> by ' 
       licence: 'The source code is licensed'
+
+  layouts:
+    dashboard:
+      visit_web: 'Visit Website'
 
   activerecord:
     models: 
@@ -136,3 +141,4 @@ en:
     giveaways:
       notice: 'Succesfully added new Giveaway!'
       alert: 'Deleted Giveaway!'
+      

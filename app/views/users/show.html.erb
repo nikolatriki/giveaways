@@ -4,9 +4,6 @@
       <div class="media-content">
         <div class="content">
           <h5><%= @user.name.capitalize %></h5>
-          <% if user_signed_in? && @user == current_user %>
-            <p class='has-text-justified'><%= link_to t('.edit_account'), edit_user_registration_path %></p>
-          <% end %>
         </div>
           </br>
         <i><small>email: <%= @user.email %></small></i></p>
@@ -22,7 +19,7 @@
     </article>
   </div>
 </div><br>
-<div class="container">
+<!-- <div class="container">
   <div class="column is-6 is-offset-3"><div class="box has-background-white-ter">
     <article class="media">
       <div class="media-content">
@@ -38,4 +35,4 @@
       </div>
     </article>
   </div>
-</div>
+</div>-->
