@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :claims, only: [:create]
   end
   namespace :dashboard do
+    resources :claims, only: [:index]
     resources :giveaways do
       resources :pitures
     end 

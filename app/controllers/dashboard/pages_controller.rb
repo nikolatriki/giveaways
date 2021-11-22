@@ -2,10 +2,8 @@
 
 module Dashboard
   class PagesController < Dashboard::DashboardController
-    def home
-    end
+    def home; end
 
-    def tables
-    end
+    def tables; end
   end
 end

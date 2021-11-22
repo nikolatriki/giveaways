@@ -67,10 +67,14 @@
                         </span>
                         <% end %>
                     </li>
-                    <li><a href="#">
+                    <li> <%= link_to dashboard_claims_path do%>
                         <span class="icon"><i class="fas fa-paste"></i></span>
-                        Posts
-                    </a></li>
+                        My Claims
+                        <span class="tag is-info is-pulled-right">
+                            <%= current_user.claims.count %>
+                        </span>
+                        <% end %>
+                    </li>
                     <li class="has-dropdown">
                         <a href="#">
                             <span class="icon"><i class="fas fa-folder-plus"></i></span>
