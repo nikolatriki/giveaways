@@ -11,8 +11,8 @@
                             <h3 class="icon title is-2 has-text-primary is-block"><i class="fas fa-folder-plus"></i></h3>
                     </div>
                     <div class="media-content ">
-                        <p class="subtitle is-6">Your Giveaways</p>
-                        <h4 class="title is-4 ">16</h4>
+                        <p class="subtitle is-6">My Giveaways</p>
+                        <h4 class="title is-4 "><%= current_user.giveaways.count %></h4>
                     </div>
                 </div>
             </div>
@@ -37,8 +37,8 @@
                           <h3 class="icon title is-2 has-text-dark is-block"><i class="fas fa-paste"></i></h3>
                   </div>
                   <div class="media-content ">
-                      <p class="subtitle is-6">Your Claims</p>
-                      <h4 class="title is-4 ">6</h4>
+                      <p class="subtitle is-6">My Claims</p>
+                      <h4 class="title is-4 "><%= current_user.claims.count %></h4>
                   </div>
               </div>
           </div>

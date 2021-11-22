@@ -62,9 +62,11 @@
                     <li>
                         <%= link_to dashboard_giveaways_path do %>
                         <span class="icon"><i class="fas fa-file-alt"></i></span><%= t('.my_giveaways') %>
-                        <span class="tag is-info is-pulled-right">112</span>
+                        <span class="tag is-info is-pulled-right">
+                            <%= current_user.giveaways.count %>
+                        </span>
                         <% end %>
-                    </a></li>
+                    </li>
                     <li><a href="#">
                         <span class="icon"><i class="fas fa-paste"></i></span>
                         Posts
@@ -111,6 +113,7 @@
             </nav>
             
             <section>
+                <%= render 'shared/flash' %>
                 <%= yield %>
             </section>
             <!-- footer -->

@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="columns is-multiline">
+    <div class="column is-6 is-offset-3">
+      <article class="media">
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <strong><%= link_to comment.user.name.capitalize, user_path(comment.user_id) %></strong>
+                <small><%= time_ago_in_words(comment.created_at) %></small>
+              <% if comment.updated_at > comment.created_at %>
+                <small><%= t('.edited') %></small>
+              <% end %>
+              <br>
+              <%= comment.body %>
+            </p>
+          </div>
+          <nav class="level is-mobile">
+            <% if user_signed_in? && comment.user == current_user %>
+              <div class="level-left">
+                <%= link_to edit_giveaway_comment_path(comment.giveaway, comment), class: "level-item" do %>
+                  <span class="icon is-small"><i class="fas fa-edit"></i></span>
+                <% end %>
+                <%= link_to  giveaway_comment_path(comment.giveaway, comment), method: :delete, 
+                  data: { confirm: t('.confirm')},
+                  class: "level-item" do %>
+                  <span class="icon is-small"><i class="fas fa-trash-alt"></i></span>
+                <% end %>
+              </div>
+            <% end %>
+          </nav>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>

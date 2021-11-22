@@ -1,5 +1,6 @@
-<% if @giveaways.empty?%>
-        <p> <%= t('.no_giveaways') %> </p>
+<div class="column has-text-centered">
+    <% if @giveaways.empty?%>
+            <p> <%= t('.no_giveaways') %> </p>
     <%else %>
         <div class="columns is-mobile is-multiline is-left">
             <% @giveaways.each do |giveaway|%>
@@ -13,6 +14,10 @@
                             <div class="img image is-128x128">
                                 <%= image_tag(giveaway.pictures.first.image) %>
                             </div>
+                        <% else %>
+                            <div class="image is-128x128">
+                                no image
+                            </div>
                         <%end%>
                     </p>
                 <% end %>
@@ -20,3 +25,4 @@
             <% end %>
         </div>
     <% end %>
+</div>

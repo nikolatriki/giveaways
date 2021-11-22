@@ -31,8 +31,12 @@
                         <code class="html"><small><%= giveaway.location %></small></code><br>
                         <h2><%= giveaway.title.truncate(20)%></h2>
                         <% unless giveaway.pictures.empty? %>
-                            <div class="img image is-128x128">
+                            <div class="image img is-128x128">
                                 <%= image_tag(giveaway.pictures.first.image) %>
+                            </div>
+                        <%else %>
+                            <div class="image is-128x128">
+                                no image
                             </div>
                         <%end%>
                     </p>

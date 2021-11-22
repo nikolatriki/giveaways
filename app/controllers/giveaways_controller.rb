@@ -17,7 +17,7 @@ class GiveawaysController < ApplicationController
   end
 
   private
-  
+
   def find_giveaway
     @giveaway = Giveaway.find(params[:id])
   end

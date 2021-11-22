@@ -139,7 +139,9 @@ en:
       paragraph2_html: '<strong>Claimed Giveaways</strong> '
 
   controllers:
-    giveaways:
-      notice: 'Succesfully added new Giveaway!'
+    dashboard:
+      giveaways:
+        notice: 'Succesfully added new Giveaway!'
+        alert: 'Deleted Giveaway!'
+    giveaways: 
       alert: 'Deleted Giveaway!'
-      

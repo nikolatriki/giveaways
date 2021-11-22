@@ -18,8 +18,6 @@
     </div>
   </div>
 </div>
-<%= render 'comments/form' if user_signed_in? %>
-
 <% @comments.each do |comment| %>
   <%= render comment %>
 <% end %>

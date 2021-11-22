@@ -2,7 +2,7 @@
 
 module Dashboard
   class GiveawaysController < Dashboard::DashboardController
-    before_action :find_giveaway, only: %i[edit update destroy]
+    before_action :find_giveaway, only: %i[show edit update destroy]
 
     def index
       @giveaways = current_user.giveaways.order(created_at: :desc)
@@ -23,7 +23,7 @@ module Dashboard
       @giveaway.user = current_user
 
       if @giveaway.save
-        redirect_to @giveaway, notice: t('controllers.giveaways.notice')
+        redirect_to [:dashboard, @giveaway], notice: t('controllers.dashboard.giveaways.notice')
       else
         render :new
       end
@@ -33,7 +33,7 @@ module Dashboard
 
     def update
       if @giveaway.update(giveaway_params)
-        redirect_to @giveaway
+        redirect_to [:dashboard, @giveaway]
       else
         render :edit
       end
