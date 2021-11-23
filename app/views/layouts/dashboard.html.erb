@@ -24,7 +24,7 @@
             <div class="media user">
                 <div class="media-left">
                     <figure class="image is-48x48">
-                        <img class="is-rounded" src="./images/user-image.jpg" alt="">
+                        <%= image_tag 'user.png', class:"is-rounded" %>
                     </figure>
                 </div>
                 <div class="media-content">
@@ -43,7 +43,7 @@
                     <li>
                         <%= link_to dashboard_root_path do%>
                         <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
-                        Dashboard
+                        Dashboard Home
                         <% end %>
                     </li>
                     <li>

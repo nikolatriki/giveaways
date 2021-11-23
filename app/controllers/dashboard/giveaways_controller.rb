@@ -42,7 +42,7 @@ module Dashboard
     def destroy
       @giveaway.destroy
 
-      redirect_to giveaways_path, alert: t('controllers.giveaways.alert')
+      redirect_to dashboard_giveaways_path, alert: t('controllers.giveaways.alert')
     end
 
     private
