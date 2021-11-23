@@ -1,5 +1,67 @@
-<h2>My Giveaways<h2><br>
+<h1>My Giveaways<h1><br>
+
 <div class="column has-text-centered">
+<h2>Waiting response from me</h2><br>
+    <% if @giveaways.empty?%>
+            <p> <%= t('.no_giveaways') %> </p>
+    <%else %>
+        <div class="columns is-mobile is-multiline is-left">
+            <% @giveaways.each do |giveaway|%>
+            <div class="box has-background-white-ter" style="margin-bottom: 24px">
+                <%= link_to dashboard_giveaway_path(giveaway), class:"card" do %>
+                    <p class="bd-notification is-primary">
+                        <small><%= l(giveaway[:created_at], format: :short) %></small><br>
+                        <code class="html"><small><%= giveaway.location %></small></code><br>
+                        <h2><%= giveaway.title.truncate(20)%></h2>
+                        <% unless giveaway.pictures.empty? %>
+                            <div class="img image is-128x128">
+                                <%= image_tag(giveaway.pictures.first.image) %>
+                            </div>
+                        <% else %>
+                            <div class="image is-128x128">
+                                no image
+                            </div>
+                        <%end%>
+                    </p>
+                <% end %>
+            </div>
+            <% end %>
+        </div>
+    <% end %>
+</div><br>
+
+<div class="column has-text-centered">
+<h2>Giveaways Not Yet Claimed</h2><br>
+    <% if @giveaways.empty?%>
+            <p> <%= t('.no_giveaways') %> </p>
+    <%else %>
+        <div class="columns is-mobile is-multiline is-left">
+            <% @giveaways.each do |giveaway|%>
+            <div class="box has-background-white-ter" style="margin-bottom: 24px">
+                <%= link_to dashboard_giveaway_path(giveaway), class:"card" do %>
+                    <p class="bd-notification is-primary">
+                        <small><%= l(giveaway[:created_at], format: :short) %></small><br>
+                        <code class="html"><small><%= giveaway.location %></small></code><br>
+                        <h2><%= giveaway.title.truncate(20)%></h2>
+                        <% unless giveaway.pictures.empty? %>
+                            <div class="img image is-128x128">
+                                <%= image_tag(giveaway.pictures.first.image) %>
+                            </div>
+                        <% else %>
+                            <div class="image is-128x128">
+                                no image
+                            </div>
+                        <%end%>
+                    </p>
+                <% end %>
+            </div>
+            <% end %>
+        </div>
+    <% end %>
+</div><br>
+
+<div class="column has-text-centered">
+<h2>Past Giveaways (Given)</h2><br>
     <% if @giveaways.empty?%>
             <p> <%= t('.no_giveaways') %> </p>
     <%else %>
