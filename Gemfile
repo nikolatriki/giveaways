@@ -35,7 +35,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 5.0.0'
   gem "factory_bot_rails"
   gem 'shoulda-matchers', '~> 5.0.0'
-  
+
 
 end
 
@@ -68,7 +68,8 @@ gem 'rubocop-rails'
 gem 'rubocop-performance'
 # add pagination
 gem 'pagy', '~> 3.5'
-gem "aws-sdk-s3", require: false
+gem 'aws-sdk-rails', '~> 3'
+gem 'aws-sdk-s3', '~> 1'
 gem 'active_storage_validations'
 gem 'devise'
 gem 'email_validator'
