@@ -22,6 +22,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
 
@@ -34,7 +35,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 5.0.0'
   gem "factory_bot_rails"
   gem 'shoulda-matchers', '~> 5.0.0'
-  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+  
 
 end
 
@@ -72,3 +73,4 @@ gem 'active_storage_validations'
 gem 'devise'
 gem 'email_validator'
 gem 'rails-i18n'
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
