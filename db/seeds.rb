@@ -15,14 +15,13 @@ user = User.create(
   )
   giveaway.save
 
-  # img = %w[lamp.jpg seat.jpg].sample
-  # pic = Picture.build(
-  #   title: img[0..-5],
-  #   giveaway_id: giveaway.id
-  # )
-  # pic.save
+  img = %w[lamp.jpg seat.jpg].sample
+  pic = Picture.create(
+    title: img[0..-5],
+    giveaway_id: giveaway.id
+  )
 
-  # pic.image.attach(io: File.open(Rails.root.join("app/assets/images/#{img}")), filename: "#{img}")
+  pic.image.attach(io: File.open(Rails.root.join("app/assets/images/#{img}")), filename: "#{img}")
 
   rand(2..5).times do |c|
     giveaway.comments.build(
