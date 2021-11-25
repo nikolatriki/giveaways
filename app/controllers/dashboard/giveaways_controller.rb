@@ -7,8 +7,8 @@ module Dashboard
     def index
       @giveaways = current_user.giveaways.order(created_at: :desc)
 
-      @claims = Claim.all.uniq { |claim| claim.giveaway_id }
-      @uniq_giveaways = @claims.map { |claim| claim.giveaway }
+      @claims = Claim.all.uniq(&:giveaway_id)
+      @uniq_giveaways = @claims.map(&:giveaway)
 
       @waiting_response_my_giveaways = @uniq_giveaways.select do |giveaway|
         giveaway.user_id == current_user.id
