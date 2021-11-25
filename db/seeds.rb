@@ -1,11 +1,10 @@
 puts "Seeding started..."
 
-user = User.build(
+user = User.create(
   name: 'nikola',
   email: 'user@test.com',
   password: 'password'
 )
-user.save
 
 30.times do
 
