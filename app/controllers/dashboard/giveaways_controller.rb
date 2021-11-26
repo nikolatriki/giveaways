@@ -7,12 +7,14 @@ module Dashboard
     def index
       @giveaways = current_user.giveaways.order(created_at: :desc)
 
-      @claims = Claim.all.uniq(&:giveaway_id)
-      @uniq_giveaways = @claims.map(&:giveaway)
+      claims = Claim.all.uniq(&:giveaway_id)
+      uniq_giveaways = claims.map(&:giveaway)
 
-      @waiting_response_my_giveaways = @uniq_giveaways.select do |giveaway|
+      @waiting_response_my_giveaways = uniq_giveaways.select do |giveaway|
         giveaway.user_id == current_user.id
       end
+
+      @not_claimed_giveaways = @giveaways - @waiting_response_my_giveaways
     end
 
     def show
