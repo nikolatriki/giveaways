@@ -3,7 +3,5 @@
 module Dashboard
   class PagesController < Dashboard::DashboardController
     def home; end
-
-    def tables; end
   end
 end
