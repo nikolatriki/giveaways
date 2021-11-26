@@ -12,18 +12,20 @@
             <%= t('.phone')%>: 070-244-122</p></small><br>
             <%= render 'pictures/picture'%>
             <%= render 'footer' %><br>
-            <h3>Claimed by:</h3>
-            <ul>
-              <% @giveaway.claims.each do |c|%>
-                <li><%= link_to c.user.name, user_path(c.user) %></li>
-                  <button class="button is-success">
-                    <span class="icon is-small">
-                      <i class="fas fa-check"></i>
-                    </span>
-                    <span>Approve</span>
-                  </button>
-              <% end %>
-            </ul>
+            <% unless @giveaway.claims.empty?%>
+              <h3>Claimed by:</h3>
+              <ul>
+                <% @giveaway.claims.each do |c|%>
+                  <li><%= link_to c.user.name, user_path(c.user) %></li>
+                    <button class="button is-success">
+                      <span class="icon is-small">
+                        <i class="fas fa-check"></i>
+                      </span>
+                      <span>Approve</span>
+                    </button>
+                <% end %>
+              </ul>
+            <% end %>
           </div>
         </div>
       </div>
