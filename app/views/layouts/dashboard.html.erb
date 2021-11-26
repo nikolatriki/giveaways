@@ -48,19 +48,6 @@
                         <% end %>
                     </li>
                     <li>
-                        <%= link_to new_dashboard_giveaway_path do%>
-                        <span class="icon"><i class="fas fa-file-alt"></i></span><%= t('shared.navbar.new_giveaway') %>
-                        <% end %>
-                    </a></li>
-                    <li>
-                        <%= link_to edit_user_registration_path do %>
-                        <span class="icon"><i class="fas fa-table"></i></span> <%= t('.edit_account')%> 
-                        <% end %>
-                    </li>
-                </ul>
-                <p class="menu-label">Content</p>
-                <ul class="menu-list">
-                    <li>
                         <%= link_to dashboard_giveaways_path do %>
                         <span class="icon"><i class="fas fa-file-alt"></i></span><%= t('.my_giveaways') %>
                         <span class="tag is-info is-pulled-right">
@@ -77,6 +64,19 @@
                         <% end %>
                     </li>
                 </ul>
+                <p class="menu-label">Content</p>
+                <ul class="menu-list">
+                    <li>
+                        <%= link_to new_dashboard_giveaway_path do%>
+                        <span class="icon"><i class="fas fa-file-alt"></i></span><%= t('shared.navbar.new_giveaway') %>
+                        <% end %>
+                    </a></li>
+                    <li>
+                        <%= link_to edit_user_registration_path do %>
+                        <span class="icon"><i class="fas fa-table"></i></span> <%= t('.edit_account')%> 
+                        <% end %>
+                    </li>
+                </ul>
             </aside>
             </div>
             <div class="column is-four-fifth is-paddingless" id="page">
@@ -84,16 +84,19 @@
             <!-- page-top -->
             <nav class="navbar is-light" role="navigation" aria-label="Navigation" id="header-nav">
             <div class="navbar-menu">
-                <!-- <div class="navbar-start">
-                    
-                    <div class="navbar-item has-dropdown is-hoverable">
-                        <a href="#" class="navbar-link">Account</a>
-                        <div class="navbar-dropdown">
-                            <%= link_to t('devise.registrations.edit.edit_account'), edit_user_registration_path, class:"navbar-item" %>
-                            <%= link_to t('shared.navbar.log_out'), destroy_user_session_path, method: :delete, class: "navbar-item" %>
+                <div class="navbar-start">
+                    <nav class="level">
+                        <div class="level-item has-text-centered title is-5">
+                        <% if current_page?('/dashboard')%>
+                            <h1>Home</h1>
+                        <%elsif current_page?('/dashboard/giveaways')%>
+                            <h1> All my giveaways</h1>
+                        <%elsif current_page?('/dashboard/claims')%>
+                            <h1>All my claims</h1>
+                        <% end %>
                         </div>
-                    </div>
-                </div> -->
+                    </nav>
+                </div>
                 <div class="navbar-end">
                     <div class="navbar-item">
                         <div class="buttons">

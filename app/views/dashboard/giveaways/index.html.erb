@@ -1,61 +1,63 @@
-<h1><strong>All My Giveaways</strong><h1><br>
+<section class="section" id="content">
+    <div class="container">
+        <h2><strong>Claimed (waiting my reponse):</strong></h2><br>
+        <div class="column">
+            <% if @waiting_response_my_giveaways.empty?%>
+                    <p> <%= t('.no_giveaways') %> </p>
+            <%else %>
+                <div class="columns is-mobile is-multiline is-left">
+                    <% @waiting_response_my_giveaways.each do |giveaway|%>
+                    <div class="box has-background-white-ter" style="margin-bottom: 24px">
+                        <%= link_to dashboard_giveaway_path(giveaway), class:"card" do %>
+                            <p class="bd-notification is-primary">
+                                <small><%= l(giveaway[:created_at], format: :short) %></small><br>
+                                <code class="html"><small><%= giveaway.location %></small></code><br>
+                                <h2><%= giveaway.title.truncate(20)%></h2>
+                                <% unless giveaway.pictures.empty? %>
+                                    <div class="img image is-128x128">
+                                        <%= image_tag(giveaway.pictures.first.image) %>
+                                    </div>
+                                <% else %>
+                                    <div class="image is-128x128">
+                                        no image
+                                    </div>
+                                <%end%>
+                            </p>
+                        <% end %>
+                    </div>
+                    <% end %>
+                </div>
+            <% end %>
+        </div><br>
 
-<h2><strong>Claimed (waiting my reponse):</strong></h2><br>
-<div class="column">
-    <% if @waiting_response_my_giveaways.empty?%>
-            <p> <%= t('.no_giveaways') %> </p>
-    <%else %>
-        <div class="columns is-mobile is-multiline is-left">
-            <% @waiting_response_my_giveaways.each do |giveaway|%>
-            <div class="box has-background-white-ter" style="margin-bottom: 24px">
-                <%= link_to dashboard_giveaway_path(giveaway), class:"card" do %>
-                    <p class="bd-notification is-primary">
-                        <small><%= l(giveaway[:created_at], format: :short) %></small><br>
-                        <code class="html"><small><%= giveaway.location %></small></code><br>
-                        <h2><%= giveaway.title.truncate(20)%></h2>
-                        <% unless giveaway.pictures.empty? %>
-                            <div class="img image is-128x128">
-                                <%= image_tag(giveaway.pictures.first.image) %>
-                            </div>
-                        <% else %>
-                            <div class="image is-128x128">
-                                no image
-                            </div>
-                        <%end%>
-                    </p>
-                <% end %>
-            </div>
+        <h2><strong>Not yet claimed:</strong></h2><br>
+        <div class="column">
+            <% if @not_claimed_giveaways.empty?%>
+                    <p> <%= t('.no_giveaways') %> </p>
+            <%else %>
+                <div class="columns is-mobile is-multiline is-left">
+                    <% @not_claimed_giveaways.each do |giveaway|%>
+                    <div class="box has-background-white-ter" style="margin-bottom: 24px">
+                        <%= link_to dashboard_giveaway_path(giveaway), class:"card" do %>
+                            <p class="bd-notification is-primary">
+                                <small><%= l(giveaway[:created_at], format: :short) %></small><br>
+                                <code class="html"><small><%= giveaway.location %></small></code><br>
+                                <h2><%= giveaway.title.truncate(20)%></h2>
+                                <% unless giveaway.pictures.empty? %>
+                                    <div class="img image is-128x128">
+                                        <%= image_tag(giveaway.pictures.first.image) %>
+                                    </div>
+                                <% else %>
+                                    <div class="image is-128x128">
+                                        no image
+                                    </div>
+                                <%end%>
+                            </p>
+                        <% end %>
+                    </div>
+                    <% end %>
+                </div>
             <% end %>
         </div>
-    <% end %>
-</div><br>
-
-<h2><strong>Not yet claimed:</strong></h2><br>
-<div class="column">
-    <% if @not_claimed_giveaways.empty?%>
-            <p> <%= t('.no_giveaways') %> </p>
-    <%else %>
-        <div class="columns is-mobile is-multiline is-left">
-            <% @not_claimed_giveaways.each do |giveaway|%>
-            <div class="box has-background-white-ter" style="margin-bottom: 24px">
-                <%= link_to dashboard_giveaway_path(giveaway), class:"card" do %>
-                    <p class="bd-notification is-primary">
-                        <small><%= l(giveaway[:created_at], format: :short) %></small><br>
-                        <code class="html"><small><%= giveaway.location %></small></code><br>
-                        <h2><%= giveaway.title.truncate(20)%></h2>
-                        <% unless giveaway.pictures.empty? %>
-                            <div class="img image is-128x128">
-                                <%= image_tag(giveaway.pictures.first.image) %>
-                            </div>
-                        <% else %>
-                            <div class="image is-128x128">
-                                no image
-                            </div>
-                        <%end%>
-                    </p>
-                <% end %>
-            </div>
-            <% end %>
-        </div>
-    <% end %>
-</div>
+    </div>
+</section>
