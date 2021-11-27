@@ -87,5 +87,10 @@ describe Dashboard::GiveawaysController, type: :controller do
         delete :destroy, params: { id: giveaway.id }
       end.to change(Giveaway, :count).by(-1)
     end
+
+    it 'translates the flash alert' do
+      delete :destroy, params: { id: giveaway.id }
+      expect(flash[:alert]).to match(I18n.t('controllers.giveaways.alert'))
+    end
   end
 end

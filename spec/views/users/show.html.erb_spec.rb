@@ -43,7 +43,7 @@ RSpec.describe 'users/show.html.erb', type: :view do
     it 'displays edit user link' do
       render
 
-      expect(rendered).to include(t('users.show.edit_user'))
+      expect(rendered).to include(t('giveaways.footer.claim'))
     end
   end
 end

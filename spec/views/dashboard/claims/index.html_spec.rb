@@ -17,6 +17,6 @@ describe 'dashboard/claims/index.html.erb' do
   it 'displays the claimed giveaway card' do
     render
 
-    expect(rendered).to include("#{claim.giveaway.title}")
+    expect(rendered).to include(claim.giveaway.title)
   end
 end
