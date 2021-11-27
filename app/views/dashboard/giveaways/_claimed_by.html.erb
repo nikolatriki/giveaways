@@ -1,0 +1,9 @@
+<% unless @giveaway.claims.empty?%>
+  <h3>Claimed by:</h3>
+  <ul>
+    <% @giveaway.claims.each do |c|%>
+      <li><%= link_to c.user.name, user_path(c.user) %></li>
+          <%= button_to 'Approve', dashboard_giveaway_path(@giveaway), method: :patch, params: { giveaway: {claimed: true}} %>
+    <% end %>
+  </ul>
+<% end %>
