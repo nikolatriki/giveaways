@@ -5,8 +5,7 @@ require 'rails_helper'
 describe 'dashboard/giveaways/index.html.erb' do
   let(:user) { create(:user) }
   let(:giveaway) { create(:giveaway, user: user) }
-  let(:claim) { create(:claim, user: user, giveaway: giveaway) } 
-  
+  let(:claim) { create(:claim, user: user, giveaway: giveaway) }
 
   before do
     assign(:user, user)

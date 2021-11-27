@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe Dashboard::GiveawaysController, type: :controller do
@@ -33,7 +35,7 @@ describe Dashboard::GiveawaysController, type: :controller do
       it 'creates new giveaway' do
         expect do
           post :create,
-                params: { giveaway: { title: 'Some title', description: 'Some text', location: 'Some location' } }
+               params: { giveaway: { title: 'Some title', description: 'Some text', location: 'Some location' } }
         end.to change(Giveaway, :count).by(1)
       end
     end
@@ -42,7 +44,7 @@ describe Dashboard::GiveawaysController, type: :controller do
       it 'doesnt create new giveaway' do
         expect do
           post :create,
-                params: { giveaway: { title: '', description: '' } }
+               params: { giveaway: { title: '', description: '' } }
         end.to change(Giveaway, :count).by(0)
       end
     end
@@ -63,7 +65,8 @@ describe Dashboard::GiveawaysController, type: :controller do
     context 'with valid attributes' do
       it 'updates giveaway' do
         patch :update,
-              params: { id: giveaway.id, giveaway: { title: 'Some title', description: 'Some text', location: 'Some location' } }
+              params: { id: giveaway.id,
+                        giveaway: { title: 'Some title', description: 'Some text', location: 'Some location' } }
         allow(giveaway).to receive(:title).and_return('Some title')
         allow(giveaway).to receive(:description).and_return('Some text')
         allow(giveaway).to receive(:location).and_return('Some location')
