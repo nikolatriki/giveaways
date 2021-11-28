@@ -11,10 +11,14 @@ module Dashboard
       uniq_giveaways = claims.map(&:giveaway)
 
       @waiting_response_my_giveaways = uniq_giveaways.select do |giveaway|
-        giveaway.user_id == current_user.id
+        giveaway.user_id == current_user.id && giveaway.approved_to.nil?
       end
 
-      @not_claimed_giveaways = @giveaways - @waiting_response_my_giveaways
+      @given_giveaways = uniq_giveaways.select do |given|
+        given.user_id == current_user.id && !given.approved_to.nil?
+      end
+
+      @not_claimed_giveaways = @giveaways - @waiting_response_my_giveaways - @given_giveaways
     end
 
     def show
@@ -42,7 +46,7 @@ module Dashboard
 
     def update
       if @giveaway.update(giveaway_params)
-        redirect_to [:dashboard, @giveaway]
+        redirect_to [:dashboard, @giveaway], notice: 'Success!'
       else
         render :edit
       end

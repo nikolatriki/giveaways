@@ -1,5 +1,35 @@
 <section class="section" id="content">
     <div class="container">
+    <h2><strong>Given:</strong></h2><br>
+        <div class="column">
+            <% if @given_giveaways.empty?%>
+                    <p> <%= t('.no_giveaways') %> </p>
+            <%else %>
+                <div class="columns is-mobile is-multiline is-left">
+                    <% @given_giveaways.each do |giveaway|%>
+                    <div class="box has-background-white-ter" style="margin-bottom: 24px">
+                        <%= link_to dashboard_giveaway_path(giveaway), class:"card" do %>
+                            <p class="bd-notification is-primary">
+                                <small><%= l(giveaway[:created_at], format: :short) %></small><br>
+                                <code class="html"><small><%= giveaway.location %></small></code><br>
+                                <h2><%= giveaway.title.truncate(20)%></h2>
+                                <% unless giveaway.pictures.empty? %>
+                                    <div class="img image is-128x128">
+                                        <%= image_tag(giveaway.pictures.first.image) %>
+                                    </div>
+                                <% else %>
+                                    <div class="image is-128x128">
+                                        no image
+                                    </div>
+                                <%end%>
+                            </p>
+                        <% end %>
+                    </div>
+                    <% end %>
+                </div>
+            <% end %>
+        </div><br>
+        
         <h2><strong>Claimed (waiting my reponse):</strong></h2><br>
         <div class="column">
             <% if @waiting_response_my_giveaways.empty?%>
@@ -29,6 +59,7 @@
                 </div>
             <% end %>
         </div><br>
+
 
         <h2><strong>Not yet claimed:</strong></h2><br>
         <div class="column">

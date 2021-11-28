@@ -1,10 +1,13 @@
 <div class="container">
   <div class="columns is-multiline">
-    <div class="column is-6 is-offset-3"><div class="box has-background-white-ter">
+    <div class="column is-6 is-offset-3"><div class="box <%= @giveaway.approved_to.nil? ? 'has-background-white-ter' : 'has-background-primary' %>">
       <div class="card">
         <div class="card-content">
           <div class="content">
-            <small><%= l(@giveaway[:created_at], format: :short) %></small><br>
+            <% unless @giveaway.approved_to.nil? %>
+              <p class="has-text-right">Approved</p><br>
+            <% end %>
+            <small><%= l(@giveaway[:created_at], format: :short) %></small>
             <p><code class="html"><%= @giveaway.location %></code></p>
             <h2><%= @giveaway.title %></h2>
             <p><%= @giveaway.description %></p>
