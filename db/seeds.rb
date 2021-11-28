@@ -1,12 +1,18 @@
 puts "Seeding started..."
 
-user = User.create(
+user1 = User.create(
   name: 'nikola',
-  email: 'user@test.com',
+  email: 'user1@test.com',
   password: 'password'
 )
 
-30.times do
+user2 = User.create(
+  name: 'dejan',
+  email: 'user2@test.com',
+  password: 'password'
+)
+
+10.times do
 
   giveaway =  user.giveaways.build(
     title: Faker::Commerce.product_name,

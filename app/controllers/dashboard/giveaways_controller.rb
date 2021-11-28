@@ -57,7 +57,7 @@ module Dashboard
     private
 
     def giveaway_params
-      params.require(:giveaway).permit(:title, :description, :location, :claimed_by, :search,
+      params.require(:giveaway).permit(:title, :description, :location, :approved_to, :search,
                                         pictures_attributes: %i[id title image _destroy])
     end
 
