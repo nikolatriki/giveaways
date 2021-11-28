@@ -3,7 +3,10 @@
   <ul>
     <% @giveaway.claims.each do |c|%>
       <li><%= link_to c.user.name, user_path(c.user) %></li>
-          <%= button_to 'Approve', dashboard_giveaway_path(@giveaway), method: :patch, params: { giveaway: {claimed: true}} %>
+          <%= button_to 'Approve', dashboard_giveaway_path(@giveaway),
+          method: :patch, params: { giveaway: {claimed_by: c.user_id}},
+          data: { confirm: "Approve this giveaway to #{c.user.name}?"},
+          class: "button is-primary" %>
     <% end %>
   </ul>
 <% end %>
