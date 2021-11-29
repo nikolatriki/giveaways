@@ -8,6 +8,7 @@ describe 'dashboard/claims/index.html.erb' do
   let(:claim) { create(:claim, user: user, giveaway: giveaway) }
 
   before do
+    sign_in user
     assign(:user, user)
     assign(:giveaways, [giveaway])
     assign(:claims, [claim])
@@ -16,6 +17,6 @@ describe 'dashboard/claims/index.html.erb' do
   it 'displays the claimed giveaway card' do
     render
 
-    expect(CGI.unescapeHTML(rendered)).to include(claim.giveaway.title)
+    expect(rendered).to include(claim.giveaway.title.truncate(20))
   end
 end
