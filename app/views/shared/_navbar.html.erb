@@ -20,9 +20,9 @@
             <span><%= t('.home') %></span>
           <% end %>
 
-          <%= link_to current_user.name.capitalize + '\'s ' + t('.dashboard'), dashboard_root_path, class: "button is-danger is-outlined" %>
           
           <% if user_signed_in? %>
+            <%= link_to current_user.name.capitalize + '\'s ' + t('.dashboard'), dashboard_root_path, class: "button is-danger is-outlined" %>
             <%= link_to t('.log_out'), destroy_user_session_path, method: :delete, class: "button is-danger is-outlined" %>
           <% else %>
             <%= link_to t('.log_in'), new_user_session_path, class: "button is-danger is-outlined" %>
