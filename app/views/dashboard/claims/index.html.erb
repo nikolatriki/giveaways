@@ -2,7 +2,7 @@
     <div class="container">
         <h2><strong>Approved:</strong></h2><br>
         <div class="column has-text-centered">
-        <% if @claims.empty? || @claims.map { |giveaway| giveaway.giveaway.approved_to.nil? } %>
+        <% if @claims.empty? %>
             <p> <%= t('.no_giveaways') %> </p>
         <%else %>
             <div class="columns is-mobile is-multiline is-left">
