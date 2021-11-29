@@ -2,6 +2,17 @@
 
   <%= link_to image_tag("/assets/giveaways2.png"), giveaways_path, class: "is-rounded navbar-brand image is-128x128" %>
   
+  <div class="navbar-item">
+    <div class="buttons">
+      <%= link_to giveaways_path, class:"button is-danger is-outlined" do %>
+        <span class="icon">
+            <i class="far fa-envelope"></i>
+        </span>
+        <span>Contact us</span>
+      <% end %>
+    </div>
+  </div>
+
   <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
     <span aria-hidden="true"></span>
     <span aria-hidden="true"></span>
