@@ -1,36 +1,5 @@
 <section class="section" id="content">
     <div class="container">
-        <h2><strong>Waiting aprroval:</strong></h2><br>
-        <div class="column has-text-centered">
-        <% if @claims.empty?%>
-            <p> <%= t('.no_giveaways') %> </p>
-        <%else %>
-            <div class="columns is-mobile is-multiline is-left">
-                <% @claims.each do |giveaway|%>
-                    <% if giveaway.giveaway.approved_to.nil?%>
-                    <div class="box has-background-white-ter" style="margin-bottom: 24px">
-                        <%= link_to giveaway_path(giveaway.giveaway), class:"card" do %>
-                            <p class="bd-notification is-primary">
-                                <small><%= l(giveaway.giveaway[:created_at], format: :short) %></small><br>
-                                <code class="html"><small><%= giveaway.giveaway.location %></small></code><br>
-                                <h2><%= giveaway.giveaway.title.truncate(20)%></h2>
-                                <% unless giveaway.giveaway.pictures.empty? %>
-                                    <div class="img image is-128x128">
-                                        <%= image_tag(giveaway.giveaway.pictures.first.image) %>
-                                    </div>
-                                <% else %>
-                                    <div class="image is-128x128">
-                                        no image
-                                    </div>
-                                <%end%>
-                            </p>
-                        <% end %>
-                    </div>
-                    <% end %>
-                <% end %>
-            </div>
-        <% end %>
-        </div></br>
         <h2><strong>Approved:</strong></h2><br>
         <div class="column has-text-centered">
         <% if @claims.empty?%>
@@ -62,5 +31,36 @@
             </div>
         <% end %>
         </div>
+        <h2><strong>Waiting aprroval:</strong></h2><br>
+        <div class="column has-text-centered">
+        <% if @claims.empty?%>
+            <p> no </p>
+        <%else %>
+            <div class="columns is-mobile is-multiline is-left">
+                <% @claims.each do |giveaway|%>
+                    <% if giveaway.giveaway.approved_to.nil?%>
+                    <div class="box has-background-white-ter" style="margin-bottom: 24px">
+                        <%= link_to giveaway_path(giveaway.giveaway), class:"card" do %>
+                            <p class="bd-notification is-primary">
+                                <small><%= l(giveaway.giveaway[:created_at], format: :short) %></small><br>
+                                <code class="html"><small><%= giveaway.giveaway.location %></small></code><br>
+                                <h2><%= giveaway.giveaway.title.truncate(20)%></h2>
+                                <% unless giveaway.giveaway.pictures.empty? %>
+                                    <div class="img image is-128x128">
+                                        <%= image_tag(giveaway.giveaway.pictures.first.image) %>
+                                    </div>
+                                <% else %>
+                                    <div class="image is-128x128">
+                                        no image
+                                    </div>
+                                <%end%>
+                            </p>
+                        <% end %>
+                    </div>
+                    <% end %>
+                <% end %>
+            </div>
+        <% end %>
+        </div></br>
     </div>
 </section>
