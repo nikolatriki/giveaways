@@ -9,7 +9,7 @@
             <h2><%= @giveaway.title %></h2>
             <p><%= @giveaway.description %></p>
             <small><p><%= t('.contact') %>: <%= link_to @giveaway.user.name.capitalize, user_path(id: @giveaway.user_id) %></br> 
-            <%= t('.phone')%>: 070-244-122</p></small><br>
+            
             <% unless @giveaway.pictures.empty? %>
               <%= render 'pictures/picture'%>
             <% else %>

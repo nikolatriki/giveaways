@@ -2,7 +2,7 @@
     <div class="container">
         <h2><strong>Approved:</strong></h2><br>
         <div class="column has-text-centered">
-        <% if @claims.empty?%>
+        <% if @claims.empty? || @claims.map { |giveaway| giveaway.giveaway.approved_to.nil? } %>
             <p> <%= t('.no_giveaways') %> </p>
         <%else %>
             <div class="columns is-mobile is-multiline is-left">
@@ -34,7 +34,7 @@
         <h2><strong>Waiting aprroval:</strong></h2><br>
         <div class="column has-text-centered">
         <% if @claims.empty?%>
-            <p> no </p>
+            <p><%= t('.no_giveaways') %></p>
         <%else %>
             <div class="columns is-mobile is-multiline is-left">
                 <% @claims.each do |giveaway|%>

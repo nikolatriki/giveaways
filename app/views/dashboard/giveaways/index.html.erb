@@ -1,7 +1,7 @@
 <section class="section" id="content">
     <div class="container">
     <h2><strong>Given:</strong></h2><br>
-        <div class="column">
+        <div class="column has-text-centered">
             <% if @given_giveaways.empty?%>
                     <p> <%= t('.no_giveaways') %> </p>
             <%else %>
@@ -31,7 +31,7 @@
         </div><br>
         
         <h2><strong>Claimed (waiting my reponse):</strong></h2><br>
-        <div class="column">
+        <div class="column has-text-centered">
             <% if @waiting_response_my_giveaways.empty?%>
                     <p> <%= t('.no_giveaways') %> </p>
             <%else %>
