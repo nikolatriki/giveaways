@@ -50,7 +50,7 @@
                     </div>
                     <div class="media-content ">
                         <p class="subtitle is-6">Received</p>
-                        <h4 class="title is-4 "><%= @claims.each {|c| c.giveaway.approved_to }.count %></h4>
+                        <h4 class="title is-4 "><%= @claims.select {|c| c.giveaway.approved_to }.count %></h4>
                     </div>
                 </div>
             </div>
