@@ -3,7 +3,7 @@
 module Dashboard
   class ClaimsController < Dashboard::DashboardController
     def index
-      @claims = current_user.claims.each(&:giveaway)
+      @claimed_giveaways = current_user.claims.map(&:giveaway)
     end
   end
 end
