@@ -33,7 +33,7 @@ module Dashboard
 
     def create
       @giveaway = Giveaway.new(giveaway_params)
-      @giveaway.user_id = current_user
+      @giveaway.user_id = current_user.id
 
       if @giveaway.save
         redirect_to [:dashboard, @giveaway], notice: t('controllers.dashboard.giveaways.notice')

@@ -13,11 +13,8 @@ Rails.application.routes.draw do
   end
   namespace :dashboard do
     resources :claims, only: [:index]
-    resources :giveaways do
-      resources :pitures
-    end 
+    resources :giveaways
     get 'pages', to: 'pages#home'
-    get 'pages/tables', to: 'pages#tables'
     root 'pages#home'
   end
   
