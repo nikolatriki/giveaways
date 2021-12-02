@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Giveaways Dashboard</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
+        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= stylesheet_pack_tag 'dashboard', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= favicon_link_tag asset_path('favicon.ico') %>
+        <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
+    <%= render 'shared/i18n' %>
+    <body class="">
+        <section class="section is-paddingless columns" id="base_body">
+            <!-- sidebar -->
+            <div class="column is-one-fifth has-background-white" id="sidebar">
+            <h1 class="title is-6 is-marginless has-background-light has-text-dark">
+                Dashboard
+            </h1>
+            <div class="media user">
+                <div class="media-left">
+                    <figure class="image is-48x48">
+                        <%= image_tag 'user.png', class:"is-rounded" %>
+                    </figure>
+                </div>
+                <div class="media-content">
+                    <p class="title is-6"><%= current_user.name.capitalize %></p>
+                    <p class="subtitle is-6">
+                        <small>
+                            <%= link_to 'Public profile', user_path(id: current_user.id) %>
+                        </small>
+                    </p>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <aside class="menu">
+                <p class="menu-label">General</p>
+                <ul class="menu-list">
+                    <li>
+                        <%= link_to dashboard_root_path do%>
+                        <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
+                        Dashboard Home
+                        <% end %>
+                    </li>
+                    <li>
+                        <%= link_to dashboard_giveaways_path do %>
+                        <span class="icon"><i class="fas fa-file-alt"></i></span><%= t('.my_giveaways') %>
+                        <span class="tag is-info is-pulled-right">
+                            <%= current_user.giveaways.count %>
+                        </span>
+                        <% end %>
+                    </li>
+                    <li> <%= link_to dashboard_claims_path do%>
+                        <span class="icon"><i class="fas fa-paste"></i></span>
+                        My Claims
+                        <span class="tag is-info is-pulled-right">
+                            <%= current_user.claims.count %>
+                        </span>
+                        <% end %>
+                    </li>
+                </ul>
+                <p class="menu-label">Content</p>
+                <ul class="menu-list">
+                    <li>
+                        <%= link_to new_dashboard_giveaway_path do%>
+                        <span class="icon"><i class="fas fa-file-alt"></i></span><%= t('shared.navbar.new_giveaway') %>
+                        <% end %>
+                    </a></li>
+                    <li>
+                        <%= link_to edit_user_registration_path do %>
+                        <span class="icon"><i class="fas fa-table"></i></span> <%= t('.edit_account')%> 
+                        <% end %>
+                    </li>
+                </ul>
+            </aside>
+            </div>
+            <div class="column is-four-fifth is-paddingless" id="page">
+
+            <!-- page-top -->
+            <nav class="navbar is-light" role="navigation" aria-label="Navigation" id="header-nav">
+            <div class="navbar-menu">
+                <div class="navbar-start">
+                    <nav class="level">
+                        <div class="level-item has-text-centered title is-5" style="margin-left: 22px;padding-left: 0px;">
+                        <% if current_page?('/dashboard')%>
+                            <h1>Home</h1>
+                        <%elsif current_page?('/dashboard/giveaways')%>
+                            <h1> All my giveaways</h1>
+                        <%elsif current_page?('/dashboard/claims')%>
+                            <h1>All my claims</h1>
+                        <% end %>
+                        </div>
+                    </nav>
+                </div>
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            <%= link_to t('.visit_web'), root_path, class:"button is-dark"%>
+                            <%= link_to t('shared.navbar.log_out'), destroy_user_session_path, method: :delete, class: "button is-danger" %>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            </nav>
+
+            <section>
+                <%= render 'shared/flash' %>
+                <%= yield %>
+            </section>
+            <!-- footer -->
+            </div>
+            </section>
+            </div>
+        </section>
+        <%= render 'shared/footer' %>
+    </body>
+</html> 
