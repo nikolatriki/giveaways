@@ -6,6 +6,6 @@ class PicturesController < ApplicationController
     @giveaway = @picture.giveaway
     @picture.destroy
 
-    redirect_to edit_giveaway_path(@giveaway), notice: 'Deleted picture!'
+    redirect_to edit_dashboard_giveaway_path(@giveaway), notice: 'Deleted picture!'
   end
 end
