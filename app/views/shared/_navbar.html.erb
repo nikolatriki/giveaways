@@ -1,28 +1,39 @@
-<nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand image is-128x128">
-    <%= link_to image_tag("/assets/giveaways2.png"), giveaways_path, class: "is-rounded" %>
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+
+  <%= link_to image_tag("/assets/giveaways2.png"), giveaways_path, class: "is-rounded navbar-brand image is-128x128" %>
+  
+  <div class="navbar-item">
+    <div class="buttons">
+      <%= link_to giveaways_path, class:"button is-danger is-outlined" do %>
+        <span class="icon">
+            <i class="far fa-envelope"></i>
+        </span>
+        <span>Contact us</span>
+      <% end %>
+    </div>
   </div>
+
+  <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+  </a>
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <%= link_to giveaways_path, class:"button is-outlined" do %>
+
+          <%= link_to giveaways_path, class:"button is-danger is-outlined" do %>
             <span class="icon">
                 <i class="fa fa-home"></i>
             </span>
-          <span><%= t('.home') %></span>
+            <span><%= t('.home') %></span>
           <% end %>
+
+          
           <% if user_signed_in? %>
-            <div class="button is-capitalized">
-              <%= link_to current_user.name, user_path(id: current_user.id) %>
-            </div>
-            <%= link_to t('.new_giveaway'), new_giveaway_path, class: "button is-danger is-outlined" %>
+            <%= link_to current_user.name.capitalize + '\'s ' + t('.dashboard'), dashboard_root_path, class: "button is-danger is-outlined" %>
             <%= link_to t('.log_out'), destroy_user_session_path, method: :delete, class: "button is-danger is-outlined" %>
           <% else %>
             <%= link_to t('.log_in'), new_user_session_path, class: "button is-danger is-outlined" %>
