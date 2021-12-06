@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Dashboard
   class PagesController < Dashboard::DashboardController
     def home
@@ -5,7 +7,7 @@ module Dashboard
       uniq_giveaways = claims.map(&:giveaway)
 
       @given_giveaways = uniq_giveaways.select do |given|
-        given.user_id == current_user.id && !given.approved_to.nil?
+        given.user_id == current_user.id
       end
       @claims = current_user.claims.each(&:giveaway)
     end

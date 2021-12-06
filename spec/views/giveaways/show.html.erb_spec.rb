@@ -50,8 +50,6 @@ describe 'giveaways/show', type: :view do
       expect(rendered).to have_css('.fas')
     end
 
-  
-
     it 'page displays the comments form under the giveaway' do
       render partial: 'comments/form'
 
