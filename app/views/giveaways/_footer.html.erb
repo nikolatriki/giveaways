@@ -11,19 +11,5 @@
     <% end %>
   <% end %>
 
-  <% if user_signed_in? && current_user == @giveaway.user%>
-    <p>
-      <%= link_to edit_giveaway_path(@giveaway) do %>
-          <i class="fas fa-edit fa-2x"></i>
-      <% end %>
-    </p>
 
-    <p>
-      <%= link_to giveaway_path(@giveaway), method: :delete,
-        data: { confirm: t('.confirm')} do
-      %>
-      <i class="far fa-trash-alt fa-2x"></i>
-      <% end %>
-    </p>
-  <% end %>
 </footer>

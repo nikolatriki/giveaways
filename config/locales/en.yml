@@ -57,6 +57,7 @@ en:
       new_giveaway: 'Create New Giveaway'
       log_out: 'Log Out'
       home: 'Home'
+      dashboard: 'Dashboard'
     footer:
       giveaways_html: '<strong>Giveaways</strong> by ' 
       licence: 'The source code is licensed'

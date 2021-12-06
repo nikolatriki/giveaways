@@ -45,4 +45,14 @@ RSpec.describe 'giveaways/index', type: :view do
     render
     expect(rendered).to include(t('helpers.placeholder.search.giveaway'))
   end
+
+  context 'with logged in user' do
+    before { sign_in user }
+
+    it 'displays the Dasboard button' do
+      render 'shared/navbar'
+
+      expect(rendered).to include(t('shared.navbar.dashboard'))
+    end
+  end
 end

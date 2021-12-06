@@ -50,11 +50,7 @@ describe 'giveaways/show', type: :view do
       expect(rendered).to have_css('.fas')
     end
 
-    it 'footer displays delete button' do
-      render
-
-      expect(rendered).to have_css('.far')
-    end
+  
 
     it 'page displays the comments form under the giveaway' do
       render partial: 'comments/form'
