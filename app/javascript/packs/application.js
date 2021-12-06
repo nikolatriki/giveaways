@@ -9,6 +9,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
 import '../css/application'
+import '../css/dashboard'
 import '@fortawesome/fontawesome-free/css/all'
 require ('navBar')
 
