@@ -1,1 +1,84 @@
-<h>Welcome to Dashboard Home</h1>
+<section class="section" id="content">
+  <!-- Statistics -->
+  <div class="container">
+    <h3 class="title is-5">Statistics</h3>
+      <div class="columns">
+        <div class="column">
+            <div class="box statistic">
+                <div class="media ">
+                    <div class="media-left image is-48x48">
+                            <h3 class="icon title is-2 has-text-primary is-block"><i class="fas fa-folder-plus"></i></h3>
+                    </div>
+                    <div class="media-content ">
+                        <p class="subtitle is-6">My Giveaways</p>
+                        <h4 class="title is-4 "><%= current_user.giveaways.count %></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="box statistic">
+                <div class="media ">
+                    <div class="media-left image is-48x48">
+                        <h3 class="icon title is-2 has-text-link is-block"><i class="fas fa-file-alt"></i></h3>
+                    </div>
+                    <div class="media-content ">
+                        <p class="subtitle is-6">Giveaways Given</p>
+                        <h4 class="title is-4 "><%= @given_giveaways.count %></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="box statistic">
+                <div class="media ">
+                    <div class="media-left image is-48x48">
+                            <h3 class="icon title is-2 has-text-dark is-block"><i class="fas fa-paste"></i></h3>
+                    </div>
+                    <div class="media-content ">
+                        <p class="subtitle is-6">My Claims</p>
+                        <h4 class="title is-4 "><%= @claims.count %></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="box statistic">
+                <div class="media ">
+                    <div class="media-left image is-48x48">
+                            <h3 class="icon title is-2 has-text-danger is-block"><i class="fas fa-user-friends"></i></h3>
+                    </div>
+                    <div class="media-content ">
+                        <p class="subtitle is-6">Received</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Panels -->
+    <h3 class="title is-5">Panels</h3>
+    <div class="columns">
+        <div class="column">
+            <div class="panel">
+                <p class="panel-heading">Create Quick Giveaway</p>
+                <div class="panel-block">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="panel">
+                <p class="panel-heading">Server Status</p>
+                <div class="panel-block">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quam eos reprehenderit quos, ipsam magni. Dignissimos similique obcaecati quas repellat libero facere.</p>
+                </div>
+            </div>
+            <div class="panel">
+                <p class="panel-heading">Adminstration</p>
+                <div class="panel-block">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quam eos reprehenderit quos, ipsam magni.</p>
+                </div>
+            </div>
+        </div>
+    </div>    
+</section>
