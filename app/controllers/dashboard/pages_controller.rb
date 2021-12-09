@@ -9,6 +9,7 @@ module Dashboard
       @given_giveaways = uniq_giveaways.select do |given|
         given.user_id == current_user.id
       end
+
       @claims = current_user.claims.each(&:giveaway)
     end
   end

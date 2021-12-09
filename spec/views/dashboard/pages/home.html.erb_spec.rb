@@ -15,6 +15,7 @@ describe 'dashboard/pages/home.html.erb', type: :view do
     assign(:claims, [claim])
 
     render
-    expect(rendered).to include('Statistics', 'Panels')
+    expect(rendered).to include(given_giveaways)
+    expect(rendered).to include(claims)
   end
 end
