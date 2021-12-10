@@ -27,5 +27,5 @@
   </div>
 </div>
 <% @comments.each do |comment| %>
-  <%= render comment %>
+  <%= render partial: 'comments/comment', collection: @comments, as: :comment %>
 <%end%>
