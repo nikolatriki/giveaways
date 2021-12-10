@@ -19,11 +19,10 @@ rand(2..5).times do |i|
       pic.image.attach(io: File.open(Rails.root.join("app/assets/images/#{img}")), filename: "#{img}")
 
       rand(2..5).times do |c|
-        giveaway.comments.build(
+        giveaway.comments.create!(
             body: Faker::Movies::Lebowski.quote,
             user_id: rand(1..User.count)
           )
-        giveaway.save
       end
   end
 end
