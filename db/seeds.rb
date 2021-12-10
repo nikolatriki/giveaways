@@ -1,37 +1,30 @@
+require 'factory_bot_rails'
+include FactoryBot::Syntax::Methods
+
 puts "Seeding started..."
 
-user = User.create(
-  name: 'nikola',
-  email: 'user@test.com',
-  password: 'password'
-)
+rand(2..5).times do |i|
+  user = create(:user)
 
-30.times do
 
-  giveaway =  user.giveaways.build(
-    title: Faker::Commerce.product_name,
-    description: Faker::Lorem.paragraphs,
-    location: Faker::Address.city,
-  )
-  giveaway.save
+  rand(4..7).times do |n|
+    giveaway = create(:giveaway, user: user)
 
-  img = %w[lamp.jpg seat.jpg].sample
-  pic = Picture.create(
-    title: img[0..-5],
-    giveaway_id: giveaway.id
-  )
-
-  pic.image.attach(io: File.open(Rails.root.join("app/assets/images/#{img}")), filename: "#{img}")
-
-  rand(2..5).times do |c|
-    giveaway.comments.build(
-        body: Faker::Movies::Lebowski.quote,
-        user_id: rand(1..User.count)
+      img = %w[lamp.jpg seat.jpg].sample
+      pic = Picture.create(
+        title: img[0..-5],
+        giveaway_id: giveaway.id
       )
 
-    giveaway.save
-  end
+      pic.image.attach(io: File.open(Rails.root.join("app/assets/images/#{img}")), filename: "#{img}")
 
+      rand(2..5).times do |c|
+        giveaway.comments.create!(
+            body: Faker::Movies::Lebowski.quote,
+            user_id: rand(1..User.count)
+          )
+      end
+  end
 end
 
 puts 'Done!'
