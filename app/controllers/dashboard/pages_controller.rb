@@ -7,7 +7,7 @@ module Dashboard
       uniq_giveaways = claims.map(&:giveaway)
 
       @given_giveaways = uniq_giveaways.select do |given|
-        given.user_id == current_user.id
+        given.user_id == current_user.id && !given.approved_to.nil?
       end
 
       @claims = current_user.claims.each(&:giveaway)

@@ -1,5 +1,5 @@
 <footer class="modal-card-foot" style="justify-content: space-between">
-  <%= link_to t('.back'), giveaways_path, class: "button is-outlined" %>
+  <%= link_to t('.back'), dashboard_giveaways_path, class: "button is-outlined" %>
   <% if user_signed_in? && current_user != @giveaway.user %>
     <% if @giveaway.claims.find_by(user_id: current_user.id) %>
       <button class="button is-primary" title="Disabled button" disabled><%= t('.claimed') %></button>
@@ -10,7 +10,6 @@
                     class: "button is-primary" %>
     <% end %>
   <% end %>
-
   <% if user_signed_in? && current_user == @giveaway.user%>
     <p>
       <%= link_to edit_dashboard_giveaway_path(@giveaway) do %>
@@ -20,7 +19,7 @@
 
     <p>
       <%= link_to dashboard_giveaway_path(@giveaway), method: :delete,
-        data: { confirm: t('.confirm')} do
+        data: { confirm: t('giveaways.footer.confirm')} do
       %>
       <i class="far fa-trash-alt fa-2x"></i>
       <% end %>
