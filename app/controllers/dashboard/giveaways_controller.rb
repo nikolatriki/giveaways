@@ -62,7 +62,7 @@ module Dashboard
 
     def giveaway_params
       params.require(:giveaway).permit(:title, :description, :location, :approved_to, :search,
-                                        pictures_attributes: %i[id title image _destroy])
+                                       pictures_attributes: %i[id title image _destroy])
     end
 
     def find_giveaway
