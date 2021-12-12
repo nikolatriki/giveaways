@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ContactsController < ApplicationController
+  skip_before_action :authenticate_user!
+
   def new
     @contact = Contact.new
   end
@@ -8,7 +10,7 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
-      redirect_to contact_path, notice: 'Thank you for contacting us.'
+      redirect_to contacts_path, notice: 'Thank you for contacting us.'
 
     else
       render :new
