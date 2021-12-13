@@ -1,0 +1,17 @@
+<% unless @giveaway.claims.empty?%>
+  <% if @giveaway.approved_to.nil?%>
+    <h3>Claimed by:</h3>
+    <ul>
+      <% @giveaway.claims.each do |c|%>
+        <li><%= link_to c.user.name, user_path(c.user) %></li>
+            <%= button_to 'Approve', dashboard_giveaway_path(@giveaway),
+            method: :patch, params: { giveaway: {approved_to: c.user.id}},
+            data: { confirm: "Approve this giveaway to #{c.user.name}?"},
+            class: "button is-primary" %>
+      <% end %>
+    </ul>
+  <% else %>
+    <h3>Approved to:</h3>
+      <%= link_to User.find_by(id: @giveaway.approved_to).name, user_path(@giveaway.approved_to)%>
+    <% end %>
+<% end %> 

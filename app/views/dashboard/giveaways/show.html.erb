@@ -1,6 +1,6 @@
 <div class="container">
   <div class="columns is-multiline">
-    <div class="column is-6 is-offset-3"><div class="box">
+    <div class="column is-6 is-offset-3"><div class="box <%= @giveaway.approved_to.nil? ? 'has-background-white-ter' : 'has-background-primary' %>">
       <div class="card">
         <div class="card-content">
           <div class="content">
@@ -19,13 +19,11 @@
               </div>
             <% end %>
             <%= render 'footer' %><br>
-            
+            <%= render 'claimed_by' %>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<% @comments.each do |comment| %>
-  <%= render partial: 'comments/comment', collection: @comments, as: :comment %>
-<%end%>
+<%= render partial: 'comments/comment', collection: @comments, as: :comment %>

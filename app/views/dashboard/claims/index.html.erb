@@ -7,7 +7,7 @@
         <%else %>
             <div class="columns is-mobile is-multiline is-left">
                 <% @claimed_giveaways.each do |giveaway|%>
-                    <% if giveaway.approved_to == current_user.id.to_s%>
+                    <% if giveaway.approved_to == current_user.id%>
                         <%= render 'claimed_giveaways', giveaway: giveaway %>
                     <% end %>
                 <% end %>
@@ -35,7 +35,7 @@
         <%else %>
             <div class="columns is-mobile is-multiline is-left">
                 <% @claimed_giveaways.each do |giveaway|%>
-                    <% if giveaway.approved_to != current_user.id.to_s && !giveaway.approved_to.nil?%>
+                    <% if giveaway.approved_to != current_user.id && !giveaway.approved_to.nil?%>
                         <%= render 'claimed_giveaways', giveaway: giveaway %>
                     <% end %>
                 <% end %>
