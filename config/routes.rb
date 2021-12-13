@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   get 'users/:id', to: 'users#show', as: :user
+  get 'contacts', to: 'contacts#new'
+  post 'contacts', to: 'contacts#create'
   
   root 'giveaways#index'
 

@@ -10,7 +10,7 @@ RSpec.describe 'users/show.html.erb', type: :view do
     assign(:user, user)
     assign(:giveaway, giveaway)
   end
-  
+
   it 'displays user name' do
     render
 
@@ -29,5 +29,5 @@ RSpec.describe 'users/show.html.erb', type: :view do
     user.giveaways.each do |giveaway|
       expect(rendered).to include(giveaway.title)
     end
-  end 
+  end
 end

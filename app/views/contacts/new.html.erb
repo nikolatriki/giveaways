@@ -1,0 +1,55 @@
+<section class="hero is-fullheight">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+        <% if @contact.errors.any? %>
+          <div class="column is-6 is-offset-3">
+            <article class="message is-danger">
+              <div class="message-body">
+                <ol>
+                  <% @contact.errors.full_messages.each do |msg|%>
+                  <li><%= msg %></li>
+                  <% end %>
+                </ol>
+              </div>
+            </article>
+          </div>
+        <% end %>
+      <div class="columns is-8 is-variable ">
+        <div class="column is-two-thirds has-text-left">
+          <h3 class="title">Contact Us</h3>
+          <p class=" mb-4">In case of a question or suggestions, please fill out the form bellow and our team will get back to you or contact us at our social media.</p>
+          <div class="social-media">
+            <a href="https://facebook.com" target="_blank" class="button is-light is-large"><i class="fab fa-facebook-square" aria-hidden="true"></i></a>
+            <a href="https://instagram.com" target="_blank" class="button is-light is-large"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://twitter.com" target="_blank" class="button is-light is-large"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <div class="column is-one-third has-text-left">
+          <%= form_with model: @contact, local: true do |f| %>
+            <div class="field">
+              <%= f.label :name, class:"label" %>
+              <div class="control">
+                <%= f.text_field :name, required: true, class: "input is-medium field_with_errors"%>
+              </div>
+            </div>
+            <div class="field">
+              <%= f.label :email, class:"label" %>
+              <div class="control">
+                <%= f.email_field :email, required: true, class: "input is-medium field_with_errors"%>
+              </div>
+            </div>
+            <div class="field">
+              <%= f.label :message, class:"label" %>
+              <div class="control">
+                <%= f.text_area :message, required: true, class: "textarea is-medium field_with_errors"%>
+              </div>
+            </div>
+            <div class="control">
+              <%= f.submit 'Send Message', class:"button is-link is-fullwidth has-text-weight-medium is-medium"%>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
