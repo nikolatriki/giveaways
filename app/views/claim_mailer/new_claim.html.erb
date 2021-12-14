@@ -1,0 +1,6 @@
+<h1>A new claim No. <%= @claim.id %> has been made for your <%= @giveaway.title %></h1>
+
+<p>
+To approve this claim please visit the giveaway page at:
+<%= link_to "#{@giveaway.title}", dashboard_giveaway_url(@giveaway)%>
+</p>

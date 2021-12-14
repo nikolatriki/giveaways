@@ -8,6 +8,9 @@ class ClaimsController < ApplicationController
     @claim.user = current_user
 
     @claim.save
+
+    ClaimMailer.new_claim(@claim).deliver_now
+
     redirect_to giveaway_path(@giveaway), notice: 'You successfully claimed this giveaway!'
   end
 
