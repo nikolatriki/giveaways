@@ -35,6 +35,10 @@
                                 <div class="img image is-128x128">
                                     <%= image_tag(giveaway.pictures.first.image) %>
                                 </div>
+                            <% else %>
+                                <div class="image">
+                                    no images
+                                </div>
                             <%end%>
                         </p>
                     <% end %>
