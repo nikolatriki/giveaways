@@ -24,7 +24,7 @@
     <%else %>
         <div class="columns is-mobile is-multiline is-left">
             <% @giveaways.each do |giveaway|%>
-                <% unless !giveaway.approved_to.nil?%>
+                <% if giveaway.approved_to.nil?%>
                 <div class="box has-background-white-ter" style="margin-bottom: 24px">
                     <%= link_to giveaway_path(giveaway), class:"card" do %>
                         <p class="bd-notification is-primary">
