@@ -66,7 +66,7 @@ Rails.application.configure do
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
 
   config.action_mailer.default_url_options = { host: 'giveaways-staging.herokuapp.com'}
@@ -78,8 +78,8 @@ Rails.application.configure do
     domain: "gmail.com",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: 'giveawaysheroku@gmail.com',
-    password: '!Giveaways123'    
+    user_name: ENV["GMAIL_USERNAME"],
+    password: ENV["GMAIL_PASSWORD"]   
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
