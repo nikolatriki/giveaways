@@ -1,5 +1,6 @@
-class ClaimMailer < ApplicationMailer
+# frozen_string_literal: true
 
+class ClaimMailer < ApplicationMailer
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
@@ -10,6 +11,6 @@ class ClaimMailer < ApplicationMailer
     @giveaway = @claim.giveaway
 
     mail to: @giveaway.user.email,
-          subject: "New claim for #{@giveaway.title}"
+         subject: "New claim for #{@giveaway.title}"
   end
 end

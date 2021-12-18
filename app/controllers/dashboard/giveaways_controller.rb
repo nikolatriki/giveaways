@@ -46,6 +46,9 @@ module Dashboard
 
     def update
       if @giveaway.update(giveaway_params)
+
+        ApproveMailer.new_approve(@giveaway).deliver_now unless @giveaway.approved_to.nil?
+
         redirect_to [:dashboard, @giveaway], notice: 'Success!'
       else
         render :edit

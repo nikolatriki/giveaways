@@ -11,7 +11,9 @@
     <p><%= t('.paragraph_html') %> <%= @user.name.capitalize %>:<br>
       <ul>
         <% @user.giveaways.each do |g|%>
+          <% if g.approved_to.nil? %>
           <li><%= link_to g.title, giveaway_path(g) %></li>
+          <% end %>
         <% end %>
       </ul>
     </p>
