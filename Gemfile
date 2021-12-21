@@ -76,3 +76,4 @@ gem 'email_validator'
 gem 'rails-i18n'
 gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
 gem "factory_bot_rails"
+gem 'activeadmin'

@@ -35,3 +35,4 @@ rand(30..35).times do
 end
 
 puts 'Done!'
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
