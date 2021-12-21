@@ -5,7 +5,7 @@ ActiveAdmin.register Picture do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :giveaway_id, :title
+  permit_params :giveaway_id, :title
   #
   # or
   #

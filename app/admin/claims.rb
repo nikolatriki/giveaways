@@ -5,7 +5,7 @@ ActiveAdmin.register Claim do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :giveaway_id, :user_id
+  permit_params :giveaway_id, :user_id
   #
   # or
   #
