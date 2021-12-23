@@ -4,7 +4,6 @@ include FactoryBot::Syntax::Methods
 puts "Seeding started..."
 
 puts "Seeding users and giveaways..."
-create(:user, email: 'user@test.com', password: 'password', password_confirmation: 'password')
 rand(4..6).times do
   user = create(:user)
 

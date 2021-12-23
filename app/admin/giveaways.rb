@@ -16,6 +16,7 @@ ActiveAdmin.register Giveaway do
     column :location
     column :user
     column :created_at
+    column :approved_to
     actions
   end
 
