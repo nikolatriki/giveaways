@@ -1,12 +1,10 @@
 # frozen_string_literal: true
 
 ActiveAdmin.register Giveaway do
-  
   filter :title
   filter :location
   filter :user
   filter :created_at
-  
 
   index do
     selectable_column
@@ -21,5 +19,4 @@ ActiveAdmin.register Giveaway do
   end
 
   permit_params :title, :description, :location, :user_id
-  
 end

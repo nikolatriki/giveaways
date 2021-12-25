@@ -11,7 +11,7 @@ ActiveAdmin.register_page 'Dashboard' do
         end
       end
     end
-    
+
     columns do
       column do
         panel 'Recent Giveaways' do
@@ -22,7 +22,6 @@ ActiveAdmin.register_page 'Dashboard' do
           end
         end
       end
-
     end
   end
 end

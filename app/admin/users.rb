@@ -25,5 +25,10 @@ ActiveAdmin.register User do
     end
   end
 
-  permit_params :name, :email, :encrypted_password, :reset_password_token, :reset_password_sent_at, :remember_created_at
+  permit_params :name, :email, :password, :password_confirmation
+
+  form do |f|
+    f.inputs :name, :email, :password, :password_confirmation
+    actions
+  end
 end
