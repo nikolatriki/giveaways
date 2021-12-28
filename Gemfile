@@ -56,6 +56,7 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  gem 'rails-controller-testing'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -76,3 +77,4 @@ gem 'email_validator'
 gem 'rails-i18n'
 gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
 gem "factory_bot_rails"
+gem 'activeadmin'
