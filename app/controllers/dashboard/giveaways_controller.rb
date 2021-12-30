@@ -4,7 +4,7 @@ module Dashboard
   class GiveawaysController < Dashboard::DashboardController
     before_action :find_giveaway, only: %i[show edit update destroy]
 
-    def index
+    def index # rubocop:disable Metrics/AbcSize
       @giveaways = current_user.giveaways.order(created_at: :desc)
 
       claims = Claim.all.uniq(&:giveaway_id)
