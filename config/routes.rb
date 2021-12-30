@@ -3,12 +3,13 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :users, controllers: {
     sessions: 'users/sessions',
-    registrations: 'users/registrations'
+    registrations: 'users/registrations',
+    confirmations: 'users/confirmations'
   }
   get 'users/:id', to: 'users#show', as: :user
   get 'contacts', to: 'contacts#new'
   post 'contacts', to: 'contacts#create'
-  
+
   root 'giveaways#index'
 
   resources :giveaways, only: %i[index show] do
