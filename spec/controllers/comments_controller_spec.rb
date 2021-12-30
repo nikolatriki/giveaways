@@ -7,7 +7,10 @@ RSpec.describe CommentsController, type: :controller do
   let!(:giveaway) { create(:giveaway, user: user) }
   let!(:comment) { create(:comment, giveaway: giveaway) }
 
-  before { sign_in user }
+  before do
+    user.confirm
+    sign_in user
+  end
 
   describe 'POST create' do
     it 'creates new comment' do

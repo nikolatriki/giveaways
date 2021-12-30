@@ -47,7 +47,10 @@ RSpec.describe 'giveaways/index', type: :view do
   end
 
   context 'with logged in user' do
-    before { sign_in user }
+    before do
+      user.confirm
+      sign_in user
+    end
 
     it 'displays the Dasboard button' do
       render 'shared/navbar'

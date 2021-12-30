@@ -150,7 +150,6 @@ ActiveAdmin.setup do |config|
   # You can add before, after and around filters to all of your
   # Active Admin resources and pages from here.
   #
-  # config.skip_before_action :authenticate_user!
 
   # == Attribute Filters
   #
@@ -332,9 +331,14 @@ ActiveAdmin.setup do |config|
   # You can switch to using Webpacker here.
   #
 
-  Rails.application.reloader.to_prepare do
-    config.before_action :authenticate_user!
+  ActiveAdmin.after_load do
+    ActiveAdmin::BaseController.class_eval do
+      skip_before_action :authenticate_user!
+    end
   end
+
+  # config.skip_before_action :authenticate_user!
 
   config.use_webpacker = true
 end
+

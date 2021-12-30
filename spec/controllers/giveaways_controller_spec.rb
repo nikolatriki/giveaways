@@ -6,7 +6,10 @@ RSpec.describe GiveawaysController, type: :controller do
   let(:user) { create(:user) }
   let!(:giveaway) { create(:giveaway, user: user) }
 
-  before { sign_in user }
+  before do
+    user.confirm
+    sign_in user
+  end
 
   describe 'GET giveaways' do
     it 'has a 200 status code' do

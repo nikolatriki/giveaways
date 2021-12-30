@@ -7,7 +7,10 @@ RSpec.describe PicturesController, type: :controller do
   let!(:giveaway) { create(:giveaway, user: user) }
   let!(:picture) { create(:picture, giveaway: giveaway) }
 
-  before { sign_in user }
+  before do
+    user.confirm
+    sign_in user
+  end
 
   describe 'DELETE destroy' do
     it 'deletes the picture' do
