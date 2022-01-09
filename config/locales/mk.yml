@@ -146,8 +146,7 @@ mk:
   users:
     show:
       edit_user: 'Уреди Kорисник'
-      paragraph_html: '<strong>Дарови креирани од</strong>'
-      paragraph2_html: '<strong>Побарани дарови</strong>'
+      paragraph_html: '<strong>Активни Дарови креирани од</strong>'
 
   controllers:
     giveaways:
