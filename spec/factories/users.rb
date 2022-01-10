@@ -6,5 +6,6 @@ FactoryBot.define do
     sequence(:email) { |i| "user-#{i}@email.com" }
     password { '123456' }
     password_confirmation { '123456' }
+    confirmed_at { Time.current }
   end
 end

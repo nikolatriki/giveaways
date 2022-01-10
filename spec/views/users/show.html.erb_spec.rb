@@ -27,7 +27,7 @@ RSpec.describe 'users/show.html.erb', type: :view do
     render
 
     user.giveaways.each do |giveaway|
-      expect(rendered).to include(giveaway.title)
+      expect(rendered).to include(giveaway.title.truncate(20))
     end
   end
 end

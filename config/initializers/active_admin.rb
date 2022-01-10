@@ -150,7 +150,6 @@ ActiveAdmin.setup do |config|
   # You can add before, after and around filters to all of your
   # Active Admin resources and pages from here.
   #
-  config.skip_before_action :authenticate_user!
 
   # == Attribute Filters
   #
@@ -331,5 +330,15 @@ ActiveAdmin.setup do |config|
   # By default, Active Admin uses Sprocket's asset pipeline.
   # You can switch to using Webpacker here.
   #
+
+  ActiveAdmin.after_load do
+    ActiveAdmin::BaseController.class_eval do
+      skip_before_action :authenticate_user!
+    end
+  end
+
+  # config.skip_before_action :authenticate_user!
+
   config.use_webpacker = true
 end
+

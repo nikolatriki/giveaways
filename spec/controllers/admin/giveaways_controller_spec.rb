@@ -16,7 +16,7 @@ describe Admin::GiveawaysController, type: :controller do # rubocop:disable Metr
 
   before { sign_in admin_user }
 
-  describe 'GET index' do # rubocop:disable RSpec/MultipleMemoizedHelpers
+  describe 'GET index' do
     let(:filters_sidebar) { page.find('#filters_sidebar_section') }
 
     it 'returns http success' do
