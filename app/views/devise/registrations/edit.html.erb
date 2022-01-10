@@ -1,8 +1,8 @@
 <div class="container">
-  <div class="column is-6 is-offset-3"><div class="box has-background-white-ter">
+  <div class="column is-6 is-offset-3">
     <article class="media">
       <div class="media-content">
-        <div class="content">
+        <div class="content is-small">
           <h2><%= t('.edit_user') %></h2>
         </div>
       </div>
@@ -40,14 +40,14 @@
       </div>
 
       <div class="actions">
-        <%= f.submit t('.update') %>
+        <%= f.submit t('.update'), class: "button is-link mb-6" %>
       </div>
     <% end %>
+    <div class="mb-4">
+      <h2><strong><%= t('.cancel') %></strong></h2>
+    </div>
 
-    <h3><%= t('.cancel') %></h3>
+    <p><%= t('.unhappy') %> <%= button_to t('.cancel'), registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "button is-link is-light" %></p>
 
-    <p><%= t('.unhappy') %> <%= button_to t('.cancel'), registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-    <%= link_to t('giveaways.footer.back'), :back %>
   </div>
 </div>
