@@ -10,7 +10,6 @@ describe 'dashboard/giveaways/index.html.erb' do
   let(:waiting_response_my_giveaway) { create(:giveaway, user: user) }
 
   before do
-    user.confirm
     sign_in user
     assign(:giveaways, [giveaway])
     assign(:waiting_response_my_giveaways, [waiting_response_my_giveaway])

@@ -9,10 +9,7 @@ describe 'dashboard/pages/home.html.erb', type: :view do
   let(:given_giveaways) { [giveaway] }
   let(:claims) { [claim] }
 
-  before do
-    user.confirm
-    sign_in user
-  end
+  before { sign_in user }
 
   it 'renders dashboard home' do
     assign(:user, user)

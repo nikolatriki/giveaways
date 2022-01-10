@@ -5,10 +5,7 @@ require 'rails_helper'
 describe Dashboard::GiveawaysController, type: :controller do
   let!(:user) { create :user }
 
-  before do
-    user.confirm
-    sign_in user
-  end
+  before { sign_in user }
 
   describe 'GET dashboard/giveaways' do
     it 'has a 200 status code' do

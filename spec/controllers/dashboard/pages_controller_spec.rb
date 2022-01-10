@@ -5,10 +5,7 @@ require 'rails_helper'
 describe Dashboard::PagesController, type: :controller do
   let!(:user) { create :user }
 
-  before do
-    user.confirm
-    sign_in user
-  end
+  before { sign_in user }
 
   describe 'GET dashboard-home' do
     it 'has a 200 status code' do

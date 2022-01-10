@@ -7,10 +7,7 @@ RSpec.describe ClaimsController, type: :controller do
   let!(:giveaway) { create(:giveaway, user: user) }
   let(:claim) { create(:claim, giveaway: giveaway) }
 
-  before do
-    user.confirm
-    sign_in user
-  end
+  before { sign_in user }
 
   describe 'POST create' do
     it 'creates new claim' do

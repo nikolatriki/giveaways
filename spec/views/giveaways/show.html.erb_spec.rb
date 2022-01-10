@@ -42,10 +42,7 @@ describe 'giveaways/show', type: :view do
   end
 
   context 'with logged in user' do
-    before do
-      user.confirm
-      sign_in user
-    end
+    before { sign_in user }
 
     it 'footer displays edit button' do
       render
