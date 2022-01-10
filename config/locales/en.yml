@@ -130,8 +130,7 @@ en:
   users:
     show:
       edit_user: 'Edit User'
-      paragraph_html: '<strong>Giveaways created by</strong>'
-      paragraph2_html: '<strong>Claimed Giveaways</strong> '
+      paragraph_html: '<strong>Active Giveaways created by</strong>'
 
   controllers:
     giveaways:

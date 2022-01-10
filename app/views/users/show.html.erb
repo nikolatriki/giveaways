@@ -1,4 +1,3 @@
-<div class="container">
   <div class="column is-6 is-offset-3"><div class="box has-background-white-ter">
     <article class="media mb-4">
       <div class="media-content">
@@ -8,14 +7,33 @@
         <i><small>email: <%= @user.email %></small></i></p>
       </div>
     </article>
-    <p><%= t('.paragraph_html') %> <%= @user.name.capitalize %>:<br>
-      <ul>
-        <% @user.giveaways.each do |g|%>
-          <% if g.approved_to.nil? %>
-          <li><%= link_to g.title, giveaway_path(g) %></li>
+  </div>
+
+    <p class="mb-4"><%= t('.paragraph_html') %> <%= @user.name.capitalize %>:</p>
+      <div class="columns is-mobile is-multiline is-left">
+        <% @user.giveaways.each do |giveaway|%>
+          <% if giveaway.approved_to.nil? %>
+            <div class="box has-background-white-ter" style="margin-bottom: 24px">
+              <%= link_to giveaway_path(giveaway), class:"card" do %>
+                  <p class="bd-notification is-primary">
+                      <small><%= l(giveaway[:created_at], format: :short) %></small><br>
+                      <code class="html"><small><%= giveaway.location %></small></code><br>
+                      <h2><%= giveaway.title.truncate(20)%></h2>
+                      <% unless giveaway.pictures.empty? %>
+                          <div class="img image is-128x128">
+                              <%= image_tag(giveaway.pictures.first.image) %>
+                          </div>
+                      <% else %>
+                          <div class="image">
+                              no images
+                          </div>
+                      <%end%>
+              <% end %>
+            </div>
           <% end %>
         <% end %>
-      </ul>
+        </div>
+      </div>
     </p>
     </article>
   </div>
