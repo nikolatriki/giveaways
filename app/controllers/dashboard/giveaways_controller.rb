@@ -42,7 +42,9 @@ module Dashboard
       end
     end
 
-    def edit; end
+    def edit
+      authorize @giveaway
+    end
 
     def update
       if @giveaway.update(giveaway_params)

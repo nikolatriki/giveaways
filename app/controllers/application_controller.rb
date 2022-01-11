@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  include Pundit
+  rescue_from Pundit::NotAuthorizedError do
+    redirect_to dashboard_root_path, alert: 'You do not have acces to this page'
+  end
+
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
