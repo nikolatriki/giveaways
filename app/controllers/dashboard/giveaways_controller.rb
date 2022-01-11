@@ -22,6 +22,8 @@ module Dashboard
     end
 
     def show
+      authorize @giveaway
+
       @comments = @giveaway.comments.order(created_at: :desc)
 
       @comment = @giveaway.comments.build
@@ -49,6 +51,8 @@ module Dashboard
     def update
       if @giveaway.update(giveaway_params)
 
+        authorize @giveaway
+
         ApproveMailer.new_approve(@giveaway).deliver_now unless @giveaway.approved_to.nil?
 
         redirect_to [:dashboard, @giveaway], notice: 'Success!'
@@ -58,6 +62,8 @@ module Dashboard
     end
 
     def destroy
+      authorize @giveaway
+
       @giveaway.destroy
 
       redirect_to dashboard_giveaways_path, alert: t('controllers.giveaways.alert')
