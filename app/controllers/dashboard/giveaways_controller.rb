@@ -49,9 +49,9 @@ module Dashboard
     end
 
     def update
-      if @giveaway.update(giveaway_params)
+      authorize @giveaway
 
-        authorize @giveaway
+      if @giveaway.update(giveaway_params)
 
         ApproveMailer.new_approve(@giveaway).deliver_now unless @giveaway.approved_to.nil?
 
