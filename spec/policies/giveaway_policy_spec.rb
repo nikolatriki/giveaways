@@ -1,19 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe GiveawayPolicy do
-  subject { described_class }
+  subject { described_class.new(user, giveaway) }
 
-  let!(:user) { create(:user)}
-  let!(:giveaway) { create(:giveaway, user: user)}
+  let(:giveaway) { Giveaway.create }
 
-  permissions :show?, :edit?, :update?, :destroy? do
+  context 'when being different user than the giveaway user in dashboard' do
+    let(:user) { create(:user) }
 
-    it 'denies access if user is not the correct user' do
-      expect(subject).not_to permit(user != giveaway.user, giveaway[:edit] )
-    end
+    it { is_expected.to forbid_actions(%i[show edit update destroy]) }
+  end
 
-    # it 'grants access if user is the correct user' do
-    #   expect(subject).to permit(user(correct_user: true))
-    # end
+  context 'when being the same user as the giveaway user in dashboard' do
+    let(:user) { giveaway.user }
+
+    it { is_expected.to permit_actions(%i[show edit update destroy]) }
   end
 end
