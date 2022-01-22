@@ -3,7 +3,7 @@
 class ApplicationController < ActionController::Base
   include Pundit
   rescue_from Pundit::NotAuthorizedError do
-    redirect_to dashboard_root_path, alert: 'You do not have acces to this page'
+    redirect_to dashboard_root_path, alert: t('controllers.application.alert')
   end
 
   before_action :authenticate_user!

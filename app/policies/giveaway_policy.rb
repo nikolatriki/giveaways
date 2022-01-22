@@ -2,24 +2,18 @@
 
 class GiveawayPolicy < ApplicationPolicy
   def show?
-    correct_user
+    @user == @record.user
   end
 
   def edit?
-    correct_user
+    @user == @record.user
   end
 
   def update?
-    correct_user
+    @user == @record.user
   end
 
   def destroy?
-    correct_user
-  end
-
-  private
-
-  def correct_user
     @user == @record.user
   end
 end

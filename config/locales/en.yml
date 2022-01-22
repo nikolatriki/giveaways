@@ -133,6 +133,8 @@ en:
       paragraph_html: '<strong>Active Giveaways created by</strong>'
 
   controllers:
+    application:
+      alert: 'You do not have acces to this page'
     giveaways:
       notice: 'Succesfully added new Giveaway!'
       alert: 'Deleted Giveaway!'

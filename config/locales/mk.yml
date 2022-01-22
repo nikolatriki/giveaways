@@ -149,6 +149,8 @@ mk:
       paragraph_html: '<strong>Активни Дарови креирани од</strong>'
 
   controllers:
+    application:
+      alert: 'Немате овластување за пристап кон оваа страна'
     giveaways:
       notice: 'Успешно креиравте нов дар!'
       alert: 'ИЗбришан дар!'

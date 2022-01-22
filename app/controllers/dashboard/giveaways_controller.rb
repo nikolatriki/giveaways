@@ -3,6 +3,7 @@
 module Dashboard
   class GiveawaysController < Dashboard::DashboardController
     before_action :find_giveaway, only: %i[show edit update destroy]
+    before_action :giveaway_authorization, only: %i[show edit update destroy]
 
     def index # rubocop:disable Metrics/AbcSize
       @giveaways = current_user.giveaways.order(created_at: :desc)
@@ -22,8 +23,6 @@ module Dashboard
     end
 
     def show
-      authorize @giveaway
-
       @comments = @giveaway.comments.order(created_at: :desc)
 
       @comment = @giveaway.comments.build
@@ -44,13 +43,9 @@ module Dashboard
       end
     end
 
-    def edit
-      authorize @giveaway
-    end
+    def edit; end
 
     def update
-      authorize @giveaway
-
       if @giveaway.update(giveaway_params)
 
         ApproveMailer.new_approve(@giveaway).deliver_now unless @giveaway.approved_to.nil?
@@ -62,8 +57,6 @@ module Dashboard
     end
 
     def destroy
-      authorize @giveaway
-
       @giveaway.destroy
 
       redirect_to dashboard_giveaways_path, alert: t('controllers.giveaways.alert')
@@ -78,6 +71,10 @@ module Dashboard
 
     def find_giveaway
       @giveaway = Giveaway.find(params[:id])
+    end
+
+    def giveaway_authorization
+      authorize @giveaway
     end
   end
 end
