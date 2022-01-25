@@ -16,4 +16,14 @@ RSpec.describe GiveawayPolicy do
 
     it { is_expected.to permit_actions(%i[show edit update destroy]) }
   end
+
+  # permissions :show?, :edit?, :update?, :destroy? do
+  #   it "denies access if giveaway is from another user" do
+  #     expect(subject).not_to permit(User.new(????: true), Giveaway.new(????: true))
+  #   end
+
+    # it "grants access if giveaway is from current user" do
+    #   expect(subject).to permit(User.new(????: true), Giveaway.new(????: true))
+    # end
+  # end
 end
