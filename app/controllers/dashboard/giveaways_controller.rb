@@ -3,6 +3,7 @@
 module Dashboard
   class GiveawaysController < Dashboard::DashboardController
     before_action :find_giveaway, only: %i[show edit update destroy]
+    before_action :giveaway_authorization, only: %i[show edit update destroy]
 
     def index # rubocop:disable Metrics/AbcSize
       @giveaways = current_user.giveaways.order(created_at: :desc)
@@ -70,6 +71,10 @@ module Dashboard
 
     def find_giveaway
       @giveaway = Giveaway.find(params[:id])
+    end
+
+    def giveaway_authorization
+      authorize @giveaway
     end
   end
 end
