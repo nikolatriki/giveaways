@@ -65,6 +65,7 @@ mk:
       log_out: 'Одјави се'
       home: 'Дома'
       dashboard: 'Контролен панел'
+      contact: 'Пишете ни'
 
     footer:
       giveaways_html: '<strong>Giveaways</strong> изработено од '

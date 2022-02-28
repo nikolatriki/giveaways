@@ -58,6 +58,7 @@ en:
       log_out: 'Log Out'
       home: 'Home'
       dashboard: 'Dashboard'
+      contact: 'Contact us'
     footer:
       giveaways_html: '<strong>Giveaways</strong> by ' 
       licence: 'The source code is licensed'
